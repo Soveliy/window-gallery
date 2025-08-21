@@ -1,0 +1,5 @@
+@use "./mixins/font-face" as *;
+@include font-face("Bebas Neue", "../fonts/BebasNeue-Regular", 400, normal);
+@include font-face("Bebas Neue", "../fonts/BebasNeue-Bold", 700, normal);
+@include font-face("NT Somic", "../fonts/NTSomic-Regular", 400, normal);
+@include font-face("NT Somic", "../fonts/NTSomic-Bold", 700, normal);

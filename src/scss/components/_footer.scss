@@ -1,0 +1,38 @@
+@use "./mixins/breakpoint" as *;
+.footer {
+  padding: 50px 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 28.75rem 28.75rem 26.3125rem;
+    gap: 20px;
+    justify-content: space-between;
+    @include big-desktop {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @include small-tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-size: clamp(0.875rem, 0.7602rem + 0.4898vw, 1.25rem);
+    &--links {
+      @include big-desktop {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: row;
+      }
+      @include small-tablet {
+        flex-direction: column;
+        grid-column: inherit;
+      }
+    }
+  }
+  &__link {
+    color: var(--black);
+  }
+}

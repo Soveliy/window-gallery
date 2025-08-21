@@ -1,0 +1,28 @@
+@use "./mixins/breakpoint" as *;
+// если вы хотите использовать sass-переменные - удалите root
+// colors
+:root {
+  // base
+  --font-family: "NT Somic", sans-serif;
+  --second-family: "Bebas Neue", sans-serif;
+  --content-width: 1760px;
+  --container-offset: 16px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  // colors
+
+  --black: #171717;
+  --white: #fff;
+  --red-error: #dd4619;
+  --gray-light: #c0c0c0;
+  --gray-base: #7c7c7c;
+  --gray-dark: #1d1d1d;
+
+  // font-size
+
+  --font-lit: 1rem;
+  --font-default: 1.125rem; // 18px
+  --font-medium: 1.75rem; // 28px
+  --font-medium-xl: 2.5rem; // 40px
+  --font-big: 4.375rem; // 70px
+  $resolution: 1920;
+}

@@ -1,0 +1,74 @@
+<footer class="footer">
+  <div class="container">
+
+  </div>
+</footer>
+
+
+<div class="modal micromodal-slide" id="callback" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--lit" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+      <div class="modal__header">
+        <div class="modal__title">
+          Оставьте заявку
+        </div>
+        <button class="modal__close" aria-label="Закрыть окно" data-micromodal-close>
+          <svg class="modal__close-icon" data-micromodal-close>
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__content modal__content--visible" id="modal-1-content">
+        <form action="#" class="form form--modal">
+          <div class="form__wrap">
+            <div class="form__item">
+              <input type="text" name="name" placeholder=" " id="name" class="form__input form__input--name" />
+              <label class="form__input-placeholder" for="name">Имя или компания</label>
+            </div>
+            <div class="form__item">
+              <input type="tel" name="phone" placeholder=" " id="phone" class="form__input form__input--phone" />
+              <label class="form__input-placeholder" for="phone">Телефон</label>
+            </div>
+            <div class="form__item">
+              <input type="text" name="comment" placeholder=" " id="comment" class="form__input" />
+              <label class="form__input-placeholder" for="comment">Расскажите о проблеме</label>
+            </div>
+            <div class="form__file-container form__file-container--default" data-file>
+              <input id='form-file' type="file" />
+              <label for='form-file' class="form__file">
+                <svg class="form__file-icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+                <span class="form-file__text" data-file-text="Прикрепить файл">Прикрепить файл</span>
+              </label>
+            </div>
+
+
+            <button class="form__button form__button--w100 form__button--big-margin button">
+              Заказать звонок
+            </button>
+            <div class="form__policy">
+              Нажимая «Заказать звонок», вы соглашаетесь с политикой
+              конфиденциальности и обработки персональных данных
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal micromodal-slide" id="thanks" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--thanks" role="dialog" aria-modal="true">
+      <div class="modal__title">
+        Успешно!
+      </div>
+      <div class="modal__desc"> Ваша заявка принята в работу</div>
+
+
+    </div>
+  </div>
+</div>

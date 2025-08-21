@@ -1,0 +1,133 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
+.form {
+  &__item {
+    position: relative;
+    & + & {
+      margin-top: 29px;
+    }
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    height: clamp(2.5rem, 2.246rem + 1.129vw, 3.375rem);
+    font-size: clamp(1rem, 0.8469rem + 0.6531vw, 1.5rem);
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid var(--gray-light);
+    background: transparent;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+    color: var(--dark);
+    caret-color: var(--green-dark);
+    &.just-validate-success-field {
+      border-bottom-color: var(--green-dark);
+    }
+    @include hover() {
+      &:hover {
+        border-color: var(--gray-dark);
+      }
+    }
+    &:focus + .form__input-placeholder,
+    &:not(:placeholder-shown) + .form__input-placeholder {
+      font-size: 16px;
+      transform: translateY(-180%);
+      @include small-tablet() {
+        transform: translateY(-140%);
+      }
+    }
+  }
+  &__input-placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-dark);
+
+    /* Desktop/Body/S */
+    font-family: "LT Superior";
+    font-size: clamp(1rem, 0.8548rem + 0.6452vw, 1.5rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.3s;
+    pointer-events: none;
+  }
+  &__file-container {
+    display: block;
+    width: max-content;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &--big-margin {
+      margin: clamp(1.875rem, 1.301rem + 2.449vw, 3.75rem) 0;
+    }
+    &--default {
+      margin: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem) 0;
+      @include mobile {
+        margin: 2rem 0 3.75rem;
+      }
+    }
+
+    &:hover {
+      color: var(--green-dark);
+    }
+    input {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+  &__file {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(1rem, 0.8469rem + 0.6531vw, 1.5rem);
+    cursor: pointer;
+
+    &-icon {
+      height: 28px;
+      width: 28px;
+      stroke: var(--green-dark);
+      fill: none;
+      @include mobile {
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+    }
+  }
+  &__file-remove {
+    height: 28px;
+    width: 28px;
+    flex-shrink: 0;
+    fill: var(--green-dark);
+    position: relative;
+    z-index: 2500;
+    margin-top: -4px;
+    outline: 0;
+    @include mobile {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  &__policy {
+    margin-top: clamp(0.75rem, 0.2143rem + 2.2857vw, 2.5rem);
+    font-size: clamp(0.875rem, 0.7602rem + 0.4898vw, 1.25rem);
+  }
+  &__button {
+    &--w100 {
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.just-validate-error-label {
+  position: absolute;
+  margin-top: 4px;
+  font-size: 0.875rem;
+}

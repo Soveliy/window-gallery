@@ -1,0 +1,20 @@
+@use "./vendor/normalize" as *;
+// стили для модального окна
+// @import "../../node_modules/graph-modal/dist/graph-modal.min";
+
+// стили для табов
+// @import "../../node_modules/graph-tabs/dist/graph-tabs.min";
+
+// стили для библиотеки aos
+// @import "../../node_modules/aos/dist/aos";
+
+// стили для свайпера
+@use "../../node_modules/swiper/swiper-bundle.min" as *;
+
+// Fancybox
+// @use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" as *;
+
+// стили для скролла simplebar
+// @import "../../node_modules/simplebar/dist/simplebar.min";
+
+@use "./vendor/modal" as *;
