@@ -1,0 +1,26 @@
+.social {
+  &__list {
+    display: flex;
+    &--big-gap {
+      gap: 3.75rem;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--lit {
+      height: 1.625rem;
+      width: 1.625rem;
+    }
+    &--big {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+  &__icon {
+    height: 100%;
+    width: 100%;
+    fill: var(--white);
+  }
+}

@@ -6,5 +6,26 @@
   top: 0;
   left: 0;
   width: 100%;
+  padding: 1.875rem 0;
   z-index: 500;
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    width: 10rem;
+    height: 3.75rem;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 3.75rem;
+  }
+  &__link {
+    font-size: 1.25rem;
+  }
 }
