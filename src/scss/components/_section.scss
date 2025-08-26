@@ -1,0 +1,14 @@
+.section {
+  padding: 6.25rem 0;
+  &__pretitle {
+    margin-bottom: 3.75rem;
+  }
+  &__title {
+    margin: 0 0 3.75rem;
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 7.5rem;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+}

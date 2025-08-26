@@ -1,0 +1,55 @@
+.hero {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(#000, 0.4);
+    z-index: 50;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3.75rem;
+    position: relative;
+    z-index: 100;
+    min-height: 100dvh;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+  &__buttons {
+    display: flex;
+    gap: 2.5rem;
+    flex-shrink: 0;
+  }
+  &__desc {
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    line-height: normal;
+    color: var(--white);
+  }
+  &__title {
+    width: 100%;
+    height: auto;
+    path {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 10;
+  }
+}

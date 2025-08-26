@@ -1,0 +1,39 @@
+.corner {
+  &--default {
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 1.5rem;
+      width: 1.5rem;
+      border: 2px solid var(--white);
+      transition: ease-out 0.3s;
+    }
+    &:after {
+      top: 0;
+      right: 0;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &:before {
+      left: 0;
+      bottom: 0;
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+  }
+  &--bottom {
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1.5rem;
+      width: 1.5rem;
+      border: 2px solid var(--white);
+      transition: ease-out 0.3s;
+      left: 0;
+      bottom: 0;
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+  }
+}

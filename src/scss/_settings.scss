@@ -18,7 +18,9 @@
   margin: 0;
   min-width: 360px;
   min-height: 100%;
-  font-size: 16px;
+  font-size: 1.25rem;
+  line-height: normal;
+  color: var(--gray-base);
   overflow-x: hidden;
   &.lock-scroll {
     overflow: hidden;
