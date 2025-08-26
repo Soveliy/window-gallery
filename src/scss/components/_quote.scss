@@ -1,0 +1,33 @@
+.quote{
+    position: relative;
+    margin: 6.25rem 0;
+    &__picture{
+        display: flex;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(#000, 0.6);
+        }
+    }
+    &__content{
+        position: absolute;
+        bottom: 7.5rem;
+        left: 7.5rem;
+        z-index: 50;
+    }
+
+    &__title{
+        position: relative;
+        padding: 2.5rem;
+        font-family: var(--second-family);
+        font-size: 3.75rem;
+        text-transform: uppercase;
+        color: var(--white);
+    }
+
+}
