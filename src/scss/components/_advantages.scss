@@ -1,0 +1,24 @@
+.advantages {
+}
+
+.advantages-item {
+  padding: 40px;
+  border-top: 1px solid var(--white);
+  box-sizing: border-box;
+  &:last-child {
+    border-bottom: 1px solid var(--white);
+  }
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 60px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 20px;
+  }
+}

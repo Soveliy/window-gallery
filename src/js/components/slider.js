@@ -1,53 +1,63 @@
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
-Swiper.use(Navigation);
-// var swiper = new Swiper(".slider-default", {
-//   slidesPerView: 1.1,
-//   spaceBetween: 12,
-//   navigation: {
-//     nextEl: ".slider-default__arrow--next",
-//     prevEl: ".slider-default__arrow--prev",
-//   },
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 2.05,
-//       spaceBetween: 20,
-//     },
-//   },
-// });
+import {
+  Navigation,
+  EffectCoverflow,
+  Mousewheel,
+  Thumbs,
+  EffectFade,
+} from "swiper/modules";
+// Swiper.use(Navigation, EffectCoverflow, Mousewheel);
+const sliderProds = new Swiper(".production__slider--js", {
+  modules: [Navigation, EffectCoverflow, Mousewheel],
+  slidesPerView: "auto",
+  spaceBetween: 200,
+  centeredSlides: true,
 
-// const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
-//   let swiper;
+  initialSlide: 1,
+  loop: true,
+  effect: "coverflow",
+  // loop: true,
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 300,
+    modifier: 1,
+    slideShadows: false,
+    scale: 1,
+  },
+  navigation: {
+    nextEl: ".production__arrow--next",
+    prevEl: ".production__arrow--prev",
+  },
+  // breakpoints: {
+  //   640: {
+  //     slidesPerView: 2,
+  //     spaceBetween: 20,
+  //   },
+  //   768: {
+  //     slidesPerView: 2.05,
+  //     spaceBetween: 20,
+  //   },
+  // },
+});
 
-//   breakpoint = window.matchMedia(breakpoint);
-
-//   const enableSwiper = function (className, settings) {
-//     swiper = new Swiper(className, settings);
-
-//     if (callback) {
-//       callback(swiper);
-//     }
-//   };
-
-//   const checker = function () {
-//     if (breakpoint.matches) {
-//       return enableSwiper(swiperClass, swiperSettings);
-//     } else {
-//       if (swiper !== undefined) swiper.destroy(true, true);
-//       return;
-//     }
-//   };
-
-//   breakpoint.addEventListener("change", checker);
-//   checker();
-// };
-
-// resizableSwiper("(max-width: 1024px)", ".when-need__slider", {
-//   loop: true,
-//   spaceBetween: 12,
-//   slidesPerView: "auto",
-// });
+const swiper = new Swiper(".works__thumbs--js", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 4,
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+const swiper2 = new Swiper(".works__main-slider-js", {
+  modules: [Thumbs, Navigation, EffectFade],
+  loop: true,
+  spaceBetween: 0,
+  effect: "fade",
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: swiper,
+  },
+});

@@ -1,0 +1,44 @@
+.history {
+  &__years {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  &__years-item {
+    font-family: var(--second-family);
+    font-size: 3.75rem;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  &__line {
+    margin: 1.1875rem 0 5.75rem;
+    height: 4px;
+    background-color: var(--white);
+    width: 200px;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    align-items: flex-end;
+  }
+  &__text {
+    max-width: 615px;
+  }
+  &__image-container {
+    flex-shrink: 0;
+  }
+  &__text-item {
+    h3 {
+      margin: 0 0 1.25rem 0;
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 2rem;
+      color: var(--white);
+    }
+    p {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+}

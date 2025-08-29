@@ -1,0 +1,10 @@
+.questions {
+  &__row {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  &__left {
+    max-width: 53.75rem;
+  }
+}

@@ -71,7 +71,7 @@ class AboutSyncGallery {
         pin: true,
         scrub: 0.5,
         start: "top top",
-        end: "+=" + (this.steps - 1) * window.innerHeight, // по экрану на шаг
+        end: "+=" + (this.steps - 1) * (window.innerHeight / 2), // по экрану на шаг
         ease: "none",
         snap: { snapTo: 1 / (this.steps - 1), duration: 0.8 },
       },
@@ -86,7 +86,7 @@ class AboutSyncGallery {
       // 1) Спрятать текущий слайд клипом + параллакс картинки
       tl.to(
         this.medias[i],
-        { clipPath: "inset(0 0 100% 0)", duration: segDur },
+        { clipPath: "inset(0 100% 0  0)", duration: segDur },
         pos
       ).to(this.images[i], { yPercent: -15, duration: segDur }, pos);
 
@@ -112,5 +112,24 @@ class AboutSyncGallery {
 
 const section = document.querySelector(".section.about");
 if (section) {
-  new AboutSyncGallery(section).init();
+  // new AboutSyncGallery(section).init();
 }
+
+const items = gsap.utils.toArray(".tasks-item");
+
+function activate(el) {
+  items.forEach((i) => i.classList.toggle("js-active", i === el));
+}
+
+items.forEach((el) => {
+  ScrollTrigger.create({
+    trigger: el,
+    start: "top 60%",
+    end: "bottom 55%",
+    onEnter: () => activate(el),
+    onEnterBack: () => activate(el),
+    // markers: true,
+  });
+});
+
+window.addEventListener("load", () => ScrollTrigger.refresh());
