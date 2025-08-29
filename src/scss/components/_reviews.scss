@@ -6,13 +6,15 @@
 
 .reviews-item {
   position: relative;
-  padding: 2.5rem;
+  overflow: hidden;
+  padding: 2.08vw;
   transition: flex-grow 0.3s ease-out;
   flex-grow: 1;
   flex: 1;
   width: 100%;
   border-left: 1px solid var(--white);
   border-right: 1px solid var(--white);
+  height: 24.74vw;
   &__content {
     position: absolute;
     display: flex;
@@ -21,14 +23,15 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s 0.3s;
+    // transition: opacity 0.3s 0.3s;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    padding: 2.5rem;
+    padding: 2.08vw;
+    width: 60.89vw;
   }
-  &:hover {
+  &.js-active {
     flex-grow: 30;
     .reviews-item__content {
       // display: block;
@@ -44,24 +47,23 @@
   }
 
   &__desc {
-    font-size: 24px;
+    font-size: 1.25vw;
     color: var(--white);
   }
   &__name {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 60px;
+    font-size: 3.13vw;
     text-transform: uppercase;
     color: var(--white);
   }
   &__project-name {
-    font-size: 24px;
+    font-size: 1.25vw;
     &--vert {
       writing-mode: vertical-rl;
       transform: rotate(180deg);
-      // margin: 0 auto;
-      // transition: 0.3s;
-      transition-delay: 0.3s;
+      height: 100%;
+      text-align: left;
     }
   }
   &__bottom {

@@ -2,12 +2,21 @@
 }
 
 .advantages-item {
-  padding: 40px;
+  padding: 28px 40px 38px;
   border-top: 1px solid var(--white);
   box-sizing: border-box;
+  &:hover,
+  &.js-active {
+    .advantages-item__content {
+      max-height: 1000px; // достаточно большое значение
+      opacity: 1;
+      padding-top: 16px;
+    }
+  }
   &:last-child {
     border-bottom: 1px solid var(--white);
   }
+
   &__title {
     font-family: var(--second-family);
     font-weight: 400;
@@ -19,6 +28,13 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    padding-top: 20px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s,
+      padding-top 0.6s;
+  }
+  &__desc {
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
   }
 }

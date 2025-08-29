@@ -133,3 +133,24 @@ items.forEach((el) => {
 });
 
 window.addEventListener("load", () => ScrollTrigger.refresh());
+
+function animateSVG(svgEl) {
+  const paths = svgEl.querySelectorAll(
+    "path, circle, rect, ellipse, polyline, polygon, line"
+  );
+  gsap.set(paths, { drawSVG: "0%" });
+  gsap.to(paths, {
+    drawSVG: "100%",
+    duration: 1.2,
+    stagger: 0.08,
+    ease: "power1.out",
+  });
+}
+
+document.querySelectorAll(".advantages-item").forEach((item) => {
+  const svg = item.querySelector(".advantages-item__image");
+
+  item.addEventListener("mouseenter", () => {
+    if (svg) animateSVG(svg);
+  });
+});

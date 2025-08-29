@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.875rem 0;
+  padding: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem) 0;
   z-index: 500;
   &__row {
     display: flex;
@@ -14,8 +14,8 @@
     justify-content: space-between;
   }
   &__logo {
-    width: 10rem;
-    height: 3.75rem;
+    width: clamp(7rem, 6.1203rem + 3.609vw, 10rem);
+    height: clamp(2.625rem, 2.2951rem + 1.3534vw, 3.75rem);
     img {
       max-width: 100%;
     }
@@ -23,9 +23,14 @@
   &__item {
     display: flex;
     align-items: center;
-    gap: 3.75rem;
+    gap: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
   }
   &__link {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 0.9267rem + 0.3008vw, 1.25rem);
+    &--desktop {
+      @include tablet {
+        display: none;
+      }
+    }
   }
 }

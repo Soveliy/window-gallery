@@ -7,7 +7,7 @@
     margin: 0 0 4.125rem;
     font-family: var(--second-family);
     font-weight: 700;
-    font-size: 7.5rem;
+    font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);
     line-height: 1;
     text-transform: uppercase;
     color: var(--white);

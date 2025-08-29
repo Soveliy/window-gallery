@@ -3,7 +3,7 @@
     display: flex;
     gap: 2.5rem;
     &--big-gap {
-      gap: 3.75rem;
+      gap: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
     }
   }
   &__link {

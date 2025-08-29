@@ -27,7 +27,7 @@
       gap: 40px;
     }
     &:nth-child(2).js-active ~ .tasks__image {
-      transform: translateY(-122%);
+      transform: translateY(-122%) rotate(11deg);
     }
   }
   & + & {

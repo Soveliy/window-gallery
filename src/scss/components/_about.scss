@@ -13,6 +13,7 @@
     position: relative;
     margin-right: min(0px, (1760px - 100vw) / 2);
     width: 44.9%;
+    flex-shrink: 0;
   }
   &__counter {
     position: absolute;
@@ -41,7 +42,7 @@
   &__item-title {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 3.75rem;
+    font-size: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
   }
@@ -50,7 +51,7 @@
   }
   &__desc {
     position: relative;
-    font-size: 32px;
+    font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
     color: var(--white);
     margin-top: auto;
   }
@@ -63,12 +64,13 @@
 }
 .image-gallery {
   position: relative;
-  // height: 100vh;
-  // min-height: 600px;
-  // max-height: 892px;
-  height: 892px;
+  height: 100vh;
+  min-height: 37.5rem;
+  max-height: 55.75rem;
+  // height: 892px;
   overflow: hidden;
-  width: 790px;
+  width: 100%;
+  // width: 790px;
   &__item {
     position: absolute;
     inset: 0;

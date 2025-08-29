@@ -1,4 +1,4 @@
-const accordeonItems = document.querySelectorAll(".faq-item");
+const accordeonItems = document.querySelectorAll(".reviews-item");
 const closeAllItems = () => {
   accordeonItems.forEach((accordeonItem) => {
     accordeonItem.classList.remove("js-active");
@@ -6,8 +6,8 @@ const closeAllItems = () => {
 };
 if (accordeonItems.length > 0) {
   accordeonItems.forEach((accordeonItem) => {
-    const head = accordeonItem.querySelector(".faq-item__head");
-    head.addEventListener("click", () => {
+    accordeonItem.addEventListener("click", () => {
+      closeAllItems();
       accordeonItem.classList.toggle("js-active");
     });
   });
