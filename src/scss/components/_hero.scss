@@ -1,3 +1,5 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .hero {
   position: relative;
   &::before {
@@ -14,20 +16,28 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 3.75rem;
+    gap: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
     position: relative;
     z-index: 100;
     min-height: 100dvh;
   }
   &__row {
     display: flex;
-    align-items: center;
-    gap: 5rem;
+    align-items: flex-end;
+    gap: clamp(2rem, 1.1203rem + 3.609vw, 5rem);
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__buttons {
     display: flex;
-    gap: 2.5rem;
+    gap: clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
     flex-shrink: 0;
+
+    @include mobile {
+      width: 100%;
+    }
   }
   &__desc {
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
@@ -41,6 +51,17 @@
       transform: translateY(20px);
       opacity: 0;
     }
+    &--desktop {
+      @include mobile {
+        display: none;
+      }
+    }
+    &--mobile {
+      display: none;
+      @include mobile {
+        display: block;
+      }
+    }
   }
   &__video {
     position: absolute;
@@ -51,5 +72,11 @@
     object-fit: cover;
     object-position: center;
     z-index: 10;
+  }
+  &__button {
+    @include mobile {
+      width: 100%;
+      padding: 0.5rem 0.75rem 0.75rem;
+    }
   }
 }
