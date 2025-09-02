@@ -15,7 +15,14 @@ gsap.registerPlugin(
   DrawSVGPlugin,
   CustomEase
 );
-
+document.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  if (pageYOffset > 100) {
+    header.classList.add("js-scroll");
+  } else {
+    header.classList.remove("js-scroll");
+  }
+});
 gsap.to(".hero__title path", {
   opacity: 1,
   y: 0,
@@ -26,94 +33,266 @@ gsap.to(".hero__title path", {
 
 class AboutSyncGallery {
   /**
-   * @param {HTMLElement} sectionEl - корневой <section class="section about">
+   * @param {HTMLElement} sectionEl - <section class="section about">
    */
   constructor(sectionEl) {
     this.section = sectionEl;
+
+    // медиа (общие для десктопа/мобилы)
     this.gallery = sectionEl.querySelector(".about__image-gallery");
-    this.medias = Array.from(
-      this.gallery.querySelectorAll(".image-gallery__item")
-    );
+    this.medias = this.gallery
+      ? Array.from(this.gallery.querySelectorAll(".image-gallery__item"))
+      : [];
     this.images = this.medias.map((m) =>
       m.querySelector(".image-gallery__item-picture")
     );
-    this.descItems = Array.from(
-      sectionEl.querySelectorAll(".about__desc .about__desc-item")
+
+    // тексты
+    this.descDesktop = Array.from(
+      sectionEl.querySelectorAll(".about__desc--desktop .about__desc-item")
     );
-    this.steps = Math.min(this.medias.length, this.descItems.length);
+    this.descMobile = Array.from(
+      sectionEl.querySelectorAll(".about__desc--mobile  .about__desc-item")
+    );
+
+    // counter
+    this.counterWrap = sectionEl.querySelector(".about__counter");
+    this.counterSpan = sectionEl.querySelector(".about__counter span");
+    this._counterIndex = 1;
+
+    this.mm = gsap.matchMedia();
   }
 
   init() {
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 768px) and (min-aspect-ratio: 1/1)", () =>
-      this.animate()
+    // Десктоп/горизонталь: свой список + свой стиль текста
+    this.mm.add("(min-width: 768px) and (min-aspect-ratio: 1/1)", () =>
+      this._animate({
+        textItems: this.descDesktop,
+        textOut: (tl, el, dur, at) =>
+          tl.to(
+            el,
+            { autoAlpha: 0, y: 16, duration: dur * 0.6, ease: "power2.out" },
+            at
+          ),
+        textIn: (tl, el, dur, at) =>
+          tl.fromTo(
+            el,
+            { autoAlpha: 0, y: -12 },
+            { autoAlpha: 1, y: 0, duration: dur * 0.6, ease: "power2.out" },
+            at + dur * 0.15
+          ),
+      })
+    );
+
+    // Мобила/портрет: тот же тайминг, пин и клипы, но другой стиль текста и свой список
+    this.mm.add("(max-width: 767px), (max-aspect-ratio: 1/1)", () =>
+      this._animate({
+        textItems: this.descMobile,
+        // мобильная анимация текста: свайп — старый уезжает влево, новый — снизу вверх
+        textOut: (tl, el, dur, at) =>
+          tl.to(
+            el,
+            { autoAlpha: 0, x: -20, duration: dur * 0.55, ease: "power2.out" },
+            at
+          ),
+        textIn: (tl, el, dur, at) =>
+          tl.fromTo(
+            el,
+            { autoAlpha: 0, y: 20 },
+            { autoAlpha: 1, y: 0, duration: dur * 0.55, ease: "power3.out" },
+            at + dur * 0.12
+          ),
+      })
     );
   }
 
-  animate() {
-    if (this.steps < 2) return;
+  _animate({ textItems, textOut, textIn }) {
+    const steps = Math.min(this.medias.length, textItems.length);
+    if (steps < 2) return;
 
-    // начальные состояния
+    // стартовые: медиа слои (клип) и текст
     gsap.set(this.medias, {
-      clipPath: "inset(0 0 0 0 round 0rem)",
+      clipPath: "inset(0 0 0 0)",
       willChange: "clip-path",
     });
     this.medias.forEach((el, i) =>
       gsap.set(el, { zIndex: this.medias.length - i })
     );
 
-    gsap.set(this.descItems, { opacity: 0.35, yPercent: 10 });
-    gsap.set(this.descItems[0], { opacity: 1, yPercent: 0 });
+    gsap.set(textItems, { autoAlpha: 0, x: 0, y: 0 });
+    gsap.set(textItems[0], { autoAlpha: 1 });
+
+    // счётчик в любом режиме, если он есть
+    if (this.counterWrap && this.counterSpan) {
+      this._setCounterTotal(steps);
+      this._updateCounter(1, true);
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: this.section, // пинним всю секцию: слева и справа всё видно
+        trigger: this.section,
         pin: true,
+        pinSpacing: true,
         scrub: 0.5,
         start: "top top",
-        end: "+=" + (this.steps - 1) * (window.innerHeight / 2), // по экрану на шаг
-        ease: "none",
-        snap: { snapTo: 1 / (this.steps - 1), duration: 0.8 },
+        end: "+=" + (steps - 1) * window.innerHeight,
+        snap: { snapTo: 1 / (steps - 1), duration: 0.6, ease: "power2.out" },
+        onUpdate: (self) => {
+          const idx = Math.max(
+            1,
+            Math.min(steps, Math.round(self.progress * (steps - 1)) + 1)
+          );
+          this._updateCounter(idx);
+        },
       },
       defaults: { ease: "none" },
     });
 
-    const segDur = (1 / this.steps) * 0.5; // как в твоём примере—половина TL
+    const seg = 1 / (steps - 1);
 
-    for (let i = 0; i < this.steps - 1; i++) {
-      const pos = (i / this.steps) * 0.5;
+    for (let i = 0; i < steps - 1; i++) {
+      const pos = i * seg;
 
-      // 1) Спрятать текущий слайд клипом + параллакс картинки
+      // 1) скрыть текущий медиа-слой (без параллакса картинок)
       tl.to(
         this.medias[i],
-        { clipPath: "inset(0 100% 0  0)", duration: segDur },
-        pos
-      ).to(this.images[i], { yPercent: -15, duration: segDur }, pos);
-
-      // 2) Синхронно переключить текст слева
-      tl.to(
-        this.descItems[i],
-        { opacity: 0, yPercent: 0, duration: segDur },
-        pos
-      ).fromTo(
-        this.descItems[i + 1],
-        { opacity: 0.0, yPercent: 0 },
-        { opacity: 1, yPercent: 0, duration: segDur },
+        { clipPath: "inset(0 100% 0 0)", duration: seg },
         pos
       );
+
+      // 2) текст: разные стили для десктопа/мобилы (переданы колбэками)
+      textOut(tl, textItems[i], seg, pos);
+      textIn(tl, textItems[i + 1], seg, pos);
     }
 
-    // на случай ресайза/адресной строки iOS
     window.addEventListener("resize", () => ScrollTrigger.refresh(), {
       passive: true,
     });
+  }
+
+  /* helpers */
+  _setCounterTotal(total) {
+    const raw = this.counterWrap?.textContent?.trim() || "";
+    if (raw && raw.includes("/")) return;
+    if (this.counterWrap && this.counterSpan) {
+      const after = document.createTextNode("/" + total);
+      if (!this.counterSpan.nextSibling) this.counterWrap.appendChild(after);
+      else this.counterWrap.replaceChild(after, this.counterSpan.nextSibling);
+    }
+  }
+
+  _updateCounter(index, immediate = false) {
+    if (!this.counterSpan) return;
+    if (immediate) {
+      this.counterSpan.textContent = String(index);
+      return;
+    }
+    const apply = () => {
+      this.counterSpan.textContent = String(index);
+    };
+    gsap
+      .timeline({ defaults: { duration: 0.22, ease: "power2.out" } })
+      .to(this.counterSpan, { y: 8, autoAlpha: 0, onComplete: apply }, 0)
+      .to(this.counterSpan, { y: 0, autoAlpha: 1 }, 0.12);
   }
 }
 
 const section = document.querySelector(".section.about");
 if (section) {
-  // new AboutSyncGallery(section).init();
+  new AboutSyncGallery(section).init();
 }
+(() => {
+  const section = document.querySelector(".history");
+  const years = gsap.utils.toArray(".history__years-item");
+  const lineEl = document.querySelector(".history__line");
+  const svg = document.querySelector(".history__scheme");
+  const clipRect = svg?.querySelector("defs > clipPath rect");
+  const texts = gsap.utils.toArray(".history__text-item");
+
+  if (
+    !section ||
+    !lineEl ||
+    !svg ||
+    !clipRect ||
+    !years.length ||
+    !texts.length
+  )
+    return;
+
+  const steps = years.map((_, i) => i / (years.length - 1));
+  const svgWidth =
+    +svg.getAttribute("viewBox")?.split(" ")[2] || svg.clientWidth || 1011;
+
+  gsap.set(lineEl, { scaleX: 0 });
+  gsap.set(clipRect, { attr: { width: 0 } });
+  gsap.set(texts, { autoAlpha: 0, y: 16 });
+  texts[0].classList.add("is-active");
+  gsap.set(texts[0], { autoAlpha: 1, y: 0 });
+  years[0].classList.add("is-active");
+
+  let activeIndex = 0;
+
+  function switchText(toIndex) {
+    if (toIndex === activeIndex) return;
+    const from = texts[activeIndex];
+    const to = texts[toIndex];
+
+    from.classList.remove("is-active");
+    to.classList.add("is-active");
+
+    gsap
+      .timeline({ defaults: { duration: 0.45, ease: "power2.out" } })
+      .to(from, { autoAlpha: 0, y: 16 }, 0)
+      .fromTo(to, { autoAlpha: 0, y: -12 }, { autoAlpha: 1, y: 0 }, 0.1);
+
+    years[activeIndex].classList.remove("is-active");
+    years[toIndex].classList.add("is-active");
+
+    activeIndex = toIndex;
+  }
+
+  function animateProgress(progress) {
+    gsap.to(lineEl, { scaleX: progress, duration: 0.6, ease: "power2.out" });
+
+    gsap.to(clipRect, {
+      attr: { width: svgWidth * progress },
+      duration: 0.8,
+      ease: "power2.out",
+    });
+  }
+
+  function goToStep(index) {
+    const progress = steps[index];
+    animateProgress(progress);
+    switchText(index);
+  }
+
+  ScrollTrigger.create({
+    trigger: section,
+    start: "top top",
+    end: "+=200%",
+    scrub: true,
+    pin: true,
+    pinSpacing: true,
+    anticipatePin: 1,
+    onUpdate: (self) => {
+      const p = self.progress;
+      animateProgress(p);
+      const idx = steps.reduce(
+        (acc, s, i) => (Math.abs(p - s) < Math.abs(p - steps[acc]) ? i : acc),
+        0
+      );
+      if (idx !== activeIndex) switchText(idx);
+    },
+  });
+
+  gsap.from(section.querySelector(".section__title"), {
+    autoAlpha: 0,
+    y: 20,
+    duration: 0.6,
+    ease: "power2.out",
+  });
+})();
 
 const items = gsap.utils.toArray(".tasks-item");
 

@@ -8,6 +8,10 @@
   width: 100%;
   padding: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem) 0;
   z-index: 500;
+  transition: 0.3s;
+  &.js-scroll {
+    background-color: var(--black);
+  }
   &__row {
     display: flex;
     align-items: center;
