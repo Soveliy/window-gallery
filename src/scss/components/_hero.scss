@@ -34,6 +34,7 @@
     display: flex;
     gap: clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
     flex-shrink: 0;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 
     @include mobile {
       width: 100%;
@@ -43,6 +44,7 @@
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     line-height: normal;
     color: var(--white);
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
   }
   &__title {
     width: 100%;
@@ -72,6 +74,7 @@
     object-fit: cover;
     object-position: center;
     z-index: 10;
+    clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
   }
   &__button {
     @include mobile {

@@ -19,7 +19,7 @@
     position: relative;
   }
   &__main-slider-image {
-    height: 680px;
+    height: 42.5rem;
     img {
       height: 100%;
       width: 100%;
@@ -29,24 +29,27 @@
   &__main-slider-content {
     position: absolute;
     width: 100%;
-    bottom: 80px;
+    bottom: clamp(1.375rem, 0.312rem + 4.3609vw, 5rem);
     left: 0;
+    @include tablet {
+      width: max-content;
+    }
   }
   &__main-slider-info {
     position: relative;
-    padding: 40px;
-    max-width: 423px;
+    padding: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+    max-width: 26.4375rem;
     width: 100%;
     background-color: var(--black);
   }
   &__main-slider-name {
     font-family: var(--second-family);
-    font-size: 3.75rem;
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
   }
   &__main-slider-location {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--gray-light);
   }
   &__thumbs {

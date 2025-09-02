@@ -23,13 +23,60 @@ document.addEventListener("scroll", () => {
     header.classList.remove("js-scroll");
   }
 });
-gsap.to(".hero__title path", {
-  opacity: 1,
-  y: 0,
+let hero = gsap.timeline({});
+hero.from(".hero__video", {
+  clipPath: "polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)",
+  yPercent: 50,
+  duration: 1.5,
+  ease: "power3.out",
+});
+
+hero.to(
+  ".hero__video",
+  {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    yPercent: 0,
+    ease: "power3.out",
+  },
+  "-=0.2"
+);
+hero.to(
+  ".header",
+  {
+    opacity: 1,
+    y: 0,
+    ease: "power3.out",
+  },
+  "-=0.5"
+);
+hero.to(".hero__desc", {
+  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
   duration: 0.6,
   ease: "power3.out",
-  stagger: { each: 0.04, from: "start" },
+  delay: 0.2,
 });
+hero.to(
+  ".hero__buttons",
+  {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 0.6,
+    ease: "power3.out",
+    delay: 0.2,
+  },
+  "=-0.5"
+);
+
+hero.to(
+  ".hero__title path",
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+    stagger: { each: 0.04, from: "start" },
+  },
+  "=-0.5"
+);
 
 class AboutSyncGallery {
   /**
