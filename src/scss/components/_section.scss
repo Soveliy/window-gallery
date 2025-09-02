@@ -1,10 +1,10 @@
 .section {
-  padding: 6.25rem 0;
+  padding: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem) 0;
   &__pretitle {
-    margin-bottom: 3.375rem;
+    margin-bottom: clamp(1.875rem, 1.4352rem + 1.8045vw, 3.375rem);
   }
   &__title {
-    margin: 0 0 4.125rem;
+    margin: 0 0 clamp(1.875rem, 1.2152rem + 2.7068vw, 4.125rem);
     font-family: var(--second-family);
     font-weight: 700;
     font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);

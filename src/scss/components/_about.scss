@@ -1,5 +1,7 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .about {
-  margin-top: 6.25rem;
+  margin-top: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem);
   &__row {
     display: flex;
     justify-content: space-between;
@@ -32,7 +34,7 @@
   }
   &__list {
     display: flex;
-    gap: 7.5rem;
+    gap: clamp(1.25rem, -0.5827rem + 7.5188vw, 7.5rem);
     max-width: 43.375rem;
   }
   &__item {

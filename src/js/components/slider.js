@@ -2,19 +2,22 @@ import Swiper from "swiper";
 import {
   Navigation,
   EffectCoverflow,
-  Mousewheel,
   Thumbs,
   EffectFade,
+  Pagination,
+  Autoplay,
 } from "swiper/modules";
 // Swiper.use(Navigation, EffectCoverflow, Mousewheel);
 const sliderProds = new Swiper(".production__slider--js", {
-  modules: [Navigation, EffectCoverflow, Mousewheel],
+  modules: [Navigation, EffectCoverflow, Pagination, Autoplay],
   slidesPerView: "auto",
-  spaceBetween: 200,
+  spaceBetween: 40,
   centeredSlides: true,
-
+  loopAddBlankSlides: false,
+  maxBackfaceHiddenSlides: 3,
   initialSlide: 1,
   loop: true,
+  autoplay: true,
   effect: "coverflow",
   // loop: true,
   coverflowEffect: {
@@ -29,16 +32,18 @@ const sliderProds = new Swiper(".production__slider--js", {
     nextEl: ".production__arrow--next",
     prevEl: ".production__arrow--prev",
   },
-  // breakpoints: {
-  //   640: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 20,
-  //   },
-  //   768: {
-  //     slidesPerView: 2.05,
-  //     spaceBetween: 20,
-  //   },
-  // },
+  pagination: {
+    el: ".production__pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    576: {
+      spaceBetween: 100,
+    },
+    1024: {
+      spaceBetween: 200,
+    },
+  },
 });
 
 const swiper = new Swiper(".works__thumbs--js", {
@@ -49,15 +54,19 @@ const swiper = new Swiper(".works__thumbs--js", {
   watchSlidesProgress: true,
 });
 const swiper2 = new Swiper(".works__main-slider-js", {
-  modules: [Thumbs, Navigation, EffectFade],
+  modules: [Thumbs, Navigation, EffectFade, Pagination, Autoplay],
   loop: true,
+  autoplay: true,
   spaceBetween: 0,
   effect: "fade",
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".works__arrow--next",
+    prevEl: ".works__arrow--prev",
   },
   thumbs: {
     swiper: swiper,
+  },
+  pagination: {
+    el: ".swiper-pagination",
   },
 });

@@ -1,3 +1,5 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .tasks {
   &__items {
     position: relative;
@@ -7,6 +9,9 @@
     right: 75px;
     bottom: 117px;
     transition: 0.3s;
+    @include tablet {
+      display: none;
+    }
   }
 }
 .tasks-item {
@@ -15,13 +20,16 @@
   &.js-active {
     width: 100%;
     .tasks-item__title {
-      font-size: 3.75rem;
+      font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     }
     .tasks-item__desc {
-      font-size: 24px;
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     }
     .tasks-item__image {
       width: 53.5%;
+      @include tablet {
+        width: calc(100% + 1rem);
+      }
     }
     .tasks-item__row {
       gap: 40px;
@@ -35,11 +43,16 @@
   }
   &__row {
     display: flex;
-    gap: 32px;
+    gap: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
     align-items: flex-start;
     transition: 0.3s;
+
     &--flex-end {
       align-items: flex-end;
+    }
+    @include tablet {
+      align-items: flex-start;
+      flex-direction: column;
     }
   }
   &__image {
@@ -50,22 +63,28 @@
     @media (min-width: 1760px) {
       margin-left: min(0px, calc((1760px - 100vw) / 2));
     }
+    @include tablet {
+      width: calc(100% + 1rem);
+    }
   }
   &__content {
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 1.25rem;
     transition: 0.3s;
+    @include tablet {
+      padding: 0.5rem;
+    }
   }
   &__title {
     font-family: var(--second-family);
-    font-size: 3rem;
+    font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);
     text-transform: uppercase;
     color: var(--white);
     transition: 0.3s;
   }
   &__desc {
-    font-size: 1.25rem;
+    font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     transition: 0.3s;
   }
 }

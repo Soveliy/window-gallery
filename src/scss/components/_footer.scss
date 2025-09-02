@@ -1,16 +1,23 @@
+@use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
 .footer {
-  padding: 3.75rem 0 0;
+  padding: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem) 0 0;
   background: var(--gray-dark);
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     gap: 3.75rem;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
   }
   &__item-title {
     margin-bottom: 1.25rem;
     font-family: var(--font-family);
-    font-size: 24px;
+    font-size: clamp(1.125rem, 1.015rem + 0.4511vw, 1.5rem);
     color: var(--white);
     &--big-margin {
       margin-bottom: 2.5rem;
@@ -22,11 +29,11 @@
     }
   }
   &__link {
-    font-size: 1.25rem;
+    font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-base);
   }
   &__list-item {
-    font-size: 20px;
+    font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-base);
     & + & {
       margin-top: 1.25rem;
@@ -36,25 +43,48 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 60px 0;
+    margin: 3.75rem 0;
+    @include tablet {
+      margin: 2.5rem 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 2.5rem;
+    }
   }
   &__copy-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.25rem;
+    font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-base);
   }
   &__bottom-links {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    @include tablet {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
   }
   &__title {
-    margin-top: 60px;
+    margin-top: clamp(2.5rem, 2.1335rem + 1.5038vw, 3.75rem);
+
     &-svg {
       height: auto;
-      width: 100%;  
+      width: 100%;
+      &--desktop {
+        @include mobile {
+          display: none;
+        }
+      }
+      &--mobile {
+        display: none;
+        @include mobile {
+          display: block;
+        }
+      }
     }
   }
 }

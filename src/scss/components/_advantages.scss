@@ -1,8 +1,10 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .advantages {
 }
 
 .advantages-item {
-  padding: 28px 40px 38px;
+  padding: 1.75rem 2.5rem 2.375rem;
   border-top: 1px solid var(--white);
   box-sizing: border-box;
   &:hover,
@@ -17,10 +19,27 @@
     border-bottom: 1px solid var(--white);
   }
 
+  @include tablet {
+    padding: 0;
+    &:first-child {
+      border-top: 0;
+    }
+  }
+  &:not(:first-child) {
+    @include tablet {
+    }
+  }
+  & + & {
+    @include tablet {
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+  }
+
   &__title {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 60px;
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
   }
@@ -33,6 +52,16 @@
     overflow: hidden;
     transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s,
       padding-top 0.6s;
+    @include tablet {
+      flex-direction: column;
+      opacity: 1;
+      max-height: inherit;
+      gap: 1.25rem;
+    }
+  }
+  &__image {
+    height: auto;
+    width: 100%;
   }
   &__desc {
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);

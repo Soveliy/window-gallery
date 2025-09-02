@@ -1,0 +1,19 @@
+.pagination-default {
+  margin: 0 auto;
+  position: absolute;
+  height: 0.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -0.5rem;
+  .swiper-pagination-bullet {
+    flex-shrink: 0;
+    background-color: var(--gray-base);
+    height: 0.5rem;
+    width: 0.5rem;
+    &.swiper-pagination-bullet-active {
+      background-color: var(--white);
+      transform: scale(1.25);
+    }
+  }
+}

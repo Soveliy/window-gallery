@@ -1,10 +1,21 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .questions {
   &__row {
     display: flex;
     gap: 2rem;
     justify-content: space-between;
+    @include tablet {
+      flex-direction: column;
+      gap: 5rem;
+    }
   }
   &__left {
     max-width: 53.75rem;
+    @include tablet {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
+

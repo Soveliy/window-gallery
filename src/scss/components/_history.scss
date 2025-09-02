@@ -1,3 +1,5 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .history {
   &__years {
     display: flex;
@@ -6,39 +8,58 @@
   }
   &__years-item {
     font-family: var(--second-family);
-    font-size: 3.75rem;
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
   }
   &__line {
-    margin: 1.1875rem 0 5.75rem;
-    height: 4px;
+    margin: 1.1875rem 0 clamp(2rem, 0.9004rem + 4.5113vw, 5.75rem);
+    height: 0.25rem;
     background-color: var(--white);
-    width: 200px;
+    transform-origin: left;
   }
   &__content {
     display: flex;
     justify-content: space-between;
-    gap: 2.5rem;
+    gap: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem);
     align-items: flex-end;
+    @include tablet {
+      flex-direction: column-reverse;
+    }
   }
   &__text {
-    max-width: 615px;
+    position: relative;
+    height: 200px;
+    max-width: 38.4375rem;
+    width: 100%;
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+  &__text-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
   &__image-container {
-    flex-shrink: 0;
+    width: 100%;
+  }
+  &__scheme {
+    width: 100%;
+    height: auto;
   }
   &__text-item {
     h3 {
-      margin: 0 0 1.25rem 0;
+      margin: 0 0 clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem) 0;
       font-family: var(--font-family);
       font-weight: 400;
-      font-size: 2rem;
+      font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
       color: var(--white);
     }
     p {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     }
   }
 }

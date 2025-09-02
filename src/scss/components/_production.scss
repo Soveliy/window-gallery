@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .production {
   .swiper-wrapper {
     align-items: center;
@@ -9,8 +10,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 175px;
+    gap: 10.9375rem;
     z-index: 10;
+    @include tablet {
+      display: none;
+    }
   }
   &__arrow {
     height: 2rem;
@@ -24,6 +28,19 @@
     fill: none;
     stroke: var(--white);
   }
+  &__slider {
+    @include tablet {
+      position: relative;
+      margin: 0 -1rem;
+      padding-bottom: 2rem;
+    }
+  }
+  &__pagination {
+    display: none;
+    @include tablet {
+      display: flex;
+    }
+  }
 }
 .production-slide {
   display: flex;
@@ -32,6 +49,9 @@
   perspective: 1000px;
   width: 40%;
   transition: 0.3s;
+  @include tablet {
+    width: 75%;
+  }
   &__image-container {
     position: relative;
     display: flex;
@@ -53,7 +73,7 @@
     width: 100%;
   }
   &__name {
-    margin-top: 32px;
+    margin-top: 2rem;
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 3rem;
@@ -61,6 +81,9 @@
     text-align: center;
     color: var(--gray-light);
     line-height: 1;
+    @include tablet {
+      font-size: 1.625rem;
+    }
   }
   &.swiper-slide-active {
     .production-slide__image {

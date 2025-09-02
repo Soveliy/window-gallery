@@ -31,10 +31,11 @@
           </div>
         </form>
       </div>
-      <div class="map-wrap">
-        <div class="map" id="map">
-          <!-- Векторная карта -->
-          <svg id="svg" width="580" height="758" viewBox="0 0 580 758" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="map question__map">
+        <div class="map__inner" id="map">
+
+          <svg class="map__svg" id="svg" width="580" height="758" viewBox="0 0 580 758" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
 
             <defs>
               <symbol id="map-pin" width="40" height="48" viewBox="0 0 40 48" fill="none"
@@ -44,7 +45,7 @@
                   fill="white" />
               </symbol>
             </defs>
-            <g class="pin" data-x="292" data-y="202" data-scale="0.9" data-label="ул. Центральная, 12">
+            <g class="map__pin" data-x="292" data-y="202" data-scale="0.9" data-label="ул. Центральная, 12">
               <use href="#map-pin" />
             </g>
             <path
@@ -91,59 +92,9 @@
               stroke="white" />
           </svg>
 
-          <!-- ОДНА всплывашка, которую двигаем к активной метке -->
-          <div class="tooltip hidden" id="tooltip">—</div>
+
+          <div class="map__tooltip corner corner--lit corner--default">—</div>
         </div>
-        <script>
-          const svg = document.getElementById('svg');
-          const map = document.getElementById('map');
-          const tooltip = document.getElementById('tooltip');
-          const pins = [...svg.querySelectorAll('.pin')];
-
-          const ANCHOR = { x: 20, y: 40 }; // кончик вашей иконки в её viewBox
-
-          // расставляем метки по их (x,y), учитывая масштаб
-          function layoutPins() {
-            pins.forEach(pin => {
-              const x = +pin.dataset.x, y = +pin.dataset.y;
-              const s = +(pin.dataset.scale || 1);
-              pin.setAttribute('transform', `translate(${x - ANCHOR.x * s},${y - ANCHOR.y * s}) scale(${s})`);
-              pin.style.cursor = 'pointer';
-            });
-          }
-
-          function openTooltip(pin) {
-            tooltip.textContent = pin.dataset.label || '';
-            // используем координаты кончика (x,y) для позиционирования
-            const pt = svg.createSVGPoint();
-            pt.x = +pin.dataset.x; pt.y = +pin.dataset.y;
-            const screen = pt.matrixTransform(svg.getScreenCTM());
-            const mapRect = map.getBoundingClientRect();
-
-            tooltip.style.left = (screen.x - mapRect.left) + 'px';
-            tooltip.style.top = (screen.y - mapRect.top - 6) + 'px';
-            tooltip.style.display = 'block';
-          }
-          function closeTooltip() { tooltip.style.display = 'none'; }
-
-          pins.forEach(pin => pin.addEventListener('click', e => {
-            console.log('q')
-            e.stopPropagation();
-
-            (tooltip.style.display === 'block' && tooltip.textContent === pin.dataset.label) ? closeTooltip() : openTooltip(pin);
-          }));
-
-          document.addEventListener('click', e => { if (!map.contains(e.target)) closeTooltip(); });
-          window.addEventListener('resize', () => {
-            if (tooltip.style.display === 'block') {
-              // пересчитаем позицию активной плашки
-              const active = pins.find(p => (p.dataset.label === tooltip.textContent));
-              if (active) openTooltip(active);
-            }
-          });
-
-          layoutPins();
-        </script>
       </div>
     </div>
   </div>

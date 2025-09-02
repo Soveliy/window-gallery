@@ -1,6 +1,11 @@
+@use "./mixins/breakpoint" as *;
 .reviews {
   &__row {
     display: flex;
+    @include tablet {
+      flex-direction: column;
+      margin-top: -1.5rem;
+    }
   }
 }
 
@@ -15,6 +20,15 @@
   border-left: 1px solid var(--white);
   border-right: 1px solid var(--white);
   height: 24.74vw;
+  @include tablet {
+    height: auto;
+    border-left: 0;
+    border-right: 0;
+    padding: 2rem 0;
+
+    border-bottom: 1px solid var(--white);
+  }
+
   &__content {
     position: absolute;
     display: flex;
@@ -30,25 +44,44 @@
     left: 0;
     padding: 2.08vw;
     width: 60.89vw;
+    @include tablet {
+      position: static;
+      height: auto;
+      width: 100%;
+      flex-direction: column-reverse;
+      max-height: 0;
+      padding: 0;
+      overflow: hidden;
+      transition: 0.6s;
+    }
   }
   &.js-active {
-    flex-grow: 30;
+    @include for-desktop {
+      flex-grow: 30;
+    }
     .reviews-item__content {
       // display: block;
       opacity: 1;
       visibility: visible;
       pointer-events: all;
+      max-height: 500px;
+      opacity: 1;
     }
     .reviews-item__project-name--vert {
       // position: absolute;
       opacity: 0;
       visibility: hidden;
+      display: none;
     }
   }
 
   &__desc {
     font-size: 1.25vw;
     color: var(--white);
+    @include tablet {
+      padding-top: 1.125rem;
+      font-size: 1rem;
+    }
   }
   &__name {
     font-family: var(--second-family);
@@ -56,14 +89,25 @@
     font-size: 3.13vw;
     text-transform: uppercase;
     color: var(--white);
+    @include tablet {
+      font-size: 1.625rem;
+    }
   }
   &__project-name {
     font-size: 1.25vw;
+    @include tablet {
+      font-size: 1rem;
+    }
     &--vert {
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       height: 100%;
       text-align: left;
+      @include tablet {
+        writing-mode: inherit;
+        transform: none;
+        height: inherit;
+      }
     }
   }
   &__bottom {
