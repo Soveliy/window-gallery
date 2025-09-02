@@ -2,23 +2,11 @@
 @use "./mixins/disable-mob-hover" as *;
 .modal {
   &__container {
-    padding: clamp(1.25rem, 0.8871rem + 1.6129vw, 2.5rem);
-    border-radius: clamp(1.25rem, 0.8871rem + 1.6129vw, 2.5rem);
+    padding: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
     width: 96%;
+    max-width: 57.5rem;
     box-sizing: border-box;
-    &--lit {
-      max-width: 57.375rem;
-    }
-    &--big {
-      max-width: 75rem;
-      display: flex;
-      flex-direction: column;
-      max-height: 90vh;
-    }
-    &--thanks {
-      max-width: 25.4375rem;
-      background-color: var(--green-base);
-    }
+    background: var(--gray-dark);
   }
   &__content {
     height: 100%;
@@ -28,8 +16,8 @@
     }
   }
   &__close {
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     padding: 0;
     background-color: transparent;
     outline: 0;
@@ -37,13 +25,16 @@
     box-sizing: border-box;
     cursor: pointer;
     flex-shrink: 0;
+    @include tablet {
+      padding: 0.5rem;
+    }
     svg {
+      fill: var(--white);
       transition: 0.3s;
     }
     @include hover {
       &:hover {
         svg {
-          fill: var(--green-dark);
         }
       }
     }
@@ -54,12 +45,12 @@
     fill: var(--black);
   }
   &__title {
-    font-size: clamp(1.5rem, 1.3548rem + 0.6452vw, 2rem);
+    font-size: clamp(1.125rem, 1.015rem + 0.4511vw, 1.5rem);
     font-weight: 400;
-    color: var(--black);
+    color: var(--white);
   }
   &__header {
-    margin-bottom: clamp(1.5625rem, 1.2903rem + 1.2097vw, 2.5rem);
+    margin-bottom: clamp(2.0625rem, 1.5677rem + 2.0301vw, 3.75rem);
     flex-shrink: 0;
   }
   &__desc {

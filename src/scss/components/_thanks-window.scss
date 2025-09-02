@@ -1,0 +1,28 @@
+@use "./mixins/breakpoint" as *;
+.thanks-window {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1.25rem 2rem;
+  background-color: var(--black);
+  z-index: 500;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(100%);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: none;
+  }
+  @include tablet {
+    text-align: center;
+  }
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.125rem, 1.015rem + 0.4511vw, 1.5rem);
+    color: var(--white);
+  }
+}

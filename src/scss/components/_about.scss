@@ -6,6 +6,10 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    @include tablet {
+      flex-direction: column;
+      gap: 1.75rem;
+    }
   }
   &__left {
     display: flex;
@@ -16,21 +20,29 @@
     margin-right: min(0px, (1760px - 100vw) / 2);
     width: 44.9%;
     flex-shrink: 0;
+    @include tablet {
+      width: auto;
+      margin-right: -1rem;
+    }
   }
   &__counter {
     position: absolute;
     z-index: 10;
     bottom: -2.5rem;
     left: -2.5rem;
-    padding: 2.1875rem 2.5rem;
-
+    padding: clamp(0.75rem, 0.3285rem + 1.7293vw, 2.1875rem)
+      clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 60px;
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     line-height: 1;
     text-transform: uppercase;
     color: var(--white);
     background: var(--black);
+    @include tablet {
+      left: 0;
+      bottom: -0.75rem;
+    }
   }
   &__list {
     display: flex;
@@ -40,6 +52,9 @@
   &__item {
     position: relative;
     padding: 1.75rem 2.3125rem 2.5rem 2.5rem;
+    @include tablet {
+      padding: 0.75rem 0.75rem 1rem;
+    }
   }
   &__item-title {
     font-family: var(--second-family);
@@ -49,13 +64,24 @@
     color: var(--white);
   }
   &__item-desc {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
   }
   &__desc {
     position: relative;
     font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
     color: var(--white);
     margin-top: auto;
+    &--desktop {
+      @include tablet {
+        display: none;
+      }
+    }
+    &--mobile {
+      display: none;
+      @include tablet {
+        display: block;
+      }
+    }
   }
   &__desc-item {
     &:not(:first-child) {

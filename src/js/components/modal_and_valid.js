@@ -8,42 +8,74 @@ MicroModal.init({
     console.log("close");
   },
 });
-// const rules1 = [
-//   {
-//     ruleSelector: ".form__input--name",
-//     rules: [
-//       {
-//         rule: "minLength",
-//         value: 3,
-//       },
-//       {
-//         rule: "required",
-//         value: true,
-//         errorMessage: "Заполните имя!",
-//       },
-//     ],
-//   },
-//   {
-//     ruleSelector: ".form__input--phone",
-//     tel: true,
-//     telError: "Введите корректный телефон",
-//     rules: [
-//       {
-//         rule: "required",
-//         value: true,
-//         errorMessage: "Заполните телефон!",
-//       },
-//     ],
-//   },
-// ];
+const rules1 = [
+  {
+    ruleSelector: "#c-name",
+    rules: [
+      {
+        rule: "minLength",
+        value: 3,
+      },
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Заполните имя!",
+      },
+    ],
+  },
+  {
+    ruleSelector: "#c-phone",
+    tel: true,
+    telError: "Введите корректный телефон",
+    rules: [
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Заполните телефон!",
+      },
+    ],
+  },
+];
 
-// const afterForm = () => {
-//   MicroModal.close("callback");
-//   MicroModal.show("thanks");
-//   setTimeout(() => {
-//     document.querySelector("body").removeAttribute("style");
-//     MicroModal.close("thanks");
-//   }, 5000);
-// };
+const rules2 = [
+  {
+    ruleSelector: "#q-name",
+    rules: [
+      {
+        rule: "minLength",
+        value: 3,
+      },
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Заполните имя!",
+      },
+    ],
+  },
+  {
+    ruleSelector: "#q-phone",
+    tel: true,
+    telError: "Введите корректный телефон",
+    rules: [
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Заполните телефон!",
+      },
+    ],
+  },
+];
 
-// validateForms(".form--modal", rules1, [], afterForm);
+const afterForm = () => {
+  MicroModal.close();
+  const thanks = document.querySelector(".thanks-window");
+  if (thanks) {
+    thanks.classList.add("js-active");
+    setTimeout(() => {
+      thanks.classList.remove("js-active");
+    }, 3000);
+  }
+};
+
+validateForms(".modal__form", rules1, [], afterForm);
+validateForms(".questions__form ", rules2, [], afterForm);

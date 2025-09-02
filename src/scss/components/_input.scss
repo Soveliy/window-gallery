@@ -6,7 +6,7 @@
     display: block;
     width: 100%;
     height: clamp(2.8125rem, 2.4826rem + 1.3534vw, 3.9375rem);
-    font-size: 24px;
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     padding: 0;
     border: none;
     border-bottom: 1px solid var(--white);
