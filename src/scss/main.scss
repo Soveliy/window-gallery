@@ -28,3 +28,7 @@
 @use "./components/questions" as *;
 @use "./components/map" as *;
 @use "./components/thanks-window" as *;
+
+.clip-path-right {
+  clip-path: inset(0% 0% 0% 100%);
+}

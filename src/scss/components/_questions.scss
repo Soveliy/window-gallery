@@ -11,6 +11,7 @@
     }
   }
   &__left {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
     max-width: 53.75rem;
     @include tablet {
       max-width: 100%;
@@ -18,4 +19,3 @@
     }
   }
 }
-

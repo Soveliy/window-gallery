@@ -98,6 +98,10 @@
   // height: 892px;
   overflow: hidden;
   width: 100%;
+  @include tablet {
+    height: 16rem;
+    min-height: inherit;
+  }
   // width: 790px;
   &__item {
     position: absolute;
@@ -110,4 +114,26 @@
     display: block;
     will-change: transform;
   }
+}
+
+.about__counter {
+  display: inline-flex;
+  align-items: center;
+}
+
+.about__counter .counter-window {
+  height: 1em; /* высота по строке */
+  overflow: hidden; /* обрезаем лишнее */
+  position: relative;
+}
+
+.about__counter .counter-reel {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.about__counter .counter-reel span {
+  display: block;
+  line-height: 1em;
 }

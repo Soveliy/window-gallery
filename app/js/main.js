@@ -30408,6 +30408,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__.ScrollToPlugin, gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"], gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_6__["default"]);
+// ScrollSmoother.create({
+//   wrapper: ".site-container",
+//   content: ".site-content",
+//   smooth: 1.5,
+//   effects: true,
+// });
 document.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
   if (pageYOffset > 100) {
@@ -30417,44 +30423,48 @@ document.addEventListener("scroll", () => {
   }
 });
 let hero = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({});
-hero.from(".hero__video", {
-  clipPath: "polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)",
-  yPercent: 50,
-  duration: 1.5,
-  ease: "power3.out"
-});
-hero.to(".hero__video", {
-  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  yPercent: 0,
-  ease: "power3.out"
-}, "-=0.2");
-hero.to(".header", {
-  opacity: 1,
-  y: 0,
-  ease: "power3.out"
-}, "-=0.5");
-hero.to(".hero__desc", {
-  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  duration: 0.6,
-  ease: "power3.out",
-  delay: 0.2
-});
-hero.to(".hero__buttons", {
-  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  duration: 0.6,
-  ease: "power3.out",
-  delay: 0.2
-}, "=-0.5");
-hero.to(".hero__title path", {
-  opacity: 1,
-  y: 0,
-  duration: 0.6,
-  ease: "power3.out",
-  stagger: {
-    each: 0.04,
-    from: "start"
-  }
-}, "=-0.5");
+setTimeout(() => {
+  hero.to(".hero__title path", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    stagger: {
+      each: 0.1,
+      from: "start"
+    }
+  }, "=-0.5");
+  // hero.from(".hero__video", {
+  //   clipPath: "polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)",
+  //   yPercent: 50,
+  //   duration: 1.5,
+  //   ease: "power3.out",
+  // });
+
+  hero.to(".hero__video", {
+    // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 1,
+    ease: "power3.out",
+    opacity: 1
+  }, "-=0.2");
+  hero.to(".header", {
+    opacity: 1,
+    y: 0,
+    ease: "power3.out"
+  }, "-=0.5");
+  hero.to(".hero__desc", {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 0.6,
+    ease: "power3.out",
+    delay: 0.2
+  });
+  hero.to(".hero__buttons", {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 0.6,
+    ease: "power3.out",
+    delay: 0.2
+  }, "=-0.5");
+}, 500);
 class AboutSyncGallery {
   /**
    * @param {HTMLElement} sectionEl - <section class="section about">
@@ -30465,7 +30475,6 @@ class AboutSyncGallery {
     // медиа (общие для десктопа/мобилы)
     this.gallery = sectionEl.querySelector(".about__image-gallery");
     this.medias = this.gallery ? Array.from(this.gallery.querySelectorAll(".image-gallery__item")) : [];
-    this.images = this.medias.map(m => m.querySelector(".image-gallery__item-picture"));
 
     // тексты
     this.descDesktop = Array.from(sectionEl.querySelectorAll(".about__desc--desktop .about__desc-item"));
@@ -30473,156 +30482,161 @@ class AboutSyncGallery {
 
     // counter
     this.counterWrap = sectionEl.querySelector(".about__counter");
-    this.counterSpan = sectionEl.querySelector(".about__counter span");
-    this._counterIndex = 1;
+    this._currentIndex = 0;
     this.mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
   }
   init() {
-    // Десктоп/горизонталь: свой список + свой стиль текста
+    // Десктоп
     this.mm.add("(min-width: 768px) and (min-aspect-ratio: 1/1)", () => this._animate({
-      textItems: this.descDesktop,
-      textOut: (tl, el, dur, at) => tl.to(el, {
-        autoAlpha: 0,
-        y: 16,
-        duration: dur * 0.6,
-        ease: "power2.out"
-      }, at),
-      textIn: (tl, el, dur, at) => tl.fromTo(el, {
-        autoAlpha: 0,
-        y: -12
-      }, {
-        autoAlpha: 1,
-        y: 0,
-        duration: dur * 0.6,
-        ease: "power2.out"
-      }, at + dur * 0.15)
+      textItems: this.descDesktop
     }));
 
-    // Мобила/портрет: тот же тайминг, пин и клипы, но другой стиль текста и свой список
+    // Мобила
     this.mm.add("(max-width: 767px), (max-aspect-ratio: 1/1)", () => this._animate({
-      textItems: this.descMobile,
-      // мобильная анимация текста: свайп — старый уезжает влево, новый — снизу вверх
-      textOut: (tl, el, dur, at) => tl.to(el, {
-        autoAlpha: 0,
-        x: -20,
-        duration: dur * 0.55,
-        ease: "power2.out"
-      }, at),
-      textIn: (tl, el, dur, at) => tl.fromTo(el, {
-        autoAlpha: 0,
-        y: 20
-      }, {
-        autoAlpha: 1,
-        y: 0,
-        duration: dur * 0.55,
-        ease: "power3.out"
-      }, at + dur * 0.12)
+      textItems: this.descMobile
     }));
   }
   _animate(_ref) {
     let {
-      textItems,
-      textOut,
-      textIn
+      textItems
     } = _ref;
     const steps = Math.min(this.medias.length, textItems.length);
     if (steps < 2) return;
 
-    // стартовые: медиа слои (клип) и текст
+    // стартовые состояния
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias, {
-      clipPath: "inset(0 0 0 0)",
-      willChange: "clip-path"
+      clipPath: "inset(0 100% 0 0)",
+      zIndex: 1
     });
-    this.medias.forEach((el, i) => gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(el, {
-      zIndex: this.medias.length - i
-    }));
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[0], {
+      clipPath: "inset(0 0 0 0)",
+      zIndex: 2
+    });
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textItems, {
       autoAlpha: 0,
-      x: 0,
-      y: 0
+      y: 20
     });
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textItems[0], {
-      autoAlpha: 1
+      autoAlpha: 1,
+      y: 0
     });
-
-    // счётчик в любом режиме, если он есть
-    if (this.counterWrap && this.counterSpan) {
+    if (this.counterWrap) {
       this._setCounterTotal(steps);
       this._updateCounter(1, true);
     }
-    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
-      scrollTrigger: {
-        trigger: this.section,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.5,
-        start: "top top",
-        end: "+=" + (steps - 1) * window.innerHeight,
-        snap: {
-          snapTo: 1 / (steps - 1),
-          duration: 0.6,
-          ease: "power2.out"
-        },
-        onUpdate: self => {
-          const idx = Math.max(1, Math.min(steps, Math.round(self.progress * (steps - 1)) + 1));
-          this._updateCounter(idx);
+    gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+      trigger: this.section,
+      pin: true,
+      start: "top top",
+      end: "+=" + (steps - 1) * window.innerHeight,
+      snap: 1 / (steps - 1),
+      onUpdate: self => {
+        const idx = Math.round(self.progress * (steps - 1));
+        if (idx !== this._currentIndex) {
+          this._goToStep(idx, textItems);
         }
-      },
-      defaults: {
-        ease: "none"
       }
     });
-    const seg = 1 / (steps - 1);
-    for (let i = 0; i < steps - 1; i++) {
-      const pos = i * seg;
-
-      // 1) скрыть текущий медиа-слой (без параллакса картинок)
-      tl.to(this.medias[i], {
-        clipPath: "inset(0 100% 0 0)",
-        duration: seg
-      }, pos);
-
-      // 2) текст: разные стили для десктопа/мобилы (переданы колбэками)
-      textOut(tl, textItems[i], seg, pos);
-      textIn(tl, textItems[i + 1], seg, pos);
-    }
     window.addEventListener("resize", () => gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.refresh(), {
       passive: true
     });
   }
+  _goToStep(index, textItems) {
+    const prev = this._currentIndex ?? 0;
+    if (prev === index) return;
+    const dur = 0.6;
 
-  /* helpers */
-  _setCounterTotal(total) {
-    const raw = this.counterWrap?.textContent?.trim() || "";
-    if (raw && raw.includes("/")) return;
-    if (this.counterWrap && this.counterSpan) {
-      const after = document.createTextNode("/" + total);
-      if (!this.counterSpan.nextSibling) this.counterWrap.appendChild(after);else this.counterWrap.replaceChild(after, this.counterSpan.nextSibling);
+    // === КАРТИНКИ ===
+    if (this.medias[index]) {
+      // новая сразу "готова" под старой
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[index], {
+        clipPath: "inset(0 0 0 0)",
+        zIndex: 1
+      });
     }
+    if (this.medias[prev]) {
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[prev], {
+        zIndex: 2
+      }); // старая поверх
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(this.medias[prev], {
+        clipPath: "inset(0 100% 0 0)",
+        // уезжает влево
+        duration: dur,
+        ease: "power2.inOut",
+        onComplete: () => {
+          // после анимации прячем старую
+          gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[prev], {
+            clipPath: "inset(0 100% 0 0)",
+            zIndex: 0
+          });
+        }
+      });
+    }
+
+    // === ТЕКСТ (сверху вниз) ===
+    if (textItems[prev]) {
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(textItems[prev], {
+        autoAlpha: 0,
+        y: -20,
+        duration: dur * 0.6,
+        ease: "power2.out"
+      });
+    }
+    if (textItems[index]) {
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(textItems[index], {
+        autoAlpha: 0,
+        y: -20
+      }, {
+        autoAlpha: 1,
+        y: 0,
+        duration: dur * 0.6,
+        ease: "power2.out",
+        delay: dur * 0.15
+      });
+    }
+
+    // === СЧЁТЧИК ===
+    this._updateCounter(index + 1);
+    this._currentIndex = index;
+  }
+
+  /* === helpers === */
+  _setCounterTotal(total) {
+    if (!this.counterWrap) return;
+    this.counterWrap.innerHTML = "";
+    const windowEl = document.createElement("div");
+    windowEl.classList.add("counter-window");
+    const reel = document.createElement("div");
+    reel.classList.add("counter-reel");
+    windowEl.appendChild(reel);
+    for (let i = 1; i <= total; i++) {
+      const num = document.createElement("span");
+      num.textContent = i;
+      reel.appendChild(num);
+    }
+    this.counterWrap.appendChild(windowEl);
+    const totalSpan = document.createElement("span");
+    totalSpan.classList.add("counter-total");
+    totalSpan.textContent = "/" + total;
+    this.counterWrap.appendChild(totalSpan);
+    this.reel = reel;
   }
   _updateCounter(index) {
     let immediate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    if (!this.counterSpan) return;
+    if (!this.reel) return;
+    const itemHeight = this.reel.firstElementChild.offsetHeight;
+    const offset = -(index - 1) * itemHeight;
     if (immediate) {
-      this.counterSpan.textContent = String(index);
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.reel, {
+        y: offset
+      });
       return;
     }
-    const apply = () => {
-      this.counterSpan.textContent = String(index);
-    };
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
-      defaults: {
-        duration: 0.22,
-        ease: "power2.out"
-      }
-    }).to(this.counterSpan, {
-      y: 8,
-      autoAlpha: 0,
-      onComplete: apply
-    }, 0).to(this.counterSpan, {
-      y: 0,
-      autoAlpha: 1
-    }, 0.12);
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(this.reel, {
+      y: offset,
+      duration: 0.4,
+      ease: "power2.inOut"
+    });
   }
 }
 const section = document.querySelector(".section.about");
@@ -30632,20 +30646,33 @@ if (section) {
 (() => {
   const section = document.querySelector(".history");
   const years = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__years-item");
-  const lineEl = document.querySelector(".history__line");
+  const lineEl = document.querySelector(".history__line"); // прогресс-бар (оставим как визуальный индикатор)
   const svg = document.querySelector(".history__scheme");
-  const clipRect = svg?.querySelector("defs > clipPath rect");
   const texts = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__text-item");
-  if (!section || !lineEl || !svg || !clipRect || !years.length || !texts.length) return;
+  if (!section || !lineEl || !svg || !years.length || !texts.length) return;
+
+  // 1) Собираем элементы для прорисовки (предпочтительно с [data-draw]).
+  //   Фолбэк — все геометрические фигуры со stroke.
+  let drawables = svg.querySelectorAll("[data-draw]");
+  if (!drawables.length) {
+    drawables = svg.querySelectorAll("path, line, polyline, polygon");
+    drawables = [...drawables].filter(el => {
+      const sw = parseFloat(getComputedStyle(el).strokeWidth || el.getAttribute("stroke-width") || "0");
+      const st = getComputedStyle(el).stroke || el.getAttribute("stroke");
+      return sw > 0 && st && st !== "none";
+    });
+  } else {
+    drawables = [...drawables];
+  }
+
+  // переворачиваем порядок элементов
+  drawables.reverse();
+  if (!drawables.length) return;
+
+  // 2) Подготовка шагов и UI
   const steps = years.map((_, i) => i / (years.length - 1));
-  const svgWidth = +svg.getAttribute("viewBox")?.split(" ")[2] || svg.clientWidth || 1011;
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(lineEl, {
     scaleX: 0
-  });
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(clipRect, {
-    attr: {
-      width: 0
-    }
   });
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(texts, {
     autoAlpha: 0,
@@ -30658,6 +30685,50 @@ if (section) {
   });
   years[0].classList.add("is-active");
   let activeIndex = 0;
+
+  // 3) Инициализация штриховки для «рисования»
+  //    Считаем длины всех элементов, строим префиксные суммы для последовательной прорисовки «слева направо»
+  const lengths = drawables.map(el => {
+    try {
+      return typeof el.getTotalLength === "function" ? el.getTotalLength() : 0;
+    } catch {
+      return 0;
+    }
+  });
+  const totalLength = lengths.reduce((a, b) => a + b, 0);
+  const prefix = [];
+  lengths.reduce((acc, len) => (prefix.push(acc), acc + len), 0);
+  drawables.forEach((el, i) => {
+    const L = Math.max(0.0001, lengths[i]);
+    el.style.fill = el.style.fill || "none";
+    el.style.strokeDasharray = L;
+    el.style.strokeDashoffset = L;
+    el.style.vectorEffect = "non-scaling-stroke";
+
+    // убираем stroke на старте
+    el.dataset.origStroke = getComputedStyle(el).stroke || "#fff";
+    el.style.stroke = "none";
+  });
+  function drawProgress(progress) {
+    const drawn = totalLength * gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.clamp(0, 1, progress);
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(lineEl, {
+      scaleX: progress,
+      duration: 0.6,
+      ease: "power2.out"
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(drawables, {
+      duration: 0.8,
+      ease: "power2.out",
+      stroke: i => drawn > prefix[i] ? "#fff" : "none",
+      // включаем stroke только при отрисовке
+      strokeDashoffset: i => {
+        const L = lengths[i];
+        if (!L) return 0;
+        const localDrawn = Math.min(Math.max(drawn - prefix[i], 0), L);
+        return L - localDrawn;
+      }
+    });
+  }
   function switchText(toIndex) {
     if (toIndex === activeIndex) return;
     const from = texts[activeIndex];
@@ -30683,25 +30754,37 @@ if (section) {
     years[toIndex].classList.add("is-active");
     activeIndex = toIndex;
   }
-  function animateProgress(progress) {
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(lineEl, {
-      scaleX: progress,
-      duration: 0.6,
-      ease: "power2.out"
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(clipRect, {
-      attr: {
-        width: svgWidth * progress
-      },
-      duration: 0.8,
-      ease: "power2.out"
-    });
-  }
+
+  // 4) Прорисовка: переводим прогресс [0..1] в «сколько миллиметров уже нарисовано»
+  // function drawProgress(progress) {
+  //   const drawn = totalLength * gsap.utils.clamp(0, 1, progress);
+
+  //   // Обновим визуальный прогресс-бар (если он нужен)
+  //   gsap.to(lineEl, { scaleX: progress, duration: 0.6, ease: "power2.out" });
+
+  //   // Для каждого сегмента считаем, какая часть должна быть уже нарисована.
+  //   // visibleLen = clamp(drawn - prefix[i], 0, lengths[i])
+  //   // dashoffset = L - visibleLen
+  //   gsap.to(drawables, {
+  //     duration: 0.8,
+  //     ease: "power2.out",
+  //     // Функциональное значение для каждого элемента
+  //     strokeDashoffset: (i) => {
+  //       const L = lengths[i];
+  //       if (!L) return 0;
+  //       const localDrawn = Math.min(Math.max(drawn - prefix[i], 0), L);
+  //       return L - localDrawn;
+  //     },
+  //   });
+  // }
+
   function goToStep(index) {
     const progress = steps[index];
-    animateProgress(progress);
+    drawProgress(progress);
     switchText(index);
   }
+
+  // 5) ScrollTrigger
   gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
     trigger: section,
     start: "top top",
@@ -30712,17 +30795,24 @@ if (section) {
     anticipatePin: 1,
     onUpdate: self => {
       const p = self.progress;
-      animateProgress(p);
+      drawProgress(p);
+
+      // выбор активного «года» по ближайшему шагу
       const idx = steps.reduce((acc, s, i) => Math.abs(p - s) < Math.abs(p - steps[acc]) ? i : acc, 0);
       if (idx !== activeIndex) switchText(idx);
     }
   });
+
+  // лёгкий въезд заголовка
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(section.querySelector(".section__title"), {
     autoAlpha: 0,
     y: 20,
     duration: 0.6,
     ease: "power2.out"
   });
+
+  // Если где-то нужно программно прыгнуть к шагу:
+  // goToStep(2);
 })();
 const items = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".tasks-item");
 function activate(el) {
@@ -30757,6 +30847,157 @@ document.querySelectorAll(".advantages-item").forEach(item => {
     if (svg) animateSVG(svg);
   });
 });
+document.querySelectorAll(".clip-path-right").forEach(section => {
+  const img = section.querySelector("img");
+  if (!img) return;
+
+  // подготовка: скрываем за маской и задаём начальный масштаб
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(section, {
+    overflow: "hidden",
+    clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(img, {
+    scale: 1
+  }); // начальный масштаб
+
+  // параллакс-скейл по скроллу
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom",
+      // когда верх блока дотронется до низа окна
+      end: "bottom top",
+      // пока блок не выйдет вверх
+      scrub: true // синхронизация с прокруткой
+      // markers: true        // можно включить для отладки
+    }
+  }).to(img, {
+    scale: 1,
+    // конечный масштаб
+    y: 50,
+    // сдвиг вниз на 50px
+    ease: "none"
+  });
+
+  // одноразовое раскрытие маски
+  gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+    trigger: section,
+    start: "top 40%",
+    once: true,
+    onEnter: () => {
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(section, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        // раскрываем маску
+        ease: "power4.inOut",
+        duration: 0.7
+      });
+    }
+  });
+});
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".questions__left", {
+  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  duration: 0.6,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".questions",
+    start: "top 40%" // когда секция на 80% экрана
+  }
+});
+
+// Анимация отрисовки всех path в svg
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray("#svg path").forEach(path => {
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(path, {
+    drawSVG: "0%",
+    // начинаем с пустого контура
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#map",
+      start: "top 40%" // запуск при появлении карты
+    }
+  });
+});
+
+// Можно анимировать маркер (pin)
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(".map__pin", {
+  opacity: 0,
+  ease: "back.out(1.7)",
+  delay: 0.3,
+  scrollTrigger: {
+    trigger: "#map",
+    start: "top 40%"
+  }
+});
+
+// Анимация элементов футера
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(".footer__item", {
+  y: 50,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power3.out",
+  stagger: 0.2,
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top 40%"
+  }
+});
+
+// Соцсети "выстреливают"
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(".social__item", {
+  scale: 0,
+  opacity: 0,
+  duration: 0.4,
+  ease: "back.out(1.7)",
+  stagger: 0.1,
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top 40%"
+  }
+});
+
+// Отрисовка svg-текста (desktop)
+// gsap.utils.toArray(".footer__title-svg--desktop path").forEach((path, i) => {
+//   gsap.from(path, {
+//     drawSVG: "0%",
+//     duration: 1,
+//     ease: "power2.out",
+//     delay: i * 0.05,
+//     marker: true,
+//     scrollTrigger: {
+//       trigger: ".footer__title-svg--desktop",
+//       start: "top top",
+//       markers: true,
+//     },
+//   });
+// });
+
+// Для мобильного svg
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".footer__title-svg--mobile path").forEach((path, i) => {
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(path, {
+    drawSVG: "0%",
+    duration: 0.8,
+    ease: "power2.out",
+    delay: i * 0.03,
+    scrollTrigger: {
+      trigger: ".footer__title-svg--mobile",
+      start: "top 80%"
+    }
+  });
+});
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".footer__title path", {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  ease: "power3.out",
+  stagger: {
+    each: 0.1,
+    from: "start"
+  },
+  scrollTrigger: {
+    trigger: ".footer__title",
+    start: "top 80%"
+  }
+}, "=-0.5");
 
 /***/ }),
 

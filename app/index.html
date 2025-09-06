@@ -16,7 +16,9 @@
 
 <body class="page__body">
   <div class="site-container">
-    <header class="header">
+    <div class="site-content">
+
+      <header class="header">
   <div class="container">
     <div class="header__row">
       <a href="/" class="header__logo logo">
@@ -51,8 +53,8 @@
 
   </div>
 </header>
-    <main class="main">
-      <div class="hero">
+      <main class="main">
+        <div class="hero">
   <div class="container">
     <div class="hero__content">
       <div class="hero__row">
@@ -62,7 +64,14 @@
         </div>
         <div class="hero__buttons">
           <button data-micromodal-trigger="callback" class="hero__button button button--round button--big">Стать
-            дилером</button>
+            дилером
+
+            <svg class="border" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <polyline points="100,0 100,100 0,100 0,0 100,0" class="bg-line"></polyline>
+              <polyline points="100,0 100,100 0,100 0,0 100,0" class="hl-line"></polyline>
+            </svg>
+
+          </button>
           <button data-micromodal-trigger="callback" class="hero__button button button--white button--big">Заказать
             окна</button>
         </div>
@@ -141,7 +150,7 @@
     <source src="video/video.mp4" type="video/mp4" />
   </video>
 </div>
-      <section class="section about">
+        <section class="section about">
   <div class="container">
     <div class="about__row">
       <div class="about__left">
@@ -174,7 +183,7 @@
         </div>
       </div>
       <div class="about__right">
-        <div class="about__image-gallery image-gallery">
+        <div class="about__image-gallery image-gallery clip-path-right">
           <div class="image-gallery__item">
             <img class="image-gallery__item-picture" src="img/about/1.jpg" alt="">
 
@@ -192,7 +201,10 @@
 
           </div>
         </div>
-        <div class="about__counter corner corner--bottom"><span>1</span>/4</div>
+        <div class="about__counter corner corner--bottom">
+          <span></span>
+        </div>
+
       </div>
       <div class="about__desc about__desc--mobile">
         <div class="about__desc-item">Высокое качество продукции: изготовление на автоматизированных линиях строго по
@@ -211,7 +223,7 @@
 
   </div>
 </section>
-      <section class="section history">
+        <section class="section history">
   <div class="container">
     <div class="section__title">
       Развитие предприятия
@@ -257,7 +269,8 @@
       <div class="history__image-container">
         <svg class="history__scheme" width="1011" height="172" viewBox="0 0 1011 172" fill="none"
           xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_520_3955)">
+          <!-- clip-path="url(#clip0_520_3955)" -->
+          <g>
             <path d="M1009.71 37.6144V171.585" stroke="white" />
             <path d="M950.992 13.1048V37.1038" stroke="white" />
             <path d="M940.448 13.1048H951.497" stroke="white" />
@@ -479,22 +492,22 @@
             <path
               d="M4.66016 64.1702H264.404M266.699 64.1702H514.608M516.903 64.1702H757.639M4.66016 74.3826H264.404M266.699 74.3826H514.608M516.903 74.3826H757.639"
               stroke="white" />
-            <path
+            <path class="first"
               d="M1 57.0216V55.4897H6.10617V57.0216L4.57432 58.0428V74.8932H5.59555V76.9356H4.57432V114.211H5.59555V116.253H4.57432V171.4H2.53185V116.253H1.51062V114.211H2.53185V76.9356H1.51062V74.8932H2.53185V58.0428L1 57.0216Z"
               stroke="white" />
           </g>
-          <defs>
+          <!-- <defs>
             <clipPath id="clip0_520_3955">
               <rect width="600" height="172" fill="white" />
             </clipPath>
-          </defs>
+          </defs> -->
         </svg>
       </div>
 
     </div>
   </div>
 </section>
-      <section class="section advantages">
+        <section class="section advantages">
   <div class="container">
     <h2 class="section__title">ПРЕИМУЩЕСТВА</h2>
     <div class="advantages__items">
@@ -784,13 +797,13 @@
     </div>
   </div>
 </section>
-      <section class="section works">
+        <section class="section works">
   <div class="container">
     <h2 class="section__title">
       ВЫПОЛНЕННЫЕ РАБОТЫ
     </h2>
   </div>
-  <div class="swiper works__main-slider-js  works__main-slider">
+  <div class="swiper  clip-path-right works__main-slider-js  works__main-slider">
     <div class="swiper-wrapper">
       <div class="swiper-slide works__main-slide">
         <div class="works__main-slider-image">
@@ -858,7 +871,7 @@
   </div>
 
 </section>
-      <section class="section production">
+        <section class="section production">
   <div class="container">
     <div class="section__pretitle">Клиентам</div>
     <h2 class="section__title">производим</h2>
@@ -914,7 +927,7 @@
     </div>
   </div>
 </section>
-      <section class="section tasks">
+        <section class="section tasks">
   <div class="container">
     <h2 class="section__title">
       под любые задачи
@@ -922,7 +935,7 @@
     <div class="tasks__items">
       <div class="tasks-item js-active">
         <div class="tasks-item__row">
-          <div class="tasks-item__image">
+          <div class="tasks-item__image clip-path-right">
             <img src="img/tasks/1.jpg" alt="">
           </div>
           <div class="tasks-item__content corner corner--default">
@@ -939,7 +952,7 @@
       </div>
       <div class="tasks-item">
         <div class="tasks-item__row tasks-item__row--flex-end">
-          <div class="tasks-item__image">
+          <div class="tasks-item__image clip-path-right">
             <img src="img/tasks/2.jpg" alt="">
           </div>
           <div class="tasks-item__content corner corner--default">
@@ -958,7 +971,7 @@
     </div>
   </div>
 </section>
-      <section class="section reviews">
+        <section class="section reviews">
   <div class="container">
     <h2 class="section__title">
       о нас говорят
@@ -1061,20 +1074,21 @@
     </div>
   </div>
 </section>
-      <div class="quote">
-    <picture class="quote__picture">
-        <source srcset="img/quote.webp" type="image/webp">
-        <img src="img/quote.jpg" alt="">
-    </picture>
-    <div class="quote__content">
-        <div class="container">
-            <div class="quote__title corner corner--default">
-                «Галерея окон» — ваш надёжный партнёр для дилеров и уверенный выбор для тех, кто ценит качество. Мы производим, сопровождаем и устанавливаем — с заботой о каждом клиенте
-            </div>
-        </div>
+        <div class="quote clip-path-right">
+  <picture class="quote__picture">
+    <source srcset="img/quote.webp" type="image/webp">
+    <img src="img/quote.jpg" alt="">
+  </picture>
+  <div class="quote__content">
+    <div class="container">
+      <div class="quote__title corner corner--default">
+        «Галерея окон» — ваш надёжный партнёр для дилеров и уверенный выбор для тех, кто ценит качество. Мы производим,
+        сопровождаем и устанавливаем — с заботой о каждом клиенте
+      </div>
     </div>
+  </div>
 </div>
-      <section class="section questions">
+        <section class="section questions">
   <div class="container">
     <div class="questions__row">
       <div class="questions__left">
@@ -1174,8 +1188,8 @@
     </div>
   </div>
 </section>
-    </main>
-    <footer class="footer">
+      </main>
+      <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__item">
@@ -1380,6 +1394,7 @@
   <div class="thanks-window__desc">Ваша заявка принята в работу</div>
 </div>
 
+    </div>
   </div>
 </body>
 

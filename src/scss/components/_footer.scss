@@ -69,11 +69,16 @@
     }
   }
   &__title {
+    display: flex;
     margin-top: clamp(2.5rem, 2.1335rem + 1.5038vw, 3.75rem);
 
     &-svg {
       height: auto;
       width: 100%;
+      path {
+        transform: translateY(20px);
+        opacity: 0;
+      }
       &--desktop {
         @include mobile {
           display: none;

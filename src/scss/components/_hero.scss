@@ -74,7 +74,8 @@
     object-fit: cover;
     object-position: center;
     z-index: 10;
-    clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
+    opacity: 0;
+    // clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
   }
   &__button {
     @include mobile {

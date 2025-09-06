@@ -5,22 +5,25 @@
 
 <body class="page__body">
   <div class="site-container">
-    @include('partials/header.html')
-    <main class="main">
-      @include('partials/hero.html')
-      @include('partials/about.html')
-      @include('partials/history.html')
-      @include('partials/advantages.html')
-      @include('partials/works.html')
-      @include('partials/production.html')
-      @include('partials/tasks.html')
-      @include('partials/reviews.html')
-      @include('partials/quote.html')
-      @include('partials/questions.html')
-    </main>
-    @include('partials/footer.html')
+    <div class="site-content">
 
-    <!-- @include('html/h1.html') пример include -->
+      @include('partials/header.html')
+      <main class="main">
+        @include('partials/hero.html')
+        @include('partials/about.html')
+        @include('partials/history.html')
+        @include('partials/advantages.html')
+        @include('partials/works.html')
+        @include('partials/production.html')
+        @include('partials/tasks.html')
+        @include('partials/reviews.html')
+        @include('partials/quote.html')
+        @include('partials/questions.html')
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
   </div>
 </body>
 

@@ -10,8 +10,12 @@
   z-index: 500;
   transition: 0.3s;
   transform: translateY(-100%);
+
   &.js-scroll {
-    background-color: var(--black);
+    // padding: 1rem 0;
+    // background-color: var(--black);
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--black), 0.01);
   }
   &__row {
     display: flex;
