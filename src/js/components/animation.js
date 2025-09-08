@@ -491,21 +491,26 @@ document.querySelectorAll(".clip-path-right").forEach((section) => {
   gsap.set(img, { scale: 1 }); // начальный масштаб
 
   // параллакс-скейл по скроллу
-  gsap
-    .timeline({
+  gsap.fromTo(
+    img,
+    {
+      scale: 1.3,
+      yPercent: -15,
+      ease: "none",
+    },
+    {
+      yPercent: 15,
+      ease: "none",
+      scale: 1.3,
       scrollTrigger: {
         trigger: section,
         start: "top bottom", // когда верх блока дотронется до низа окна
         end: "bottom top", // пока блок не выйдет вверх
         scrub: true, // синхронизация с прокруткой
-        // markers: true        // можно включить для отладки
+        // markers: true
       },
-    })
-    .to(img, {
-      scale: 1, // конечный масштаб
-      y: 50, // сдвиг вниз на 50px
-      ease: "none",
-    });
+    }
+  );
 
   // одноразовое раскрытие маски
   ScrollTrigger.create({
@@ -630,3 +635,52 @@ gsap.to(
   },
   "=-0.5"
 );
+
+// (() => {
+//   const RADIUS = 60;
+
+//   document
+//     .querySelectorAll(".production-slide__image-container")
+//     .forEach((container) => {
+//       const img = container.querySelector(".production-slide__image");
+
+//       function onMove(e) {
+//         const rect = container.getBoundingClientRect();
+//         const x = e.clientX - rect.left;
+//         const y = e.clientY - rect.top;
+//         img.style.clipPath = `circle(${RADIUS}px at ${x}px ${y}px)`;
+//       }
+
+//       function onLeave() {
+//         img.style.clipPath = `circle(0px at 0 0)`;
+//       }
+
+//       container.addEventListener("mousemove", onMove);
+//       container.addEventListener("mouseleave", onLeave);
+//     });
+// })();
+
+(() => {
+  const RADIUS = 60;
+
+  document
+    .querySelectorAll(".production-slide__image-container")
+    .forEach((container) => {
+      const img = container.querySelector(".production-slide__image");
+
+      function onMove(e) {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        img.style.webkitMaskImage = `radial-gradient(circle ${RADIUS}px at ${x}px ${y}px, transparent 100%, black 100%)`;
+      }
+
+      function onLeave() {
+        img.style.webkitMaskImage = `radial-gradient(circle 0px at 0 0, transparent 0%, black 0%)`;
+      }
+
+      container.addEventListener("mousemove", onMove);
+      container.addEventListener("mouseleave", onLeave);
+    });
+})();

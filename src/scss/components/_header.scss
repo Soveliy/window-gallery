@@ -13,9 +13,9 @@
 
   &.js-scroll {
     // padding: 1rem 0;
-    // background-color: var(--black);
-    backdrop-filter: blur(10px);
-    background-color: rgba(var(--black), 0.01);
+    background-color: var(--black);
+    // backdrop-filter: blur(10px);
+    // background-color: rgba(var(--black), 0.01);
   }
   &__row {
     display: flex;

@@ -70,6 +70,7 @@
   }
   &__thumbs-item {
     position: relative;
+    overflow: hidden;
     pointer-events: all;
     height: 6.25rem;
     cursor: pointer;

@@ -45,6 +45,24 @@
       }
     }
   }
+  &--top {
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1.5rem;
+      width: 1.5rem;
+      border: 2px solid var(--white);
+      transition: ease-out 0.3s;
+      right: 0;
+      top: 0;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      @include tablet {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+  }
   &--lit {
     &:before,
     &:after {

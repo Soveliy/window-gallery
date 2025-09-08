@@ -6,6 +6,7 @@ import {
   EffectFade,
   Pagination,
   Autoplay,
+  EffectCreative,
 } from "swiper/modules";
 // Swiper.use(Navigation, EffectCoverflow, Mousewheel);
 const sliderProds = new Swiper(".production__slider--js", {
@@ -17,9 +18,9 @@ const sliderProds = new Swiper(".production__slider--js", {
   maxBackfaceHiddenSlides: 3,
   initialSlide: 1,
   loop: true,
-  autoplay: true,
+  // autoplay: true,
   effect: "coverflow",
-  // loop: true,
+  pauseOnMouseEnter: true,
   coverflowEffect: {
     rotate: 0,
     stretch: 0,
@@ -54,11 +55,29 @@ const swiper = new Swiper(".works__thumbs--js", {
   watchSlidesProgress: true,
 });
 const swiper2 = new Swiper(".works__main-slider-js", {
-  modules: [Thumbs, Navigation, EffectFade, Pagination, Autoplay],
+  modules: [
+    Thumbs,
+    Navigation,
+    EffectFade,
+    Pagination,
+    Autoplay,
+    EffectCreative,
+  ],
   loop: true,
   autoplay: true,
   spaceBetween: 0,
-  effect: "fade",
+  effect: "creative",
+  speed: 600,
+
+  creativeEffect: {
+    prev: {
+      shadow: true,
+      translate: ["-20%", 0, -1],
+    },
+    next: {
+      translate: ["100%", 0, 0],
+    },
+  },
   navigation: {
     nextEl: ".works__arrow--next",
     prevEl: ".works__arrow--prev",

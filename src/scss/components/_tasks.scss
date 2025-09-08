@@ -17,6 +17,9 @@
 .tasks-item {
   width: 72%;
   transition: ease 0.6s;
+  @include small-tablet {
+    width: 100%;
+  }
   &.js-active {
     width: 100%;
     .tasks-item__title {
@@ -32,14 +35,20 @@
       }
     }
     .tasks-item__row {
-      gap: 40px;
+      gap: 2.5rem;
+      @include small-tablet {
+        gap: 1.25rem;
+      }
     }
     &:nth-child(2).js-active ~ .tasks__image {
-      transform: translateY(-122%) rotate(11deg);
+      transform: translateY(-40%) rotate(11deg);
     }
   }
   & + & {
-    margin-top: 60px;
+    margin-top: 3.75rem;
+    @include small-tablet {
+      margin-top: 2.5rem;
+    }
   }
   &__row {
     display: flex;
@@ -53,6 +62,9 @@
     @include tablet {
       align-items: flex-start;
       flex-direction: column;
+    }
+    @include small-tablet {
+      gap: 1.25rem;
     }
   }
   &__image {
@@ -73,7 +85,7 @@
     padding: 1.25rem;
     transition: ease 0.6s;
     @include tablet {
-      padding: 0.5rem;
+      padding: 0.75rem;
     }
   }
   &__title {
@@ -82,9 +94,15 @@
     text-transform: uppercase;
     color: var(--white);
     transition: ease 0.6s;
+    @include small-tablet {
+      font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    }
   }
   &__desc {
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     transition: ease 0.6s;
+    @include small-tablet {
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    }
   }
 }

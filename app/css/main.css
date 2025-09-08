@@ -89,6 +89,13 @@ img {
 a {
   color: var(--white);
   text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--gray-base);
+  }
 }
 
 .site-container {
@@ -195,9 +202,7 @@ a {
   transform: translateY(-100%);
 }
 .header.js-scroll {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-color: rgba(var(--black), 0.01);
+  background-color: var(--black);
 }
 .header__row {
   display: -webkit-box;
@@ -423,6 +428,13 @@ a {
 .footer__link {
   font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
   color: var(--gray-base);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  .footer__link:hover {
+    color: var(--white);
+  }
 }
 .footer__list-item {
   font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
@@ -626,12 +638,13 @@ a {
   height: 100%;
   fill: none;
   stroke: #fff;
-  stroke-width: 2px;
+  stroke-width: 4px;
   pointer-events: none;
-  stroke-dasharray: 100 300;
+  z-index: -1;
+  stroke-dasharray: 180 540;
   stroke-dashoffset: 100;
-  -webkit-transition: stroke-dashoffset 1s ease-in-out;
-  transition: stroke-dashoffset 1s ease-in-out;
+  -webkit-transition: stroke-dashoffset 5s ease-in-out;
+  transition: stroke-dashoffset 5s ease-in-out;
   -webkit-animation: slide-in 5s infinite linear;
   animation: slide-in 5s infinite linear;
 }
@@ -696,19 +709,19 @@ a {
 
 @-webkit-keyframes slide-in {
   from {
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 180;
   }
   to {
-    stroke-dashoffset: -300;
+    stroke-dashoffset: -540;
   }
 }
 
 @keyframes slide-in {
   from {
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 180;
   }
   to {
-    stroke-dashoffset: -300;
+    stroke-dashoffset: -540;
   }
 }
 .hero {
@@ -1162,8 +1175,6 @@ a {
   justify-content: space-between;
 }
 .production-slide__image, .production-slide__image-placeholder {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -1194,6 +1205,8 @@ a {
   }
 }
 .production-slide.swiper-slide-active .production-slide__image {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   opacity: 1;
 }
 
@@ -1218,6 +1231,11 @@ a {
   -webkit-transition: ease 0.6s;
   transition: ease 0.6s;
 }
+@media (max-width: 768px) {
+  .tasks-item {
+    width: 100%;
+  }
+}
 .tasks-item.js-active {
   width: 100%;
 }
@@ -1236,15 +1254,25 @@ a {
   }
 }
 .tasks-item.js-active .tasks-item__row {
-  gap: 40px;
+  gap: 2.5rem;
+}
+@media (max-width: 768px) {
+  .tasks-item.js-active .tasks-item__row {
+    gap: 1.25rem;
+  }
 }
 .tasks-item.js-active:nth-child(2).js-active ~ .tasks__image {
-  -webkit-transform: translateY(-122%) rotate(11deg);
-  -ms-transform: translateY(-122%) rotate(11deg);
-  transform: translateY(-122%) rotate(11deg);
+  -webkit-transform: translateY(-40%) rotate(11deg);
+  -ms-transform: translateY(-40%) rotate(11deg);
+  transform: translateY(-40%) rotate(11deg);
 }
 .tasks-item + .tasks-item {
-  margin-top: 60px;
+  margin-top: 3.75rem;
+}
+@media (max-width: 768px) {
+  .tasks-item + .tasks-item {
+    margin-top: 2.5rem;
+  }
 }
 .tasks-item__row {
   display: -webkit-box;
@@ -1271,6 +1299,11 @@ a {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .tasks-item__row {
+    gap: 1.25rem;
   }
 }
 .tasks-item__image {
@@ -1300,7 +1333,7 @@ a {
 }
 @media (max-width: 1024px) {
   .tasks-item__content {
-    padding: 0.5rem;
+    padding: 0.75rem;
   }
 }
 .tasks-item__title {
@@ -1311,10 +1344,20 @@ a {
   -webkit-transition: ease 0.6s;
   transition: ease 0.6s;
 }
+@media (max-width: 768px) {
+  .tasks-item__title {
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+  }
+}
 .tasks-item__desc {
   font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
   -webkit-transition: ease 0.6s;
   transition: ease 0.6s;
+}
+@media (max-width: 768px) {
+  .tasks-item__desc {
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+  }
 }
 
 .advantages-item {
@@ -1457,6 +1500,7 @@ a {
 }
 .works__thumbs-item {
   position: relative;
+  overflow: hidden;
   pointer-events: all;
   height: 6.25rem;
   cursor: pointer;
@@ -1523,6 +1567,25 @@ a {
 }
 @media (max-width: 1024px) {
   .corner--bottom:before {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+.corner--top:before {
+  content: "";
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid var(--white);
+  -webkit-transition: ease-out 0.3s;
+  transition: ease-out 0.3s;
+  right: 0;
+  top: 0;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+@media (max-width: 1024px) {
+  .corner--top:before {
     width: 0.75rem;
     height: 0.75rem;
   }
@@ -1674,9 +1737,41 @@ a {
   -ms-flex: 1;
   flex: 1;
   width: 100%;
-  border-left: 1px solid var(--white);
-  border-right: 1px solid var(--white);
   height: 24.74vw;
+}
+.reviews-item + .reviews-item {
+  margin-right: -1px;
+}
+.reviews-item:before, .reviews-item:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 2px;
+  background-color: var(--gray-base);
+  bottom: 0;
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  .reviews-item:hover {
+    z-index: 50;
+  }
+  .reviews-item:hover:not(.js-active):hover:after {
+    height: 100%;
+  }
+}
+.reviews-item::before {
+  right: 0;
+  height: 100%;
+  background-color: var(--white);
+}
+.reviews-item:after {
+  right: 0;
+  z-index: 50;
+}
+.reviews-item:not(.js-active) {
+  cursor: pointer;
 }
 @media (max-width: 1024px) {
   .reviews-item {
@@ -1741,6 +1836,9 @@ a {
   opacity: 0;
   visibility: hidden;
   display: none;
+}
+.reviews-item.js-active:last-child:after, .reviews-item.js-active:last-child::before {
+  opacity: 0;
 }
 .reviews-item__desc {
   font-size: 1.25vw;
@@ -1936,5 +2034,16 @@ a {
 }
 
 .clip-path-right {
+  position: relative;
+  overflow: hidden;
   clip-path: inset(0% 0% 0% 100%);
+}
+.clip-path-right img {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  height: 100%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }/*# sourceMappingURL=main.css.map */

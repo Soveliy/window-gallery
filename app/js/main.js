@@ -30861,7 +30861,14 @@ document.querySelectorAll(".clip-path-right").forEach(section => {
   }); // начальный масштаб
 
   // параллакс-скейл по скроллу
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(img, {
+    scale: 1.3,
+    yPercent: -15,
+    ease: "none"
+  }, {
+    yPercent: 15,
+    ease: "none",
+    scale: 1.3,
     scrollTrigger: {
       trigger: section,
       start: "top bottom",
@@ -30869,14 +30876,8 @@ document.querySelectorAll(".clip-path-right").forEach(section => {
       end: "bottom top",
       // пока блок не выйдет вверх
       scrub: true // синхронизация с прокруткой
-      // markers: true        // можно включить для отладки
+      // markers: true
     }
-  }).to(img, {
-    scale: 1,
-    // конечный масштаб
-    y: 50,
-    // сдвиг вниз на 50px
-    ease: "none"
   });
 
   // одноразовое раскрытие маски
@@ -30998,6 +30999,48 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".footer__title path", {
     start: "top 80%"
   }
 }, "=-0.5");
+
+// (() => {
+//   const RADIUS = 60;
+
+//   document
+//     .querySelectorAll(".production-slide__image-container")
+//     .forEach((container) => {
+//       const img = container.querySelector(".production-slide__image");
+
+//       function onMove(e) {
+//         const rect = container.getBoundingClientRect();
+//         const x = e.clientX - rect.left;
+//         const y = e.clientY - rect.top;
+//         img.style.clipPath = `circle(${RADIUS}px at ${x}px ${y}px)`;
+//       }
+
+//       function onLeave() {
+//         img.style.clipPath = `circle(0px at 0 0)`;
+//       }
+
+//       container.addEventListener("mousemove", onMove);
+//       container.addEventListener("mouseleave", onLeave);
+//     });
+// })();
+
+(() => {
+  const RADIUS = 60;
+  document.querySelectorAll(".production-slide__image-container").forEach(container => {
+    const img = container.querySelector(".production-slide__image");
+    function onMove(e) {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      img.style.webkitMaskImage = `radial-gradient(circle ${RADIUS}px at ${x}px ${y}px, transparent 100%, black 100%)`;
+    }
+    function onLeave() {
+      img.style.webkitMaskImage = `radial-gradient(circle 0px at 0 0, transparent 0%, black 0%)`;
+    }
+    container.addEventListener("mousemove", onMove);
+    container.addEventListener("mouseleave", onLeave);
+  });
+})();
 
 /***/ }),
 
@@ -31178,9 +31221,9 @@ const sliderProds = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product
   maxBackfaceHiddenSlides: 3,
   initialSlide: 1,
   loop: true,
-  autoplay: true,
+  // autoplay: true,
   effect: "coverflow",
-  // loop: true,
+  pauseOnMouseEnter: true,
   coverflowEffect: {
     rotate: 0,
     stretch: 0,
@@ -31214,11 +31257,21 @@ const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".works__thumb
   watchSlidesProgress: true
 });
 const swiper2 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".works__main-slider-js", {
-  modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Thumbs, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectFade, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay],
+  modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Thumbs, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectFade, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectCreative],
   loop: true,
   autoplay: true,
   spaceBetween: 0,
-  effect: "fade",
+  effect: "creative",
+  speed: 600,
+  creativeEffect: {
+    prev: {
+      shadow: true,
+      translate: ["-20%", 0, -1]
+    },
+    next: {
+      translate: ["100%", 0, 0]
+    }
+  },
   navigation: {
     nextEl: ".works__arrow--next",
     prevEl: ".works__arrow--prev"

@@ -59,7 +59,7 @@
   }
   &__image,
   &__image-placeholder {
-    transition: 0.3s;
+    // transition: 0.3s;
     transform: scale(1);
   }
   &__image {
@@ -87,6 +87,7 @@
   }
   &.swiper-slide-active {
     .production-slide__image {
+      transition: 0.3s;
       opacity: 1;
     }
   }

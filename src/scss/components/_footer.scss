@@ -31,6 +31,10 @@
   &__link {
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-base);
+    transition: 0.3s;
+    @include hover {
+      color: var(--white);
+    }
   }
   &__list-item {
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
