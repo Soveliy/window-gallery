@@ -1,0 +1,22 @@
+.breadcrumbs {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+  }
+  &__item {
+    &:not(:first-child) {
+      &::before {
+        content: "-";
+      }
+    }
+  }
+  &__link {
+    color: var(--gray-base);
+    &--last {
+      color: var(--white);
+    }
+  }
+}

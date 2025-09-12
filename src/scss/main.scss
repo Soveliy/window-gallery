@@ -28,7 +28,13 @@
 @use "./components/questions" as *;
 @use "./components/map" as *;
 @use "./components/thanks-window" as *;
-
+@use "./components/page-head" as *;
+@use "./components/breadcrumbs" as *;
+@use "./components/banner" as *;
+@use "./components/cards" as *;
+@use "./components/sticker" as *;
+@use "./components/tegs" as *;
+@use "./components/best-works" as *;
 .clip-path-right {
   position: relative;
   overflow: hidden;

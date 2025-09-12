@@ -1,0 +1,44 @@
+.banner {
+  position: relative;
+  &__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(#000, 0.2);
+    }
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__container {
+    position: relative;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.25rem, -0.0432rem + 1.203vw, 1.25rem);
+    padding: 7.5rem 0;
+    max-width: 53.75rem;
+    color: var(--white);
+  }
+  &__title {
+    font-family: var(--second-family);
+    margin: 0;
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  &__desc {
+    font-size: clamp(0.875rem, 0.6917rem + 0.7519vw, 1.5rem);
+  }
+}

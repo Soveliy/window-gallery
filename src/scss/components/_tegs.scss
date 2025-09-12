@@ -1,0 +1,39 @@
+@use "./mixins/disable-mob-hover" as *;
+.tegs {
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  &__reset {
+    font-size: 1rem;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: var(--gray-base);
+    background-color: transparent;
+  }
+}
+
+.teg {
+  cursor: pointer;
+  color: var(--white);
+  transition: background-color 0.3s;
+  background-color: rgba(61, 61, 61, 0.15);
+  outline: 0;
+  border: 0;
+  padding: 4px 20px 8px;
+  &:active {
+    background-color: #2f2f2f;
+  }
+  &.js-current {
+    background-color: var(--white);
+  }
+  @include hover {
+    &:hover {
+      background-color: var(--gray-dark);
+    }
+  }
+}

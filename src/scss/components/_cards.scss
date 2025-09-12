@@ -1,0 +1,47 @@
+.cards {
+  padding: 3.75rem 0 6.25rem;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  &__tegs {
+    margin-bottom: 60px;
+  }
+}
+.card-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-dark);
+  &__image-container {
+    position: relative;
+  }
+  &__sticker {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+  &__image {
+    height: 16.25rem;
+    flex-shrink: 0;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 40px;
+  }
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  &__desc {
+    margin: 12px 0 40px;
+  }
+  &__button {
+    display: block;
+    margin-top: auto;
+  }
+}

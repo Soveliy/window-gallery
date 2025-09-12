@@ -1,0 +1,15 @@
+.page-top {
+  padding: clamp(5.375rem, 4.3853rem + 4.0602vw, 8.75rem) 0
+    clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+  &__breadcrumbs {
+    margin-bottom: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+  }
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);
+    text-transform: uppercase;
+    color: var(--white);
+  }
+}

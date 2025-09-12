@@ -1,0 +1,26 @@
+.best-works {
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__head-item {
+    font-family: var(--second-family);
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    text-transform: uppercase;
+    color: var(--gray-base);
+    &:not(:first-child) {
+      &::before {
+        content: "/";
+        color: var(--white);
+        margin-right: 20px;
+      }
+    }
+    &:not(.js-active) {
+      cursor: pointer;
+    }
+    &.js-active {
+      color: var(--white);
+    }
+  }
+}

@@ -6,13 +6,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem) 0;
+  padding: 2rem 0 1rem;
   z-index: 500;
   transition: 0.3s;
   transform: translateY(-100%);
 
   &.js-scroll {
     // padding: 1rem 0;
+    transform: translateY(-1rem) !important;
     background-color: var(--black);
     // backdrop-filter: blur(10px);
     // background-color: rgba(var(--black), 0.01);

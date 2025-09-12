@@ -30643,10 +30643,10 @@ const section = document.querySelector(".section.about");
 if (section) {
   new AboutSyncGallery(section).init();
 }
-(() => {
+const historyAnimation = () => {
   const section = document.querySelector(".history");
   const years = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__years-item");
-  const lineEl = document.querySelector(".history__line"); // прогресс-бар (оставим как визуальный индикатор)
+  const lineEl = document.querySelector(".history__line");
   const svg = document.querySelector(".history__scheme");
   const texts = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__text-item");
   if (!section || !lineEl || !svg || !years.length || !texts.length) return;
@@ -30685,7 +30685,9 @@ if (section) {
   });
   years[0].classList.add("is-active");
   let activeIndex = 0;
-
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(drawables, {
+    drawSVG: "0%"
+  });
   // 3) Инициализация штриховки для «рисования»
   //    Считаем длины всех элементов, строим префиксные суммы для последовательной прорисовки «слева направо»
   const lengths = drawables.map(el => {
@@ -30698,16 +30700,29 @@ if (section) {
   const totalLength = lengths.reduce((a, b) => a + b, 0);
   const prefix = [];
   lengths.reduce((acc, len) => (prefix.push(acc), acc + len), 0);
-  drawables.forEach((el, i) => {
-    const L = Math.max(0.0001, lengths[i]);
-    el.style.fill = el.style.fill || "none";
-    el.style.strokeDasharray = L;
-    el.style.strokeDashoffset = L;
-    el.style.vectorEffect = "non-scaling-stroke";
 
-    // убираем stroke на старте
-    el.dataset.origStroke = getComputedStyle(el).stroke || "#fff";
-    el.style.stroke = "none";
+  // drawables.forEach((el, i) => {
+  //   const L = Math.max(0.0001, lengths[i]);
+  //   el.style.fill = el.style.fill || "none";
+  //   el.style.strokeDasharray = L;
+  //   el.style.strokeDashoffset = L;
+  //   el.style.vectorEffect = "non-scaling-stroke";
+
+  //   // убираем stroke на старте
+  //   el.dataset.origStroke = getComputedStyle(el).stroke || "#fff";
+  //   el.style.stroke = "none";
+  // });
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(drawables, {
+    drawSVG: "100%",
+    duration: 1.2,
+    stagger: 0.02,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: "+=200%"
+    }
   });
   function drawProgress(progress) {
     const drawn = totalLength * gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.clamp(0, 1, progress);
@@ -30715,18 +30730,6 @@ if (section) {
       scaleX: progress,
       duration: 0.6,
       ease: "power2.out"
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(drawables, {
-      duration: 0.8,
-      ease: "power2.out",
-      stroke: i => drawn > prefix[i] ? "#fff" : "none",
-      // включаем stroke только при отрисовке
-      strokeDashoffset: i => {
-        const L = lengths[i];
-        if (!L) return 0;
-        const localDrawn = Math.min(Math.max(drawn - prefix[i], 0), L);
-        return L - localDrawn;
-      }
     });
   }
   function switchText(toIndex) {
@@ -30754,37 +30757,6 @@ if (section) {
     years[toIndex].classList.add("is-active");
     activeIndex = toIndex;
   }
-
-  // 4) Прорисовка: переводим прогресс [0..1] в «сколько миллиметров уже нарисовано»
-  // function drawProgress(progress) {
-  //   const drawn = totalLength * gsap.utils.clamp(0, 1, progress);
-
-  //   // Обновим визуальный прогресс-бар (если он нужен)
-  //   gsap.to(lineEl, { scaleX: progress, duration: 0.6, ease: "power2.out" });
-
-  //   // Для каждого сегмента считаем, какая часть должна быть уже нарисована.
-  //   // visibleLen = clamp(drawn - prefix[i], 0, lengths[i])
-  //   // dashoffset = L - visibleLen
-  //   gsap.to(drawables, {
-  //     duration: 0.8,
-  //     ease: "power2.out",
-  //     // Функциональное значение для каждого элемента
-  //     strokeDashoffset: (i) => {
-  //       const L = lengths[i];
-  //       if (!L) return 0;
-  //       const localDrawn = Math.min(Math.max(drawn - prefix[i], 0), L);
-  //       return L - localDrawn;
-  //     },
-  //   });
-  // }
-
-  function goToStep(index) {
-    const progress = steps[index];
-    drawProgress(progress);
-    switchText(index);
-  }
-
-  // 5) ScrollTrigger
   gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
     trigger: section,
     start: "top top",
@@ -30813,7 +30785,8 @@ if (section) {
 
   // Если где-то нужно программно прыгнуть к шагу:
   // goToStep(2);
-})();
+};
+historyAnimation();
 const items = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".tasks-item");
 function activate(el) {
   items.forEach(i => i.classList.toggle("js-active", i === el));

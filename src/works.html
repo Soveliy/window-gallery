@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    <div class="site-content">
+
+      @include('partials/header.html')
+      <main class="main">
+        <div class="page-top">
+          <div class="container">
+            <nav class="page-top__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+              <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="/" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Наши работы</span>
+                  <meta itemprop="item" content="https://example.com/works" />
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </nav>
+            <h1 class="page-top__title">
+              наши работы
+            </h1>
+
+          </div>
+        </div>
+
+        @include('partials/banner.html')
+        <div class="cards">
+          <div class="container">
+            <div class="cards__tegs tegs">
+              <div class="tegs__row">
+
+                <button class="teg js-active">Окна ×</button>
+                <button class="teg">Балконы</button>
+                <button class="teg">Двери</button>
+                <button class="teg">Порталы</button>
+                <button class="teg">Натяжные потолки</button>
+                <button class="teg">Витражи</button>
+                <button class="teg">Планировка</button>
+                <button class="teg">Увеличение площади</button>
+                <button class="teg">Ремонт</button>
+                <button class="tegs__reset">Сбросить все</button>
+              </div>
+            </div>
+            <div class="cards__grid">
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item1.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Мкд, УЛ. ПАВЛУНОВСКОГО</div>
+                  <p class="card-item__desc">
+                    Пластиковые окна с мультифункциональными стеклопакетами, снижающими теплопотери зимой и защищающими
+                    от перегрева летом
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item2.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Медасист, ул. Димитрова</div>
+                  <p class="card-item__desc">
+                    Декоративные витражи с переплётом, усиленные теплоизоляцией. Ламинация рам под орех для гармонии
+                    с фасадом дома
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item3.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Лицей №6, ул. Радищева</div>
+                  <p class="card-item__desc">
+                    Окна от пола до потолка с энергосберегающим стеклом и тонким профилем. Раздвижная система для выхода
+                    на балкон
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item4.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Курспромбанк, ул. Дзержинского</div>
+                  <p class="card-item__desc">
+                    Панорамное остекление террасы алюминиевыми конструкциями с раздвижными створками и закалённым
+                    стеклом
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item5.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Частный дом, ул. В. Луговая</div>
+                  <p class="card-item__desc">
+                    Элегантные арочные окна ПВХ с ламинацией под белый дуб. Двухкамерные стеклопакеты обеспечивают
+                    тепло — и шумоизоляцию
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+                  <div class="card-item__sticker sticker">
+                    Окна
+                  </div>
+                  <a href="#" class="card-item__image">
+
+                    <img src="img/works/item6.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <div class="card-item__title">Школа дзюдо, д. Моква</div>
+                  <p class="card-item__desc">
+                    Окна от пола до потолка с энергосберегающим стеклом и тонким профилем. Раздвижная система для выхода
+                    на балкон
+                  </p>
+                  <a href="#" class="card-item__button button button--round button--big">
+                    <span>Посмотреть проект</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="section best-works">
+          <div class="container">
+            <h2 class="section__title">
+              Мы гордимся
+            </h2>
+            <div class="best-works__head">
+              <div class="best-works__head-item js-active">Остекление исторического особняка</div>
+              <div class="best-works__head-item">остекление мансарды сложной формы</div>
+            </div>
+          </div>
+        </section>
+        @include('partials/reviews.html')
+        @include('partials/questions.html', {
+        "title": "закажите сейчас",
+        "desc": "Оставьте заявку и мы подготовим индивидуальное решение специально для вас"
+        })
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>

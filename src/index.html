@@ -18,7 +18,10 @@
         @include('partials/tasks.html')
         @include('partials/reviews.html')
         @include('partials/quote.html')
-        @include('partials/questions.html')
+        @include('partials/questions.html', {
+        "title": "Остались вопросы?",
+        "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
+        })
       </main>
       @include('partials/footer.html')
 
