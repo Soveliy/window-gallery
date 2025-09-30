@@ -1,6 +1,17 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
-
+.logo {
+  &__image {
+    width: clamp(7rem, 5.7904rem + 4.9624vw, 11.125rem);
+    height: clamp(2.625rem, 2.2951rem + 1.3534vw, 3.75rem);
+  }
+  &__text {
+    font-size: 0.625rem;
+    @include tablet {
+      display: none;
+    }
+  }
+}
 .header {
   position: fixed;
   top: 0;
@@ -10,13 +21,20 @@
   z-index: 500;
   transition: 0.3s;
   transform: translateY(-100%);
+  @include tablet {
+    padding: 1rem 0;
+  }
 
   &.js-scroll {
-    // padding: 1rem 0;
-    transform: translateY(-1rem) !important;
     background-color: var(--black);
-    // backdrop-filter: blur(10px);
-    // background-color: rgba(var(--black), 0.01);
+    .header__button {
+      opacity: 1;
+      pointer-events: all;
+      margin: 0;
+    }
+    @include for-desktop() {
+      transform: translateY(-1rem) !important;
+    }
   }
   &__row {
     display: flex;
@@ -24,11 +42,8 @@
     justify-content: space-between;
   }
   &__logo {
-    width: clamp(7rem, 6.1203rem + 3.609vw, 10rem);
-    height: clamp(2.625rem, 2.2951rem + 1.3534vw, 3.75rem);
-    img {
-      max-width: 100%;
-    }
+    display: flex;
+    flex-direction: column;
   }
   &__item {
     display: flex;
@@ -42,5 +57,11 @@
         display: none;
       }
     }
+  }
+  &__button {
+    opacity: 0;
+    margin-right: -18.5vw;
+    pointer-events: none;
+    transition-delay: 0.2s;
   }
 }

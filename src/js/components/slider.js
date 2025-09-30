@@ -47,14 +47,14 @@ const sliderProds = new Swiper(".production__slider--js", {
   },
 });
 
-const swiper = new Swiper(".works__thumbs--js", {
+const swiperWorksBread = new Swiper(".works__thumbs--js", {
   loop: true,
   spaceBetween: 10,
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });
-const swiper2 = new Swiper(".works__main-slider-js", {
+const swiperWorksMain = new Swiper(".works__main-slider-js", {
   modules: [
     Thumbs,
     Navigation,
@@ -83,9 +83,36 @@ const swiper2 = new Swiper(".works__main-slider-js", {
     prevEl: ".works__arrow--prev",
   },
   thumbs: {
-    swiper: swiper,
+    swiper: swiperWorksBread,
   },
   pagination: {
     el: ".swiper-pagination",
+  },
+});
+
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: "auto",
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+var swiper2 = new Swiper(".mySwiper2", {
+  modules: [
+    Thumbs,
+    Navigation,
+    EffectFade,
+    Pagination,
+    Autoplay,
+    EffectCreative,
+  ],
+  loop: true,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: swiper,
   },
 });

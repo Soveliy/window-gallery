@@ -4,6 +4,7 @@
 @use "settings" as *;
 @use "mixins" as mixins;
 // подключения компонентов страницы
+@use "./components/button" as *;
 @use "./components/header" as *;
 @use "./components/burger" as *;
 @use "./components/form" as *;
@@ -11,7 +12,6 @@
 @use "./components/footer" as *;
 @use "./components/modal" as *;
 @use "./components/social" as *;
-@use "./components/button" as *;
 @use "./components/hero" as *;
 @use "./components/about" as *;
 @use "./components/history" as *;
@@ -35,7 +35,8 @@
 @use "./components/sticker" as *;
 @use "./components/tegs" as *;
 @use "./components/best-works" as *;
-.clip-path-right {
+.clip-path-right,
+.clip-path-right-init {
   position: relative;
   overflow: hidden;
   clip-path: inset(0% 0% 0% 100%);
@@ -44,4 +45,10 @@
     height: 100%;
     transform-origin: 50% 50%;
   }
+}
+
+.clip-path-right-wihout-parallax {
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 100%);
 }

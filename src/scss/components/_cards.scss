@@ -1,12 +1,20 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .cards {
-  padding: 3.75rem 0 6.25rem;
+  padding: clamp(2.25rem, 1.8102rem + 1.8045vw, 3.75rem) 0 6.25rem;
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
   &__tegs {
-    margin-bottom: 60px;
+    margin-bottom: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
   }
 }
 .card-item {
@@ -20,22 +28,32 @@
     top: 0.75rem;
     left: 0.75rem;
   }
-  &__image {
+  &__image-container {
     height: 16.25rem;
     flex-shrink: 0;
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
   }
   &__body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 40px;
+    padding: 25px 40px 40px;
   }
   &__title {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 48px;
+    font-size: clamp(1.75rem, 1.3835rem + 1.5038vw, 3rem);
     text-transform: uppercase;
     color: var(--white);
+    // margin-bottom: 40px;
   }
   &__desc {
     margin: 12px 0 40px;

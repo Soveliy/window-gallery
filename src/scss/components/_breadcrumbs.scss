@@ -1,4 +1,6 @@
 .breadcrumbs {
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  transition: 0.6s;
   &__list {
     margin: 0;
     padding: 0;
@@ -7,14 +9,27 @@
     gap: 0.25rem;
   }
   &__item {
+    display: flex;
     &:not(:first-child) {
+      position: relative;
+      padding-left: 1rem;
+      // padding-left: 8px;
       &::before {
-        content: "-";
+        content: "";
+        height: 2px;
+        width: 10px;
+        background-color: var(--gray-light);
+        margin-top: 1px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
   &__link {
     color: var(--gray-base);
+    font-size: clamp(0.875rem, 0.8383rem + 0.1504vw, 1rem);
     &--last {
       color: var(--white);
     }

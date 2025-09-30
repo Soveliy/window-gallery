@@ -1,14 +1,18 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
 .best-works {
   &__head {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+    margin-bottom: clamp(0.625rem, -0.2914rem + 3.7594vw, 3.75rem);
   }
   &__head-item {
     font-family: var(--second-family);
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--gray-base);
+    cursor: pointer;
     &:not(:first-child) {
       &::before {
         content: "/";
@@ -22,5 +26,51 @@
     &.js-active {
       color: var(--white);
     }
+  }
+}
+
+.best-works-item {
+  display: none;
+  &.js-active {
+    display: block;
+  }
+  &__row {
+    display: flex;
+    gap: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+  &__image-container {
+    flex-shrink: 0;
+    width: 49%;
+    @include tablet {
+      width: 100%;
+    }
+  }
+  &__desc + &__desc {
+    margin-top: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+  }
+  &__content {
+    h3 {
+      margin: 0 0 clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+      font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
+      color: var(--white);
+    }
+    p {
+      margin: 0;
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    }
+    li {
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    }
+    li + li {
+      margin-top: 12px;
+    }
+  }
+  &__button {
+    display: block;
+    width: 100%;
+    margin-top: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
   }
 }

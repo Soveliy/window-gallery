@@ -71,6 +71,7 @@
     font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
     color: var(--white);
     margin-top: auto;
+    text-wrap: balance;
     &--desktop {
       @include tablet {
         display: none;

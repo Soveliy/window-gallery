@@ -1,5 +1,8 @@
 .section {
   padding: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem) 0;
+  &--top-zero {
+    padding-top: 0;
+  }
   &__pretitle {
     margin-bottom: clamp(1.875rem, 1.4352rem + 1.8045vw, 3.375rem);
   }

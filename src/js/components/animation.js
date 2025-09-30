@@ -23,68 +23,90 @@ gsap.registerPlugin(
 // });
 document.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
-  if (pageYOffset > 100) {
+  if (pageYOffset > 10) {
     header.classList.add("js-scroll");
   } else {
     header.classList.remove("js-scroll");
   }
 });
 let hero = gsap.timeline({});
-setTimeout(() => {
-  hero.to(
-    ".hero__title path",
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-      stagger: { each: 0.1, from: "start" },
-    },
-    "=-0.5"
-  );
-  // hero.from(".hero__video", {
-  //   clipPath: "polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)",
-  //   yPercent: 50,
-  //   duration: 1.5,
-  //   ease: "power3.out",
-  // });
 
-  hero.to(
-    ".hero__video",
-    {
-      // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1,
-      ease: "power3.out",
-      opacity: 1,
-    },
-    "-=0.2"
-  );
-  hero.to(
-    ".header",
-    {
-      opacity: 1,
-      y: 0,
-      ease: "power3.out",
-    },
-    "-=0.5"
-  );
-  hero.to(".hero__desc", {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    duration: 0.6,
-    ease: "power3.out",
-    delay: 0.2,
-  });
-  hero.to(
-    ".hero__buttons",
-    {
+const heroBlock = document.querySelector(".hero");
+if (heroBlock) {
+  setTimeout(() => {
+    hero.to(
+      ".hero__title path",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: { each: 0.1, from: "start" },
+      },
+      "=-0.5"
+    );
+
+    hero.to(
+      ".hero__video",
+      {
+        // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 1,
+        ease: "power3.out",
+        opacity: 1,
+      },
+      "-=0.2"
+    );
+    hero.to(
+      ".header",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+    hero.to(".hero__desc", {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       duration: 0.6,
       ease: "power3.out",
       delay: 0.2,
-    },
-    "=-0.5"
-  );
-}, 500);
+    });
+    hero.to(
+      ".hero__buttons",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.6,
+        ease: "power3.out",
+        delay: 0.2,
+      },
+      "=-0.5"
+    );
+  }, 500);
+} else {
+  setTimeout(() => {
+    hero.to(".breadcrumbs", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 0.6,
+      ease: "ease",
+      delay: 0.2,
+    });
+    hero.to(".page-top__title", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 0.6,
+      ease: "ease",
+      delay: 0.2,
+    });
+    hero.to(
+      ".header",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "ease",
+      },
+      "-=0.5"
+    );
+  }, 500);
+}
 
 class AboutSyncGallery {
   /**
@@ -447,6 +469,54 @@ document.querySelectorAll(".advantages-item").forEach((item) => {
     if (svg) animateSVG(svg);
   });
 });
+const advAnim = () => {
+  const items = document.querySelectorAll(".advantages-item");
+
+  // Определяем desktop
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+  if (isDesktop) {
+    // ----- Табы для ПК -----
+    items.forEach((item) => {
+      const title = item.querySelector(".advantages-item__title");
+      const svg = item.querySelector(".advantages-item__image");
+
+      if (title) {
+        title.addEventListener("click", () => {
+          // снимаем активность со всех
+          items.forEach((el) => el.classList.remove("js-active"));
+          // добавляем активность на текущий
+          item.classList.add("js-active");
+
+          // запускаем анимацию svg
+          if (svg) animateSVG(svg);
+        });
+      }
+    });
+  } else {
+    // ----- Для мобилы: анимация при скролле -----
+    items.forEach((item) => {
+      const svg = item.querySelector(".advantages-item__image");
+      if (!svg) return;
+
+      // IntersectionObserver — запускаем анимацию, когда svg попадает в область видимости
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateSVG(svg);
+              observer.unobserve(svg); // один раз
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      observer.observe(svg);
+    });
+  }
+};
+advAnim();
 
 document.querySelectorAll(".clip-path-right").forEach((section) => {
   const img = section.querySelector("img");
@@ -546,17 +616,17 @@ gsap.from(".footer__item", {
 });
 
 // Соцсети "выстреливают"
-gsap.from(".social__item", {
-  scale: 0,
-  opacity: 0,
-  duration: 0.4,
-  ease: "back.out(1.7)",
-  stagger: 0.1,
-  scrollTrigger: {
-    trigger: ".footer",
-    start: "top 40%",
-  },
-});
+// gsap.from(".social__item", {
+//   scale: 0,
+//   opacity: 0,
+//   duration: 0.4,
+//   ease: "back.out(1.7)",
+//   stagger: 0.1,
+//   scrollTrigger: {
+//     trigger: ".footer",
+//     start: "top 40%",
+//   },
+// });
 
 // Отрисовка svg-текста (desktop)
 // gsap.utils.toArray(".footer__title-svg--desktop path").forEach((path, i) => {
@@ -584,7 +654,7 @@ gsap.utils.toArray(".footer__title-svg--mobile path").forEach((path, i) => {
 
     scrollTrigger: {
       trigger: ".footer__title-svg--mobile",
-      start: "top 80%",
+      start: "top 90%",
     },
   });
 });
@@ -600,7 +670,7 @@ gsap.to(
 
     scrollTrigger: {
       trigger: ".footer__title",
-      start: "top 80%",
+      start: "top 90%",
     },
   },
   "=-0.5"
@@ -654,3 +724,68 @@ gsap.to(
       container.addEventListener("mouseleave", onLeave);
     });
 })();
+
+document.querySelectorAll(".clip-path-right-init").forEach((section) => {
+  const img = section.querySelector("img");
+
+  if (!img) return;
+
+  // подготовка: скрываем за маской и задаём начальный масштаб
+  gsap.set(section, {
+    overflow: "hidden",
+    clipPath: "inset(0% 0% 0% 100%)", // закрыто справа
+  });
+  gsap.set(img, { scale: 1 }); // начальный масштаб
+
+  // параллакс-скейл по скроллу
+  gsap.fromTo(
+    img,
+    {
+      scale: 1.3,
+      yPercent: -15,
+      ease: "none",
+    },
+    {
+      yPercent: 15,
+      ease: "none",
+      scale: 1.3,
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom", // когда верх блока дотронется до низа окна
+        end: "bottom top", // пока блок не выйдет вверх
+        scrub: true, // синхронизация с прокруткой
+        // markers: true
+      },
+    }
+  );
+
+  // одноразовое раскрытие маски без ScrollTrigger
+  gsap.to(section, {
+    clipPath: "inset(0% 0% 0% 0%)", // раскрываем маску
+    ease: "power4.inOut",
+    duration: 0.7,
+    delay: 0.2, // можно добавить небольшую задержку
+  });
+});
+
+document
+  .querySelectorAll(".clip-path-right-wihout-parallax")
+  .forEach((section) => {
+    const img = section.querySelector("img");
+
+    if (!img) return;
+
+    // подготовка: скрываем за маской
+    gsap.set(section, {
+      overflow: "hidden",
+      clipPath: "inset(0% 0% 0% 100%)", // закрыто справа
+    });
+
+    // анимация раскрытия
+    gsap.to(section, {
+      clipPath: "inset(0% 0% 0% 0%)", // полностью открыто
+      ease: "power4.inOut",
+      duration: 0.7,
+      delay: 0.2, // опционально
+    });
+  });

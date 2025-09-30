@@ -7,12 +7,15 @@
   padding: 1.75rem 2.5rem 2.375rem;
   border-top: 1px solid var(--white);
   box-sizing: border-box;
-  &:hover,
+  &:not(.js-active) {
+    cursor: pointer;
+  }
   &.js-active {
     .advantages-item__content {
       max-height: 1000px; // достаточно большое значение
       opacity: 1;
       padding-top: 16px;
+      overflow: visible;
     }
   }
   &:last-child {
@@ -42,6 +45,12 @@
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
+  }
+  &__image-wrap {
+    margin-top: -5.875rem;
+    @include tablet {
+      margin-top: 0;
+    }
   }
   &__content {
     display: flex;

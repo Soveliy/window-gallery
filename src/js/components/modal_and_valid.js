@@ -1,6 +1,9 @@
 import { validateForms } from "../functions/validate-forms.js";
 import MicroModal from "micromodal";
-
+import { Fancybox } from "@fancyapps/ui";
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
 MicroModal.init({
   disableScroll: true,
   disableFocus: true,
