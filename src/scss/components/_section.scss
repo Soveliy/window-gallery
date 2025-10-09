@@ -3,6 +3,9 @@
   &--top-zero {
     padding-top: 0;
   }
+  &--last {
+    padding-bottom: clamp(5rem, 2.8008rem + 9.0226vw, 12.5rem);
+  }
   &__pretitle {
     margin-bottom: clamp(1.875rem, 1.4352rem + 1.8045vw, 3.375rem);
   }

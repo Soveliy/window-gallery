@@ -5,3 +5,4 @@ import "./components/modal_and_valid.js";
 // import "./components/file.js";
 import "./components/animation.js";
 import "./components/map.js";
+import "./components/simplebar.js";

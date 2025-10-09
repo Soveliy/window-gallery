@@ -1,0 +1,104 @@
+@use "./mixins/breakpoint" as *;
+@use "./mixins/disable-mob-hover" as *;
+.contacts {
+  padding-bottom: clamp(2.5rem, 1.7669rem + 3.0075vw, 5rem);
+  &__row {
+    display: flex;
+    gap: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem);
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+  }
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    max-width: 35rem;
+    flex-shrink: 0;
+    width: 100%;
+    height: clamp(34.875rem, 32.016rem + 11.7293vw, 44.625rem);
+    @include big-desktop {
+      max-width: 40%;
+    }
+    @include tablet {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  &__tabs-list {
+    display: flex;
+    flex-shrink: 0;
+    margin-bottom: clamp(1.25rem, 0.4986rem + 3.0827vw, 3.8125rem);
+  }
+  &__tabs-head {
+    font-family: var(--second-family);
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    &:not(:first-child) {
+      margin-left: clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+      &:before {
+        content: "/";
+        margin-right: clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+        color: var(--white);
+      }
+    }
+    &:not(.js-acitve) {
+      cursor: pointer;
+    }
+    &.js-active {
+      color: var(--white);
+    }
+  }
+  &__tabs-content {
+    display: none;
+    &.js-active {
+      display: block;
+    }
+  }
+  &__tabs-body {
+    position: relative;
+    &:before {
+      right: 0.75rem;
+    }
+  }
+  &__items {
+    height: clamp(28.75rem, 26.1842rem + 10.5263vw, 37.5rem);
+  }
+  &__map {
+    width: 100%;
+    height: clamp(34.375rem, 31.0395rem + 13.6842vw, 45.75rem);
+
+    &-js {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.contact-item {
+  padding-right: 0.75rem;
+  & + & {
+    margin-top: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+  }
+  &__name {
+    margin-bottom: clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+    font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
+    color: var(--white);
+  }
+  &__list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--white);
+    & + & {
+      margin-top: clamp(0.5rem, 0.4267rem + 0.3008vw, 0.75rem);
+    }
+  }
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: none;
+    stroke: var(--white);
+  }
+  &__value {
+    font-size: clamp(0.875rem, 0.8383rem + 0.1504vw, 1rem);
+  }
+}

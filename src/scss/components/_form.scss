@@ -18,11 +18,20 @@
     align-items: flex-start;
     gap: 1.25rem;
     margin-top: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+    @include mobile {
+      .button {
+        width: 100%;
+      }
+    }
   }
   &__footer-desc {
     font-size: 1rem;
     color: var(--gray-light);
     text-wrap: balance;
+    @include mobile {
+      width: 100%;
+      text-wrap: normal;
+    }
   }
 }
 

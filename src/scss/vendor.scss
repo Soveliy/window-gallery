@@ -15,6 +15,6 @@
 @use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" as *;
 
 // стили для скролла simplebar
-// @import "../../node_modules/simplebar/dist/simplebar.min";
+@use "../../node_modules/simplebar/dist/simplebar.min" as *;
 
 @use "./vendor/modal" as *;

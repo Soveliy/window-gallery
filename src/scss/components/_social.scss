@@ -5,6 +5,9 @@
     &--big-gap {
       gap: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
     }
+    &--most-big-gap {
+      gap: clamp(2.5rem, 1.7669rem + 3.0075vw, 5rem);
+    }
   }
   &__link {
     display: flex;
@@ -17,6 +20,10 @@
     &--big {
       height: 2.5rem;
       width: 2.5rem;
+    }
+    &--most-big {
+      height: clamp(2.5rem, 2.1335rem + 1.5038vw, 3.75rem);
+      width: clamp(2.5rem, 2.1335rem + 1.5038vw, 3.75rem);
     }
   }
   &__icon {

@@ -1,0 +1,28 @@
+.simplebar-track {
+  background: var(--gray-dark);
+
+  &.simplebar-vertical {
+    width: 0.25rem;
+  }
+}
+.simplebar-scrollbar {
+  background: var(--gray-light);
+  border: 0;
+  width: 0.125rem;
+  left: 1px;
+  &:before {
+    display: none;
+  }
+}
+
+[data-simplebar] {
+  .simplebar-scrollbar {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  &:hover {
+    .simplebar-scrollbar {
+      opacity: 1;
+    }
+  }
+}

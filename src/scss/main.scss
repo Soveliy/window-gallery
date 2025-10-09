@@ -35,6 +35,10 @@
 @use "./components/sticker" as *;
 @use "./components/tegs" as *;
 @use "./components/best-works" as *;
+@use "./components/contacts" as *;
+@use "./components/simplebar" as *;
+@use "./components/map-popup" as *;
+@use "./components/main-contacts" as *;
 .clip-path-right,
 .clip-path-right-init {
   position: relative;
