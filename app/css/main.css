@@ -2685,13 +2685,15 @@ a {
   display: none;
 }
 
-[data-simplebar] .simplebar-scrollbar {
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
-}
-[data-simplebar]:hover .simplebar-scrollbar {
-  opacity: 1;
+@media (any-hover: hover) {
+  [data-simplebar]:hover .simplebar-scrollbar {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+  }
+  [data-simplebar]:hover:hover .simplebar-scrollbar {
+    opacity: 1;
+  }
 }
 
 .map-popup {
