@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    <div class="site-content">
+
+      @include('partials/header.html')
+      <main class="main">
+        <div class="page-top">
+          <div class="container">
+            <nav class="page-top__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+              <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <!-- <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="/" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+                </li> -->
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Наши работы</span>
+                  <meta itemprop="item" content="https://example.com/works" />
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </nav>
+            <h1 class="page-top__title">
+              наши работы
+            </h1>
+
+          </div>
+        </div>
+
+        <div class="banner clip-path-right-init">
+          <picture class="banner__picture">
+            <source srcset="img/service_banner.webp" type="image/webp">
+            <img loading="lazy" src="img/service_banner.jpg" class="image" width="1920" height="440" alt="">
+          </picture>
+          <div class="container banner__container">
+            <div class="banner__content ">
+              <h2 class="banner__title">Комплексные услуги от производителя — от монтажа до ремонта</h2>
+              <p class="banner__desc">Все работы выполняются нашими специалистами с гарантией качества</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cards">
+          <div class="container">
+
+            <div class="cards__grid">
+              <div class="card-item">
+                <div class="card-item__image-container">
+
+                  <a href="#" class="card-item__image">
+                    <img src="img/services/1.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <a href="#" class="card-item__title">Монтаж пластиковых окон</a>
+                  <p class="card-item__desc">
+                    Проведём профессиональную установку с точными замерами, гарантирующими герметичность и долговечность
+                  </p>
+                  <button data-micromodal-trigger="callback" class="card-item__button button button--round button--big">
+                    <span>Заказать монтаж</span>
+
+                  </button>
+
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+
+                  <a href="#" class="card-item__image">
+                    <img src="img/services/2.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <a href="#" class="card-item__title">Ремонт пластиковых окон и дверей</a>
+                  <p class="card-item__desc">
+                    Быстро восстановим функциональность, заменим фурнитуру и устраним протечки с гарантией
+                    и оригинальными запчастями
+                  </p>
+                  <button data-micromodal-trigger="callback" class="card-item__button button button--round button--big">
+                    <span>Записаться на диагностику</span>
+
+                  </button>
+
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+
+                  <a href="#" class="card-item__image">
+                    <img src="img/services/3.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <a href="#" class="card-item__title">Сварочные работы</a>
+                  <p class="card-item__desc">
+                    Изготавливаем и ремонтируем металлические конструкции, усиливаем рамы с качественной сваркой
+                    от опытных мастеров
+                  </p>
+                  <button data-micromodal-trigger="callback" class="card-item__button button button--round button--big">
+                    <span>Получить расчёт</span>
+
+                  </button>
+
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+
+                  <a href="#" class="card-item__image">
+                    <img src="img/services/4.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <a href="#" class="card-item__title">Установка откосов</a>
+                  <p class="card-item__desc">
+                    Установим внутренние и внешние откосы с аккуратной отделкой и защитой от влаги и деформации
+                  </p>
+                  <button data-micromodal-trigger="callback" class="card-item__button button button--round button--big">
+                    <span>Узнать стоимость</span>
+
+                  </button>
+
+                </div>
+
+              </div>
+              <div class="card-item">
+                <div class="card-item__image-container">
+
+                  <a href="#" class="card-item__image">
+                    <img src="img/services/5.jpg" alt="">
+                  </a>
+                </div>
+
+                <div class="card-item__body">
+                  <a href="#" class="card-item__title">Увеличение полезной площади</a>
+                  <p class="card-item__desc">
+                    Добавим больше пространства и естественного света по индивидуальным решениям за счет установки
+                    светопрозрачных конструкций
+                  </p>
+                  <button data-micromodal-trigger="callback" class="card-item__button button button--round button--big">
+                    <span>Запросить консультацию</span>
+
+                  </button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @include('partials/advantages.html')
+        <section class="section procces">
+          <div class="container">
+            <h2 class="section__title">
+              Как заказать?
+            </h2>
+            <div class="procces__grid">
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M110.626 96.8928L103.784 90.0503C100.366 86.6319 94.824 86.6319 91.4115 90.0503L86.0331 95.4286C84.8315 96.6303 83.0115 97.0328 81.4598 96.3503C73.6665 92.9378 65.9665 87.7636 59.1006 80.8978C52.264 74.0611 47.1073 66.3961 43.689 58.632C42.9773 57.0278 43.3915 55.1436 44.634 53.9011L49.4523 49.0828C53.3665 45.1686 53.3665 39.6328 49.9481 36.2145L43.1056 29.372C38.5498 24.8161 31.1648 24.8161 26.609 29.372L22.8056 33.1695C18.4831 37.492 16.6806 43.7278 17.8473 49.9111C20.729 65.1536 29.584 81.8428 43.8698 96.1286C58.1556 110.414 74.8448 119.269 90.0873 122.151C96.2706 123.318 102.506 121.515 106.829 117.193L110.626 113.395C115.182 108.839 115.182 101.454 110.626 96.8928V96.8928Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M75.833 40.7815C81.8472 40.6998 87.8905 42.9281 92.4813 47.519" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M108.978 31.0222C99.8255 21.8697 87.8263 17.2905 75.833 17.2905" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M99.216 64.1666C99.2977 58.1525 97.0693 52.1091 92.4785 47.5183" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M108.977 31.0222C118.129 40.1747 122.708 52.1739 122.708 64.1672" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Оставьте заявку или свяжитесь с нами</div>
+              </div>
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M19.2106 35.8225L35.824 19.2092C38.099 16.9342 41.7915 16.9342 44.0723 19.2092L120.792 95.9292C123.067 98.2042 123.067 101.897 120.792 104.178L104.179 120.791C101.904 123.066 98.2115 123.066 95.9306 120.791L19.2106 44.0708C16.9298 41.79 16.9298 38.0975 19.2106 35.8225Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M82.4238 57.5757L73.6738 66.3257" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M97.5316 72.6831L91.6982 78.5164" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M111.414 86.5671L102.664 95.3171" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M68.5413 43.6923L62.708 49.4673" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M53.4346 28.5828L44.6846 37.3328" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M72.0625 47.2028L98.0908 21.1744C102.617 16.6478 109.979 16.6711 114.535 21.2269L118.712 25.4036C123.267 29.9594 123.291 37.3211 118.764 41.8478L92.7358 67.8761"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M47.2052 72.0649L23.6968 95.5733C22.9618 96.3083 22.4368 97.2299 22.1743 98.2391L17.846 114.987C16.726 119.315 20.6693 123.252 24.9977 122.121L41.7102 117.763C42.7135 117.501 43.6293 116.976 44.3643 116.241L67.8785 92.7266"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M88.2002 31.092L108.85 51.742" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Оставьте заявку или свяжитесь с нами</div>
+              </div>
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.6436 102.098V99.7286C11.6628 92.9876 17.1227 87.5278 23.8636 87.5085H40.2738C47.0148 87.5278 52.4747 92.9876 52.4939 99.7286V102.098C52.4939 103.709 51.1875 105.016 49.576 105.016H14.5614C12.9499 105.016 11.6436 103.709 11.6436 102.098Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M75.0604 52.4931V61.2409C75.0604 62.3671 75.7086 63.3928 76.7257 63.8762C77.7429 64.3597 78.9475 64.2146 79.8208 63.5035L93.3417 52.4931H107.157C113.603 52.4931 118.829 47.2676 118.829 40.8216V23.3139C118.829 16.8679 113.603 11.6423 107.157 11.6423H69.9987C63.5527 11.6423 58.3271 16.8679 58.3271 23.3139V40.8212C58.3271 47.2672 63.5527 52.4927 69.9987 52.4927L75.0604 52.4931Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="32.0651" cy="61.2477" r="11.6715" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M87.5059 125.44V123.07C87.5251 116.329 92.985 110.87 99.7259 110.85H116.136C122.877 110.87 128.337 116.329 128.356 123.07V125.44C128.356 127.051 127.05 128.358 125.438 128.358H90.4237C88.8122 128.358 87.5059 127.051 87.5059 125.44Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="107.933" cy="84.5895" r="11.6715" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Согласуйте проект и условия</div>
+              </div>
+              <div class="procces-item">
+
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M52.5 32.0834H87.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M105 52.4999H35" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M35 84.5834H52.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M99.8743 75.1256C106.709 81.9598 106.709 93.0402 99.8743 99.8743C93.0402 106.709 81.9598 106.709 75.1256 99.8743C68.2915 93.0402 68.2915 81.9598 75.1256 75.1256C81.9598 68.2915 93.0402 68.2915 99.8743 75.1256"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M99.1663 100.456V128.333L87.4997 122.5L75.833 128.333V100.456" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M99.167 110.833H116.667C123.113 110.833 128.334 105.613 128.334 99.1667V23.3334C128.334 16.8876 123.113 11.6667 116.667 11.6667H23.3337C16.8878 11.6667 11.667 16.8876 11.667 23.3334V99.1667C11.667 105.613 16.8878 110.833 23.3337 110.833H75.8337"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Получите гарантию на выполненные работы</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        @include('partials/reviews.html')
+        @include('partials/questions.html', {
+        "title": "закажите сейчас",
+        "desc": "Оставьте заявку и мы подготовим индивидуальное решение специально для вас"
+        })
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>

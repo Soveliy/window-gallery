@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    <div class="site-content">
+
+      @include('partials/header.html')
+      <main class="main">
+        <div class="page-top">
+          <div class="container">
+            <nav class="page-top__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+              <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="/" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Акции</span>
+                  <meta itemprop="item" content="https://example.com/works" />
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </nav>
+            <h1 class="page-top__title">
+              Акции
+            </h1>
+
+          </div>
+        </div>
+        <div class="actions">
+          <div class="container">
+            <div class="actions__grid">
+              <div class="actions-item">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <section class="section section--last questions">
+          <div class="container">
+            <h2 class="section__title">
+              свяжитесь с нами
+            </h2>
+            <div class="questions__row">
+              <div class="questions__left">
+
+                <form action="#" class="questions__form form">
+
+                  <div class="form__items">
+                    <div class="form__input input">
+                      <input id="q-name" autocomplete="email" name="name" type="text" class="input__native"
+                        placeholder=" ">
+                      <label for="q-name" class="input__placeholder">Имя</label>
+                    </div>
+                    <div class="form__input input">
+                      <input id="q-phone" autocomplete="" name="tel" type="tel" class="input__native" placeholder=" ">
+                      <label for="q-phone" class="input__placeholder">Мобильный телефон</label>
+                    </div>
+                    <div class="form__input input">
+                      <input id="q-comment" name="comment" type="text" class="input__native" placeholder=" ">
+                      <label for="q-comment" class="input__placeholder">Комментарий</label>
+                    </div>
+                  </div>
+                  <div class="form__footer">
+                    <button class="button button--round button--big">Оставить заявку</button>
+                    <div class="form__footer-desc">
+                      Нажимая «Оставить заявку», вы соглашаетесь с политикой конфиденциальности и обработки персональных
+                      данных
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="questions__right">
+                <div class="main-contacts">
+                  <ul class="main-contacts__list list-reset">
+                    <div class="main-contacts__item">
+                      <a href="#" class="main-contacts__link">+7 (4712) 740-500</a>
+                    </div>
+                    <div class="main-contacts__item">
+                      <a href="#" class="main-contacts__link">info@galereyaokon.com</a>
+                    </div>
+                    <div class="main-contacts__item">
+                      <span class="main-contacts__link">г. Курск, пр-т Кулакова, 144</span>
+                    </div>
+                    <div class="main-contacts__item">
+                      <nav class="social">
+                        <ul class="social__list social__list--most-big-gap list-reset">
+                          <li class="social__item">
+                            <a href="https://t.me/+79102199798" tabindex="_blank"
+                              class="social__link social__link--most-big">
+                              <svg class="social__icon">
+                                <use xlink:href="img/sprite.svg#tg"></use>
+                              </svg>
+                            </a>
+                          </li>
+                          <li class="social__item">
+                            <a href="https://api.whatsapp.com/send/?phone=79102199798&text&type=phone_number&app_absent=0"
+                              target="_blank" class="social__link social__link--most-big">
+                              <svg class="social__icon">
+                                <use xlink:href="img/sprite.svg#wa"></use>
+                              </svg>
+                            </a>
+                          </li>
+                          <li class="social__item">
+                            <a href="https://api.whatsapp.com/send/?phone=79102199798&text&type=phone_number&app_absent=0"
+                              target="_blank" class="social__link social__link--most-big">
+                              <svg class="social__icon">
+                                <use xlink:href="img/sprite.svg#vk"></use>
+                              </svg>
+                            </a>
+                          </li>
+                          <li class="social__item">
+                            <a href="https://api.whatsapp.com/send/?phone=79102199798&text&type=phone_number&app_absent=0"
+                              target="_blank" class="social__link social__link--most-big">
+                              <svg class="social__icon">
+                                <use xlink:href="img/sprite.svg#yt"></use>
+                              </svg>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </nav>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>

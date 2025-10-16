@@ -571,11 +571,10 @@
               <use href="#map-pin" />
             </g>
             <g class="map__pin" data-x="181" data-y="593" data-scale="0.9"
-              data-label='г. Курск, пр-т Кулакова, 144(ТЦ "Поворот", 2-й этаж)'>
+              data-label='пр-т Кулакова, 144(ТЦ "Поворот", 2-й этаж)'>
               <use href="#map-pin" />
             </g>
-            <g class="map__pin" data-x="150" data-y="680" data-scale="0.9"
-              data-label="г. Курск, ул. ул. Магистральная д. 50">
+            <g class="map__pin" data-x="150" data-y="680" data-scale="0.9" data-label="ул. Магистральная д. 50">
               <use href="#map-pin" />
             </g>
             <path
@@ -633,36 +632,15 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__item">
-        <div class="footer__item-title">
-          Подпишитесь на нашу рассылку
-        </div>
-        <form class="footer__subscribe subscribe">
-          <div class="subscribe__row">
-            <div class="subscribe__input input">
-              <input id="s-email" autocomplete="email" name="email" type="email" class="input__native" placeholder=" ">
-              <label for="s-email" class="input__placeholder">Почта</label>
-            </div>
-            <div class="subscribe__button button button--round button--big">Подписаться</div>
-          </div>
-        </form>
-      </div>
-      <div class="footer__item">
-        <div class="footer__item-title footer__item-title--big-margin">
-          Контакты
-        </div>
         <ul class="footer__list list-reset">
           <li class="footer__list-item">
-            <a href="mailto:+74712740500" class="footer__link">+7 (47-12) 74-05-00</a>
+            <a href="mailto:+74712740500" class="footer__link footer__link--big">+7 (47-12) 74-05-00</a>
           </li>
           <li class="footer__list-item">
-            <a href="mailto:info@galereyaokon.com" class="footer__link">info@galereyaokon.com</a>
+            <a href="mailto:info@galereyaokon.com" class="footer__link footer__link--big">info@galereyaokon.com</a>
           </li>
-          <li class="footer__list-item">г. Курск, пр-т Кулакова, 144</li>
         </ul>
-
-      </div>
-      <div class="footer__item">
-        <nav class="social">
+        <nav class="footer__social social">
           <ul class="social__list social__list list-reset">
             <li class="social__item">
               <a href="https://t.me/+79102199798" target="_blank" class="social__link social__link--big">
@@ -679,7 +657,7 @@
                 </svg>
               </a>
             </li>
-            <!-- <li class="social__item">
+            <li class="social__item">
               <a href="#" class="social__link social__link--big">
                 <svg class="social__icon">
                   <use xlink:href="img/sprite.svg#vk"></use>
@@ -692,11 +670,90 @@
                   <use xlink:href="img/sprite.svg#yt"></use>
                 </svg>
               </a>
-            </li> -->
+            </li>
           </ul>
         </nav>
+        <button data-micromodal-trigger="callback" class="footer__button button button--round button--big">Заказать
+          звонок</button>
+      </div>
+      <div class="footer__item">
+        <div class="footer__item-title footer__item-title--big-margin">
+          Меню
+        </div>
+        <ul class="footer__list list-reset">
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">Каталог</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">Услуги</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">Акции</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">О нас</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">Дилерам</a>
+          </li>
+
+        </ul>
 
       </div>
+      <div class="footer__item">
+        <div class="footer__item-title footer__item-title--big-margin">
+          Адрес
+        </div>
+        <ul class="footer__list list-reset">
+
+          <li class="footer__list-item">г. Курск, пр-т Кулакова, 144</li>
+          <li class="footer__list-item">пн-пт 09:00–18:00</li>
+        </ul>
+
+      </div>
+      <div class="footer__item">
+        <a href="https://yandex.ru/maps/org/galereya_okon/242806810928/?ll=36.125937%2C51.641664&z=16" target="_blank"
+          class="ya-rating">
+          <div class="ya-rating__top">
+            <svg class="ya-rating__marker">
+              <use xlink:href="img/sprite.svg#marker_without_area"></use>
+            </svg>
+            <span class="ya-rating__value"> 4,4</span>
+
+            <svg class="ya-rating__star">
+              <use xlink:href="img/sprite.svg#star"></use>
+            </svg>
+            <svg class="ya-rating__star">
+              <use xlink:href="img/sprite.svg#star"></use>
+            </svg>
+            <svg class="ya-rating__star">
+              <use xlink:href="img/sprite.svg#star"></use>
+            </svg>
+            <svg class="ya-rating__star">
+              <use xlink:href="img/sprite.svg#star"></use>
+            </svg>
+            <svg class="ya-rating__star">
+              <use xlink:href="img/sprite.svg#star"></use>
+            </svg>
+          </div>
+          <div class="ya-rating__bottom">
+            Рейтинг организации в Яндексе
+          </div>
+        </a>
+        <div class="footer__payments">
+          <div class="footer__payments-item">
+            <img src="img/payments/visa.svg" alt="">
+          </div>
+          <div class="footer__payments-item">
+            <img src="img/payments/m-card.svg" alt="">
+          </div>
+          <div class="footer__payments-item">
+            <img src="img/payments/mir.svg" alt="">
+          </div>
+        </div>
+
+      </div>
+
     </div>
     <div class="footer__copy">
       <div class="footer__copy-item">

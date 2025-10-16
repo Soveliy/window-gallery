@@ -1,12 +1,13 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
 .footer {
-  padding: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem) 0 0;
+  padding: clamp(1.25rem, 0.0954rem + 4.7368vw, 5.1875rem) 0 0;
   background: var(--gray-dark);
   &__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 19.625rem 10.3125rem 16.5rem 15.4375rem;
+    justify-content: space-between;
+    // grid-template-columns: 2fr 1fr;
     gap: 3.75rem;
     @include tablet {
       display: flex;
@@ -24,16 +25,28 @@
     }
   }
   &__item {
-    &:nth-child(2n) {
-      justify-self: end;
-    }
+    // &:nth-child(2n) {
+    //   justify-self: end;
+    // }
   }
   &__link {
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-base);
     transition: 0.3s;
+
     @include hover {
       color: var(--white);
+    }
+
+    &--big {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: clamp(1.75rem, 1.6767rem + 0.3008vw, 2rem);
+      text-transform: uppercase;
+      color: var(--white);
+      @include hover {
+        color: var(--gray-base);
+      }
     }
   }
   &__list-item {
@@ -95,5 +108,22 @@
         }
       }
     }
+  }
+  &__social {
+    margin: 2.5rem 0 clamp(2.5rem, 2.1335rem + 1.5038vw, 3.75rem);
+  }
+
+  &__payments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  &__payments-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border: 1px solid var(--gray-base);
   }
 }
