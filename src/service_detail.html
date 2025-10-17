@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    <div class="site-content">
+
+      @include('partials/header.html')
+      <main class="main">
+        <div class="page-top">
+          <div class="container">
+            <nav class="page-top__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+              <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="/" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="#" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Услуги</span>
+                  </a>
+                  <meta itemprop="position" content="2" />
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Монтаж пластиковых окон</span>
+                  <meta itemprop="item" content="https://example.com/works" />
+                  <meta itemprop="position" content="3" />
+                </li>
+              </ul>
+            </nav>
+            <h1 class="page-top__title">
+              Монтаж пластиковых окон
+            </h1>
+
+          </div>
+        </div>
+        <div class="service-detail clip-path-right-wihout-parallax ">
+          <picture class="service_detail__picture">
+            <source srcset="img/service_detail.webp" type="image/webp">
+            <img loading="lazy" src="img/service-detail.jpg" class="image" width="1920" height="680" alt="">
+          </picture>
+          <div class="container">
+            <div class="service-detail__content-box content-box">
+              <p>Монтаж пластиковых окон — это не просто установка оконных конструкций, а целый комплекс
+                профессиональных работ, от точных замеров до окончательной герметизации. Грамотно выполненный монтаж
+                обеспечивает надёжную защиту от холода, сквозняков и влаги, а также высокий уровень шумоизоляции
+                и долговечность эксплуатации. Мы используем современные технологии и проверенные материалы,
+                что позволяет нашим окнам сохранять свои свойства долгие годы.</p>
+              <p>Работы выполняют опытные мастера с большим стажем, которые прекрасно знают особенности монтажа разных
+                типов оконных систем. Каждый специалист проходит регулярное обучение и повышает квалификацию,
+                чтобы всегда предлагать клиентам лучшие решения. Мы уделяем внимание каждой детали — от аккуратного
+                демонтажа старых конструкций до точного выравнивания и герметизации новых окон.</p>
+              <p>Благодаря профессионализму наших мастеров монтаж проходит быстро, чисто и без лишних хлопот
+                для заказчика. Вы получаете окна, установленные по всем стандартам, с гарантией качества и долгим сроком
+                службы. Мы уверены в результате и предоставляем гарантию на выполненные работы.</p>
+            </div>
+            <!-- <div class="work-detail__content">
+              <div class="work-detail__about">
+                <h3>
+                  О проекте
+                </h3>
+                <p>
+                  Проект был направлен на комплексное остекление балконов в новом жилом комплексе «Солнечный» с целью
+                  повышения комфорта и улучшения эстетики здания. Выполнено современное остекление с высокими
+                  показателями
+                  тепло — и шумоизоляции, которое обеспечивает уют в квартирах круглый год и придаёт фасаду завершённый,
+                  современный вид
+                </p>
+              </div>
+              <div class="work-detail__row">
+                <div class="work-detail__item">
+                  <h3>Объем работ</h3>
+                  <ul>
+                    <li>Демонтаж временных ограждений на балконах</li>
+                    <li>Подготовка и выравнивание монтажных проёмов</li>
+                    <li>Изготовление и установка конструкций в цвет фасада</li>
+                    <li>Монтаж двухкамерных стеклопакетов</li>
+                    <li>Уплотнение и герметизация швов</li>
+                  </ul>
+                </div>
+                <div class="work-detail__item">
+                  <h3>
+                    Особенности проекта
+                  </h3>
+                  <ul>
+                    <li>Необходимость точного подбора цвета конструкций для полного соответствия архитектурному проекту
+                      дома</li>
+                    <li>Работа на высоте с использованием альпинистского оборудования, так как часть балконов не имела
+                      доступа с лесов</li>
+                    <li>Организация монтажа в сжатые сроки до ввода дома в эксплуатацию</li>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+        </div>
+
+        @include('partials/advantages.html')
+        <section class="section procces">
+          <div class="container">
+            <h2 class="section__title">
+              этапы работ
+            </h2>
+            <div class="procces__grid">
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.6436 102.098V99.7286C11.6628 92.9876 17.1227 87.5278 23.8636 87.5085H40.2738C47.0148 87.5278 52.4747 92.9876 52.4939 99.7286V102.098C52.4939 103.709 51.1875 105.016 49.576 105.016H14.5614C12.9499 105.016 11.6436 103.709 11.6436 102.098Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M75.0604 52.4931V61.2409C75.0604 62.3671 75.7086 63.3928 76.7257 63.8762C77.7429 64.3597 78.9475 64.2146 79.8208 63.5035L93.3417 52.4931H107.157C113.603 52.4931 118.829 47.2676 118.829 40.8216V23.3139C118.829 16.8679 113.603 11.6423 107.157 11.6423H69.9987C63.5527 11.6423 58.3271 16.8679 58.3271 23.3139V40.8212C58.3271 47.2672 63.5527 52.4927 69.9987 52.4927L75.0604 52.4931Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="32.0651" cy="61.2477" r="11.6715" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M87.5059 125.44V123.07C87.5251 116.329 92.985 110.87 99.7259 110.85H116.136C122.877 110.87 128.337 116.329 128.356 123.07V125.44C128.356 127.051 127.05 128.358 125.438 128.358H90.4237C88.8122 128.358 87.5059 127.051 87.5059 125.44Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="107.933" cy="84.5895" r="11.6715" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Замер и согласование параметров</div>
+              </div>
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M19.2106 35.8225L35.824 19.2092C38.099 16.9342 41.7915 16.9342 44.0723 19.2092L120.792 95.9292C123.067 98.2042 123.067 101.897 120.792 104.178L104.179 120.791C101.904 123.066 98.2115 123.066 95.9306 120.791L19.2106 44.0708C16.9298 41.79 16.9298 38.0975 19.2106 35.8225Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M82.4238 57.5757L73.6738 66.3257" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M97.5316 72.6831L91.6982 78.5164" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M111.414 86.5671L102.664 95.3171" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M68.5413 43.6923L62.708 49.4673" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M53.4346 28.5828L44.6846 37.3328" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M72.0625 47.2028L98.0908 21.1744C102.617 16.6478 109.979 16.6711 114.535 21.2269L118.712 25.4036C123.267 29.9594 123.291 37.3211 118.764 41.8478L92.7358 67.8761"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M47.2052 72.0649L23.6968 95.5733C22.9618 96.3083 22.4368 97.2299 22.1743 98.2391L17.846 114.987C16.726 119.315 20.6693 123.252 24.9977 122.121L41.7102 117.763C42.7135 117.501 43.6293 116.976 44.3643 116.241L67.8785 92.7266"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M88.2002 31.092L108.85 51.742" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Подготовка к установке и монтаж</div>
+              </div>
+              <div class="procces-item">
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M52.5 32.0834H87.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M105 52.4999H35" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M35 84.5834H52.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M99.8743 75.1256C106.709 81.9598 106.709 93.0402 99.8743 99.8743C93.0402 106.709 81.9598 106.709 75.1256 99.8743C68.2915 93.0402 68.2915 81.9598 75.1256 75.1256C81.9598 68.2915 93.0402 68.2915 99.8743 75.1256"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M99.1663 100.456V128.333L87.4997 122.5L75.833 128.333V100.456" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M99.167 110.833H116.667C123.113 110.833 128.334 105.613 128.334 99.1667V23.3334C128.334 16.8876 123.113 11.6667 116.667 11.6667H23.3337C16.8878 11.6667 11.667 16.8876 11.667 23.3334V99.1667C11.667 105.613 16.8878 110.833 23.3337 110.833H75.8337"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Проверка качества и устранение замечаний</div>
+              </div>
+              <div class="procces-item">
+
+                <svg class="procces-item__icon" width="140" height="140" viewBox="0 0 140 140" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.667 110.833C11.667 98 22.167 87.5 35.0003 87.5H58.3337C71.167 87.5 81.667 98 81.667 110.833"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M61.2486 34.9996C69.4153 43.1662 69.4153 55.9996 61.2486 63.5829C53.082 71.1663 40.2486 71.7496 32.6653 63.5829C25.082 55.4163 24.4986 43.1662 32.082 34.9996C39.6653 26.8329 53.082 27.4162 61.2486 34.9996"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M93.333 81.6667H110.833C120.75 81.6667 128.333 89.2501 128.333 99.1667" stroke="white"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M112.583 39.0828C118.416 44.9161 118.416 54.2494 112.583 59.4994C106.749 64.7494 97.416 65.3328 92.166 59.4994C86.916 53.6661 86.3326 44.3328 92.166 39.0828C97.416 33.8328 106.749 33.8328 112.583 39.0828"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="procces-item__desc">Сдача работы клиенту</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section price-table">
+          <div class="container">
+            <h2 class="section__title">
+              что входит в стоимость
+            </h2>
+            <div class="price-table__scroll">
+              <table class="price-table__native">
+                <tr>
+                  <th>Название </th>
+                  <th>стоимость</th>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum lorem ipsum</td>
+                  <td>5 000 ₽</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="section faq">
+          <div class="container">
+            <h2 class="section__title">
+              частые вопросы
+            </h2>
+            <div class="faq__items" itemscope itemtype="https://schema.org/FAQPage">
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  Какие документы нужны?
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, neque laboriosam quibusdam
+                    quas eum quod minus dolore corrupti aliquam sequi aliquid natus, in voluptatem totam, cum minima
+                    vitae illum. Animi?
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  Какие гарантии?
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nisi aperiam fuga officiis cumque.
+                    Asperiores necessitatibus, omnis vel delectus a amet repellendus voluptas culpa vero quibusdam
+                    cupiditate optio ducimus ipsa!
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  Сколько времени занимает монтаж?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolorum necessitatibus temporibus
+                    tempore enim doloremque pariatur animi numquam repellendus itaque! Expedita maxime mollitia aliquam!
+                    Numquam repudiandae quae totam quos natus!
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  Можно ли заказать услугу отдельно от покупки окон?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem nostrum saepe dolores
+                    necessitatibus, assumenda at libero soluta? Voluptatum dignissimos nihil atque ut iure aut illum
+                    error cum optio quasi?
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        @include('partials/reviews.html')
+        @include('partials/questions.html', {
+        "title": "закажите сейчас",
+        "desc": "Оставьте заявку и мы подготовим индивидуальное решение специально для вас"
+        })
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>

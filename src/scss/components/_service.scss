@@ -1,0 +1,7 @@
+.service-detail {
+  padding-bottom: clamp(2.5rem, 1.352rem + 4.898vw, 6.25rem);
+  &__content-box {
+    padding-top: clamp(2rem, 1.4643rem + 2.2857vw, 3.75rem);
+    color: var(--gray-light);
+  }
+}

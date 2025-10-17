@@ -33050,7 +33050,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const accordeonItems = document.querySelectorAll(".reviews-item");
+const accordeonItems = document.querySelectorAll(".reviews-item,.faq-item");
 const closeAllItems = () => {
   accordeonItems.forEach(accordeonItem => {
     accordeonItem.classList.remove("js-active");

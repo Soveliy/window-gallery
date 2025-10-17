@@ -1,4 +1,4 @@
-const accordeonItems = document.querySelectorAll(".reviews-item");
+const accordeonItems = document.querySelectorAll(".reviews-item,.faq-item");
 const closeAllItems = () => {
   accordeonItems.forEach((accordeonItem) => {
     accordeonItem.classList.remove("js-active");
