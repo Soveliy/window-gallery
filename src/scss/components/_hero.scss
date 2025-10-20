@@ -19,7 +19,7 @@
     gap: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
     position: relative;
     z-index: 100;
-    min-height: 100dvh;
+    min-height: 100svh;
   }
   &__row {
     display: flex;

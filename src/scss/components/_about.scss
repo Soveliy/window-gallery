@@ -47,13 +47,23 @@
   &__list {
     display: flex;
     gap: clamp(1.25rem, -0.5827rem + 7.5188vw, 7.5rem);
-    max-width: 43.375rem;
+    max-width: 45.375rem;
   }
   &__item {
     position: relative;
-    padding: 1.75rem 2.3125rem 2.5rem 2.5rem;
+
+
     @include tablet {
       padding: 0.75rem 0.75rem 1rem;
+    }
+  }
+
+  &__item-content{
+     padding: 1.75rem 2.3125rem 2.5rem 2.5rem;
+    &:not(:first-child){
+      top: 0;
+      left: 0;
+      position: absolute;
     }
   }
   &__item-title {

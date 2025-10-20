@@ -33090,13 +33090,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/MorphSVGPlugin.js */ "./node_modules/gsap/MorphSVGPlugin.js");
-/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/CustomEase.js */ "./node_modules/gsap/CustomEase.js");
-/* harmony import */ var gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/DrawSVGPlugin.js */ "./node_modules/gsap/DrawSVGPlugin.js");
-/* harmony import */ var gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollSmoother.js */ "./node_modules/gsap/ScrollSmoother.js");
-/* harmony import */ var gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollToPlugin.js */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _functions_check_viewport_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/check-viewport.js */ "./src/js/functions/check-viewport.js");
+/* harmony import */ var gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/MorphSVGPlugin.js */ "./node_modules/gsap/MorphSVGPlugin.js");
+/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gsap/CustomEase.js */ "./node_modules/gsap/CustomEase.js");
+/* harmony import */ var gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/DrawSVGPlugin.js */ "./node_modules/gsap/DrawSVGPlugin.js");
+/* harmony import */ var gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollSmoother.js */ "./node_modules/gsap/ScrollSmoother.js");
+/* harmony import */ var gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/ScrollToPlugin.js */ "./node_modules/gsap/ScrollToPlugin.js");
 
 
 
@@ -33104,732 +33105,716 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__.ScrollToPlugin, gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"], gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_6__["default"]);
-// ScrollSmoother.create({
-//   wrapper: ".site-container",
-//   content: ".site-content",
-//   smooth: 1.5,
-//   effects: true,
-// });
-document.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  if (pageYOffset > 10) {
-    header.classList.add("js-scroll");
-  } else {
-    header.classList.remove("js-scroll");
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_5__.ScrollToPlugin, gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"], gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
+window.addEventListener("load", () => {
+  if ((0,_functions_check_viewport_js__WEBPACK_IMPORTED_MODULE_0__.isDesktop)()) {
+    gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__.ScrollSmoother.create({
+      wrapper: ".site-container",
+      content: ".site-content",
+      smooth: 1.5,
+      effects: true
+    });
   }
-});
-let hero = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({});
-const heroBlock = document.querySelector(".hero");
-if (heroBlock) {
-  setTimeout(() => {
-    hero.to(".hero__title path", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-      stagger: {
-        each: 0.1,
-        from: "start"
-      }
-    }, "=-0.5");
-    hero.to(".hero__video", {
-      // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1,
-      ease: "power3.out",
-      opacity: 1
-    }, "-=0.2");
-    hero.to(".header", {
-      opacity: 1,
-      y: 0,
-      ease: "power3.out"
-    }, "-=0.5");
-    hero.to(".hero__desc", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 0.6,
-      ease: "power3.out",
-      delay: 0.2
-    });
-    hero.to(".hero__buttons", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 0.6,
-      ease: "power3.out",
-      delay: 0.2
-    }, "=-0.5");
-  }, 500);
-} else {
-  setTimeout(() => {
-    hero.to(".breadcrumbs", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 0.6,
-      ease: "ease",
-      delay: 0.2
-    });
-    hero.to(".page-top__title", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 0.6,
-      ease: "ease",
-      delay: 0.2
-    });
-    hero.to(".header", {
-      opacity: 1,
-      y: 0,
-      ease: "ease"
-    }, "-=0.5");
-  }, 500);
-}
-class AboutSyncGallery {
-  /**
-   * @param {HTMLElement} sectionEl - <section class="section about">
-   */
-  constructor(sectionEl) {
-    this.section = sectionEl;
-
-    // медиа (общие для десктопа/мобилы)
-    this.gallery = sectionEl.querySelector(".about__image-gallery");
-    this.medias = this.gallery ? Array.from(this.gallery.querySelectorAll(".image-gallery__item")) : [];
-
-    // тексты
-    this.descDesktop = Array.from(sectionEl.querySelectorAll(".about__desc--desktop .about__desc-item"));
-    this.descMobile = Array.from(sectionEl.querySelectorAll(".about__desc--mobile  .about__desc-item"));
-
-    // counter
-    this.counterWrap = sectionEl.querySelector(".about__counter");
-    this._currentIndex = 0;
-    this.mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
-  }
-  init() {
-    // Десктоп
-    this.mm.add("(min-width: 768px) and (min-aspect-ratio: 1/1)", () => this._animate({
-      textItems: this.descDesktop
-    }));
-
-    // Мобила
-    this.mm.add("(max-width: 767px), (max-aspect-ratio: 1/1)", () => this._animate({
-      textItems: this.descMobile
-    }));
-  }
-  _animate(_ref) {
-    let {
-      textItems
-    } = _ref;
-    const steps = Math.min(this.medias.length, textItems.length);
-    if (steps < 2) return;
-
-    // стартовые состояния
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias, {
-      clipPath: "inset(0 100% 0 0)",
-      zIndex: 1
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[0], {
-      clipPath: "inset(0 0 0 0)",
-      zIndex: 2
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textItems, {
-      autoAlpha: 0,
-      y: 20
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(textItems[0], {
-      autoAlpha: 1,
-      y: 0
-    });
-    if (this.counterWrap) {
-      this._setCounterTotal(steps);
-      this._updateCounter(1, true);
+  document.addEventListener("scroll", () => {
+    const header = document.querySelector(".header");
+    if (pageYOffset > 10) {
+      header.classList.add("js-scroll");
+    } else {
+      header.classList.remove("js-scroll");
     }
-    gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
-      trigger: this.section,
-      pin: true,
-      start: "top top",
-      end: "+=" + (steps - 1) * window.innerHeight,
-      snap: 1 / (steps - 1),
-      onUpdate: self => {
-        const idx = Math.round(self.progress * (steps - 1));
-        if (idx !== this._currentIndex) {
-          this._goToStep(idx, textItems);
+  });
+  let hero = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({});
+  const heroBlock = document.querySelector(".hero");
+  if (heroBlock) {
+    setTimeout(() => {
+      hero.to(".hero__title path", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: {
+          each: 0.1,
+          from: "start"
         }
-      }
-    });
-    window.addEventListener("resize", () => gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.refresh(), {
-      passive: true
-    });
+      }, "=-0.5");
+      hero.to(".hero__video", {
+        // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 1,
+        ease: "power3.out",
+        opacity: 1
+      }, "-=0.2");
+      hero.to(".header", {
+        opacity: 1,
+        y: 0,
+        ease: "power3.out"
+      }, "-=0.5");
+      hero.to(".hero__desc", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.6,
+        ease: "power3.out",
+        delay: 0.2
+      });
+      hero.to(".hero__buttons", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.6,
+        ease: "power3.out",
+        delay: 0.2
+      }, "=-0.5");
+    }, 500);
+  } else {
+    setTimeout(() => {
+      hero.to(".breadcrumbs", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.6,
+        ease: "ease",
+        delay: 0.2
+      });
+      hero.to(".page-top__title", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.6,
+        ease: "ease",
+        delay: 0.2
+      });
+      hero.to(".header", {
+        opacity: 1,
+        y: 0,
+        ease: "ease"
+      }, "-=0.5");
+    }, 500);
   }
-  _goToStep(index, textItems) {
-    const prev = this._currentIndex ?? 0;
-    if (prev === index) return;
-    const dur = 0.6;
+  class AboutSyncGallery {
+    /**
+     * @param {HTMLElement} sectionEl - <section class="section about">
+     */
+    constructor(sectionEl) {
+      this.section = sectionEl;
 
-    // === КАРТИНКИ ===
-    if (this.medias[index]) {
-      // новая сразу "готова" под старой
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[index], {
-        clipPath: "inset(0 0 0 0)",
+      // медиа (общие для десктопа/мобилы)
+      this.gallery = sectionEl.querySelector(".about__image-gallery");
+      this.medias = this.gallery ? Array.from(this.gallery.querySelectorAll(".image-gallery__item")) : [];
+
+      // тексты
+      this.descDesktop = Array.from(sectionEl.querySelectorAll(".about__desc--desktop .about__desc-item"));
+      this.descMobile = Array.from(sectionEl.querySelectorAll(".about__desc--mobile  .about__desc-item"));
+
+      // блоки .about__item
+      this.aboutItems = Array.from(sectionEl.querySelectorAll(".about__item")).map(item => Array.from(item.querySelectorAll(".about__item-content")));
+
+      // counter
+      this.counterWrap = sectionEl.querySelector(".about__counter");
+      this._currentIndex = 0;
+      this.mm = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.matchMedia();
+    }
+    init() {
+      // Десктоп
+      this.mm.add("(min-width: 768px) and (min-aspect-ratio: 1/1)", () => this._animate({
+        textItems: this.descDesktop
+      }));
+
+      // Мобила
+      this.mm.add("(max-width: 767px), (max-aspect-ratio: 1/1)", () => this._animate({
+        textItems: this.descMobile
+      }));
+    }
+    _animate(_ref) {
+      let {
+        textItems
+      } = _ref;
+      const steps = Math.min(this.medias.length, textItems.length);
+      if (steps < 2) return;
+
+      // стартовые состояния
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.medias, {
+        clipPath: "inset(0 100% 0 0)",
         zIndex: 1
       });
-    }
-    if (this.medias[prev]) {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[prev], {
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.medias[0], {
+        clipPath: "inset(0 0 0 0)",
         zIndex: 2
-      }); // старая поверх
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(this.medias[prev], {
-        clipPath: "inset(0 100% 0 0)",
-        // уезжает влево
-        duration: dur,
-        ease: "power2.inOut",
-        onComplete: () => {
-          // после анимации прячем старую
-          gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.medias[prev], {
-            clipPath: "inset(0 100% 0 0)",
-            zIndex: 0
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(textItems, {
+        autoAlpha: 0,
+        y: 20
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(textItems[0], {
+        autoAlpha: 1,
+        y: 0
+      });
+      if (this.counterWrap) {
+        this._setCounterTotal(steps);
+        this._updateCounter(1, true);
+      }
+      gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
+        trigger: this.section,
+        pin: true,
+        start: "top top",
+        end: "+=" + (steps - 1) * window.innerHeight,
+        snap: 1 / (steps - 1),
+        onUpdate: self => {
+          const idx = Math.round(self.progress * (steps - 1));
+          if (idx !== this._currentIndex) {
+            this._goToStep(idx, textItems);
+          }
+        }
+      });
+
+      // window.addEventListener(
+      //   "resize",
+      //   () => {
+      //     ScrollTrigger.refresh();
+      //     alert("resize");
+      //   },
+      //   {
+      //     passive: true,
+      //   }
+      // );
+    }
+    _goToStep(index, textItems) {
+      const prev = this._currentIndex ?? 0;
+      if (prev === index) return;
+      const dur = 0.6;
+
+      // === КАРТИНКИ ===
+      if (this.medias[index]) {
+        // новая сразу "готова" под старой
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.medias[index], {
+          clipPath: "inset(0 0 0 0)",
+          zIndex: 1
+        });
+      }
+      if (this.medias[prev]) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.medias[prev], {
+          zIndex: 2
+        }); // старая поверх
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(this.medias[prev], {
+          clipPath: "inset(0 100% 0 0)",
+          // уезжает влево
+          duration: dur,
+          ease: "power2.inOut",
+          onComplete: () => {
+            // после анимации прячем старую
+            gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.medias[prev], {
+              clipPath: "inset(0 100% 0 0)",
+              zIndex: 0
+            });
+          }
+        });
+      }
+
+      // === ТЕКСТ (сверху вниз) ===
+      if (textItems[prev]) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(textItems[prev], {
+          autoAlpha: 0,
+          y: -20,
+          duration: dur * 0.6,
+          ease: "power2.out"
+        });
+      }
+      if (textItems[index]) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.fromTo(textItems[index], {
+          autoAlpha: 0,
+          y: -20
+        }, {
+          autoAlpha: 1,
+          y: 0,
+          duration: dur * 0.6,
+          ease: "power2.out",
+          delay: dur * 0.15
+        });
+      }
+      this.aboutItems.forEach(group => {
+        if (group[prev]) {
+          gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(group[prev], {
+            autoAlpha: 0,
+            y: -20,
+            duration: dur * 0.6,
+            ease: "power2.out"
+          });
+        }
+        if (group[index]) {
+          gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.fromTo(group[index], {
+            autoAlpha: 0,
+            y: 20
+          }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: dur * 0.6,
+            ease: "power2.out",
+            delay: dur * 0.15
           });
         }
       });
+      // === СЧЁТЧИК ===
+      this._updateCounter(index + 1);
+      this._currentIndex = index;
     }
 
-    // === ТЕКСТ (сверху вниз) ===
-    if (textItems[prev]) {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(textItems[prev], {
-        autoAlpha: 0,
-        y: -20,
-        duration: dur * 0.6,
+    /* === helpers === */
+    _setCounterTotal(total) {
+      if (!this.counterWrap) return;
+      this.counterWrap.innerHTML = "";
+      const windowEl = document.createElement("div");
+      windowEl.classList.add("counter-window");
+      const reel = document.createElement("div");
+      reel.classList.add("counter-reel");
+      windowEl.appendChild(reel);
+      for (let i = 1; i <= total; i++) {
+        const num = document.createElement("span");
+        num.textContent = i;
+        reel.appendChild(num);
+      }
+      this.counterWrap.appendChild(windowEl);
+      const totalSpan = document.createElement("span");
+      totalSpan.classList.add("counter-total");
+      totalSpan.textContent = "/" + total;
+      this.counterWrap.appendChild(totalSpan);
+      this.reel = reel;
+    }
+    _updateCounter(index) {
+      let immediate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      if (!this.reel) return;
+      const itemHeight = this.reel.firstElementChild.offsetHeight;
+      const offset = -(index - 1) * itemHeight;
+      if (immediate) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(this.reel, {
+          y: offset
+        });
+        return;
+      }
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(this.reel, {
+        y: offset,
+        duration: 0.4,
+        ease: "power2.inOut"
+      });
+    }
+  }
+  const section = document.querySelector(".section.about");
+  if (section) {
+    new AboutSyncGallery(section).init();
+  }
+  const historyAnimation = () => {
+    const section = document.querySelector(".history");
+    const years = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(".history__years-item");
+    const lineEl = document.querySelector(".history__line");
+    const svg = document.querySelector(".history__scheme");
+    const texts = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(".history__text-item");
+    if (!section || !lineEl || !svg || !years.length || !texts.length) return;
+
+    // 1) Собираем элементы для прорисовки (предпочтительно с [data-draw]).
+    //   Фолбэк — все геометрические фигуры со stroke.
+    let drawables = svg.querySelectorAll("[data-draw]");
+    if (!drawables.length) {
+      drawables = svg.querySelectorAll("path, line, polyline, polygon");
+      drawables = [...drawables].filter(el => {
+        const sw = parseFloat(getComputedStyle(el).strokeWidth || el.getAttribute("stroke-width") || "0");
+        const st = getComputedStyle(el).stroke || el.getAttribute("stroke");
+        return sw > 0 && st && st !== "none";
+      });
+    } else {
+      drawables = [...drawables];
+    }
+
+    // переворачиваем порядок элементов
+    drawables.reverse();
+    if (!drawables.length) return;
+
+    // 2) Подготовка шагов и UI
+    const steps = years.map((_, i) => i / (years.length - 1));
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(lineEl, {
+      scaleX: 0
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(texts, {
+      autoAlpha: 0,
+      y: 16
+    });
+    texts[0].classList.add("is-active");
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(texts[0], {
+      autoAlpha: 1,
+      y: 0
+    });
+    years[0].classList.add("is-active");
+    let activeIndex = 0;
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(drawables, {
+      drawSVG: "0%"
+    });
+    // 3) Инициализация штриховки для «рисования»
+    //    Считаем длины всех элементов, строим префиксные суммы для последовательной прорисовки «слева направо»
+    const lengths = drawables.map(el => {
+      try {
+        return typeof el.getTotalLength === "function" ? el.getTotalLength() : 0;
+      } catch {
+        return 0;
+      }
+    });
+    const totalLength = lengths.reduce((a, b) => a + b, 0);
+    const prefix = [];
+    lengths.reduce((acc, len) => (prefix.push(acc), acc + len), 0);
+
+    // drawables.forEach((el, i) => {
+    //   const L = Math.max(0.0001, lengths[i]);
+    //   el.style.fill = el.style.fill || "none";
+    //   el.style.strokeDasharray = L;
+    //   el.style.strokeDashoffset = L;
+    //   el.style.vectorEffect = "non-scaling-stroke";
+
+    //   // убираем stroke на старте
+    //   el.dataset.origStroke = getComputedStyle(el).stroke || "#fff";
+    //   el.style.stroke = "none";
+    // });
+
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(drawables, {
+      drawSVG: "100%",
+      duration: 1.2,
+      stagger: 0.02,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=200%"
+      }
+    });
+    function drawProgress(progress) {
+      const drawn = totalLength * gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.clamp(0, 1, progress);
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(lineEl, {
+        scaleX: progress,
+        duration: 0.6,
         ease: "power2.out"
       });
     }
-    if (textItems[index]) {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(textItems[index], {
+    function switchText(toIndex) {
+      if (toIndex === activeIndex) return;
+      const from = texts[activeIndex];
+      const to = texts[toIndex];
+      from.classList.remove("is-active");
+      to.classList.add("is-active");
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+        defaults: {
+          duration: 0.45,
+          ease: "power2.out"
+        }
+      }).to(from, {
         autoAlpha: 0,
-        y: -20
+        y: 16
+      }, 0).fromTo(to, {
+        autoAlpha: 0,
+        y: -12
       }, {
         autoAlpha: 1,
-        y: 0,
-        duration: dur * 0.6,
-        ease: "power2.out",
-        delay: dur * 0.15
-      });
+        y: 0
+      }, 0.1);
+      years[activeIndex].classList.remove("is-active");
+      years[toIndex].classList.add("is-active");
+      activeIndex = toIndex;
     }
-
-    // === СЧЁТЧИК ===
-    this._updateCounter(index + 1);
-    this._currentIndex = index;
-  }
-
-  /* === helpers === */
-  _setCounterTotal(total) {
-    if (!this.counterWrap) return;
-    this.counterWrap.innerHTML = "";
-    const windowEl = document.createElement("div");
-    windowEl.classList.add("counter-window");
-    const reel = document.createElement("div");
-    reel.classList.add("counter-reel");
-    windowEl.appendChild(reel);
-    for (let i = 1; i <= total; i++) {
-      const num = document.createElement("span");
-      num.textContent = i;
-      reel.appendChild(num);
-    }
-    this.counterWrap.appendChild(windowEl);
-    const totalSpan = document.createElement("span");
-    totalSpan.classList.add("counter-total");
-    totalSpan.textContent = "/" + total;
-    this.counterWrap.appendChild(totalSpan);
-    this.reel = reel;
-  }
-  _updateCounter(index) {
-    let immediate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    if (!this.reel) return;
-    const itemHeight = this.reel.firstElementChild.offsetHeight;
-    const offset = -(index - 1) * itemHeight;
-    if (immediate) {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(this.reel, {
-        y: offset
-      });
-      return;
-    }
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(this.reel, {
-      y: offset,
-      duration: 0.4,
-      ease: "power2.inOut"
-    });
-  }
-}
-const section = document.querySelector(".section.about");
-if (section) {
-  new AboutSyncGallery(section).init();
-}
-const historyAnimation = () => {
-  const section = document.querySelector(".history");
-  const years = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__years-item");
-  const lineEl = document.querySelector(".history__line");
-  const svg = document.querySelector(".history__scheme");
-  const texts = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".history__text-item");
-  if (!section || !lineEl || !svg || !years.length || !texts.length) return;
-
-  // 1) Собираем элементы для прорисовки (предпочтительно с [data-draw]).
-  //   Фолбэк — все геометрические фигуры со stroke.
-  let drawables = svg.querySelectorAll("[data-draw]");
-  if (!drawables.length) {
-    drawables = svg.querySelectorAll("path, line, polyline, polygon");
-    drawables = [...drawables].filter(el => {
-      const sw = parseFloat(getComputedStyle(el).strokeWidth || el.getAttribute("stroke-width") || "0");
-      const st = getComputedStyle(el).stroke || el.getAttribute("stroke");
-      return sw > 0 && st && st !== "none";
-    });
-  } else {
-    drawables = [...drawables];
-  }
-
-  // переворачиваем порядок элементов
-  drawables.reverse();
-  if (!drawables.length) return;
-
-  // 2) Подготовка шагов и UI
-  const steps = years.map((_, i) => i / (years.length - 1));
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(lineEl, {
-    scaleX: 0
-  });
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(texts, {
-    autoAlpha: 0,
-    y: 16
-  });
-  texts[0].classList.add("is-active");
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(texts[0], {
-    autoAlpha: 1,
-    y: 0
-  });
-  years[0].classList.add("is-active");
-  let activeIndex = 0;
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(drawables, {
-    drawSVG: "0%"
-  });
-  // 3) Инициализация штриховки для «рисования»
-  //    Считаем длины всех элементов, строим префиксные суммы для последовательной прорисовки «слева направо»
-  const lengths = drawables.map(el => {
-    try {
-      return typeof el.getTotalLength === "function" ? el.getTotalLength() : 0;
-    } catch {
-      return 0;
-    }
-  });
-  const totalLength = lengths.reduce((a, b) => a + b, 0);
-  const prefix = [];
-  lengths.reduce((acc, len) => (prefix.push(acc), acc + len), 0);
-
-  // drawables.forEach((el, i) => {
-  //   const L = Math.max(0.0001, lengths[i]);
-  //   el.style.fill = el.style.fill || "none";
-  //   el.style.strokeDasharray = L;
-  //   el.style.strokeDashoffset = L;
-  //   el.style.vectorEffect = "non-scaling-stroke";
-
-  //   // убираем stroke на старте
-  //   el.dataset.origStroke = getComputedStyle(el).stroke || "#fff";
-  //   el.style.stroke = "none";
-  // });
-
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(drawables, {
-    drawSVG: "100%",
-    duration: 1.2,
-    stagger: 0.02,
-    ease: "power1.out",
-    scrollTrigger: {
+    gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "+=200%"
-    }
-  });
-  function drawProgress(progress) {
-    const drawn = totalLength * gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.clamp(0, 1, progress);
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(lineEl, {
-      scaleX: progress,
+      end: "+=200%",
+      scrub: true,
+      pin: true,
+      pinSpacing: true,
+      // expectPin: 1,
+      // anticipatePin: 1,
+      // markers: true,
+      onUpdate: self => {
+        const p = self.progress;
+        drawProgress(p);
+
+        // выбор активного «года» по ближайшему шагу
+        const idx = steps.reduce((acc, s, i) => Math.abs(p - s) < Math.abs(p - steps[acc]) ? i : acc, 0);
+        if (idx !== activeIndex) switchText(idx);
+      }
+    });
+
+    // лёгкий въезд заголовка
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(section.querySelector(".section__title"), {
+      autoAlpha: 0,
+      y: 20,
       duration: 0.6,
       ease: "power2.out"
     });
+
+    // Если где-то нужно программно прыгнуть к шагу:
+    // goToStep(2);
+  };
+  historyAnimation();
+  const items = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(".tasks-item");
+  function activate(el) {
+    items.forEach(i => i.classList.toggle("js-active", i === el));
   }
-  function switchText(toIndex) {
-    if (toIndex === activeIndex) return;
-    const from = texts[activeIndex];
-    const to = texts[toIndex];
-    from.classList.remove("is-active");
-    to.classList.add("is-active");
-    gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
-      defaults: {
-        duration: 0.45,
-        ease: "power2.out"
-      }
-    }).to(from, {
-      autoAlpha: 0,
-      y: 16
-    }, 0).fromTo(to, {
-      autoAlpha: 0,
-      y: -12
+  items.forEach(el => {
+    gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
+      trigger: el,
+      start: "top 60%",
+      end: "bottom 55%",
+      onEnter: () => activate(el),
+      onEnterBack: () => activate(el)
+      // markers: true,
+    });
+  });
+  function animateSVG(svgEl) {
+    const paths = svgEl.querySelectorAll("path, circle, rect, ellipse, polyline, polygon, line");
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(paths, {
+      drawSVG: "0%"
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(paths, {
+      drawSVG: "100%",
+      duration: 1.2,
+      stagger: 0.08,
+      ease: "power1.out"
+    });
+  }
+  document.querySelectorAll(".advantages-item").forEach(item => {
+    const svg = item.querySelector(".advantages-item__image");
+    item.addEventListener("mouseenter", () => {
+      if (svg) animateSVG(svg);
+    });
+  });
+  const advAnim = () => {
+    const items = document.querySelectorAll(".advantages-item");
+
+    // Определяем desktop
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (isDesktop) {
+      // ----- Табы для ПК -----
+      items.forEach(item => {
+        const title = item.querySelector(".advantages-item__title");
+        const svg = item.querySelector(".advantages-item__image");
+        if (title) {
+          title.addEventListener("click", () => {
+            // снимаем активность со всех
+            items.forEach(el => el.classList.remove("js-active"));
+            // добавляем активность на текущий
+            item.classList.add("js-active");
+
+            // запускаем анимацию svg
+            if (svg) animateSVG(svg);
+          });
+        }
+      });
+    } else {
+      // ----- Для мобилы: анимация при скролле -----
+      items.forEach(item => {
+        const svg = item.querySelector(".advantages-item__image");
+        if (!svg) return;
+
+        // IntersectionObserver — запускаем анимацию, когда svg попадает в область видимости
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateSVG(svg);
+              observer.unobserve(svg); // один раз
+            }
+          });
+        }, {
+          threshold: 0.2
+        });
+        observer.observe(svg);
+      });
+    }
+  };
+  advAnim();
+  document.querySelectorAll(".clip-path-right").forEach(section => {
+    const img = section.querySelector("img");
+    if (!img) return;
+
+    // подготовка: скрываем за маской и задаём начальный масштаб
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(section, {
+      overflow: "hidden",
+      clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(img, {
+      scale: 1
+    }); // начальный масштаб
+
+    // параллакс-скейл по скроллу
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.fromTo(img, {
+      scale: 1.3,
+      yPercent: -15,
+      ease: "none"
     }, {
-      autoAlpha: 1,
-      y: 0
-    }, 0.1);
-    years[activeIndex].classList.remove("is-active");
-    years[toIndex].classList.add("is-active");
-    activeIndex = toIndex;
-  }
-  gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
-    trigger: section,
-    start: "top top",
-    end: "+=200%",
-    scrub: true,
-    pin: true,
-    pinSpacing: true,
-    anticipatePin: 1,
-    onUpdate: self => {
-      const p = self.progress;
-      drawProgress(p);
+      yPercent: 15,
+      ease: "none",
+      scale: 1.3,
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        // когда верх блока дотронется до низа окна
+        end: "bottom top",
+        // пока блок не выйдет вверх
+        scrub: true // синхронизация с прокруткой
+        // markers: true
+      }
+    });
 
-      // выбор активного «года» по ближайшему шагу
-      const idx = steps.reduce((acc, s, i) => Math.abs(p - s) < Math.abs(p - steps[acc]) ? i : acc, 0);
-      if (idx !== activeIndex) switchText(idx);
-    }
-  });
-
-  // лёгкий въезд заголовка
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(section.querySelector(".section__title"), {
-    autoAlpha: 0,
-    y: 20,
-    duration: 0.6,
-    ease: "power2.out"
-  });
-
-  // Если где-то нужно программно прыгнуть к шагу:
-  // goToStep(2);
-};
-historyAnimation();
-const items = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".tasks-item");
-function activate(el) {
-  items.forEach(i => i.classList.toggle("js-active", i === el));
-}
-items.forEach(el => {
-  gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
-    trigger: el,
-    start: "top 60%",
-    end: "bottom 55%",
-    onEnter: () => activate(el),
-    onEnterBack: () => activate(el)
-    // markers: true,
-  });
-});
-window.addEventListener("load", () => gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.refresh());
-function animateSVG(svgEl) {
-  const paths = svgEl.querySelectorAll("path, circle, rect, ellipse, polyline, polygon, line");
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(paths, {
-    drawSVG: "0%"
-  });
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(paths, {
-    drawSVG: "100%",
-    duration: 1.2,
-    stagger: 0.08,
-    ease: "power1.out"
-  });
-}
-document.querySelectorAll(".advantages-item").forEach(item => {
-  const svg = item.querySelector(".advantages-item__image");
-  item.addEventListener("mouseenter", () => {
-    if (svg) animateSVG(svg);
-  });
-});
-const advAnim = () => {
-  const items = document.querySelectorAll(".advantages-item");
-
-  // Определяем desktop
-  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-  if (isDesktop) {
-    // ----- Табы для ПК -----
-    items.forEach(item => {
-      const title = item.querySelector(".advantages-item__title");
-      const svg = item.querySelector(".advantages-item__image");
-      if (title) {
-        title.addEventListener("click", () => {
-          // снимаем активность со всех
-          items.forEach(el => el.classList.remove("js-active"));
-          // добавляем активность на текущий
-          item.classList.add("js-active");
-
-          // запускаем анимацию svg
-          if (svg) animateSVG(svg);
+    // одноразовое раскрытие маски
+    gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
+      trigger: section,
+      start: "top 40%",
+      once: true,
+      onEnter: () => {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(section, {
+          clipPath: "inset(0% 0% 0% 0%)",
+          // раскрываем маску
+          ease: "power4.inOut",
+          duration: 0.7
         });
       }
     });
-  } else {
-    // ----- Для мобилы: анимация при скролле -----
-    items.forEach(item => {
-      const svg = item.querySelector(".advantages-item__image");
-      if (!svg) return;
-
-      // IntersectionObserver — запускаем анимацию, когда svg попадает в область видимости
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateSVG(svg);
-            observer.unobserve(svg); // один раз
-          }
-        });
-      }, {
-        threshold: 0.2
-      });
-      observer.observe(svg);
-    });
-  }
-};
-advAnim();
-document.querySelectorAll(".clip-path-right").forEach(section => {
-  const img = section.querySelector("img");
-  if (!img) return;
-
-  // подготовка: скрываем за маской и задаём начальный масштаб
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(section, {
-    overflow: "hidden",
-    clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
   });
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(img, {
-    scale: 1
-  }); // начальный масштаб
-
-  // параллакс-скейл по скроллу
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(img, {
-    scale: 1.3,
-    yPercent: -15,
-    ease: "none"
-  }, {
-    yPercent: 15,
-    ease: "none",
-    scale: 1.3,
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(".questions__left", {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 0.6,
+    ease: "power3.out",
     scrollTrigger: {
-      trigger: section,
-      start: "top bottom",
-      // когда верх блока дотронется до низа окна
-      end: "bottom top",
-      // пока блок не выйдет вверх
-      scrub: true // синхронизация с прокруткой
-      // markers: true
+      trigger: ".questions",
+      start: "top 40%" // когда секция на 80% экрана
     }
   });
 
-  // одноразовое раскрытие маски
-  gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
-    trigger: section,
-    start: "top 40%",
-    once: true,
-    onEnter: () => {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(section, {
-        clipPath: "inset(0% 0% 0% 0%)",
-        // раскрываем маску
-        ease: "power4.inOut",
-        duration: 0.7
-      });
-    }
+  // Анимация отрисовки всех path в svg
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray("#svg path").forEach(path => {
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(path, {
+      drawSVG: "0%",
+      // начинаем с пустого контура
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#map",
+        start: "top 40%" // запуск при появлении карты
+      }
+    });
   });
-});
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".questions__left", {
-  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  duration: 0.6,
-  ease: "power3.out",
-  scrollTrigger: {
-    trigger: ".questions",
-    start: "top 40%" // когда секция на 80% экрана
-  }
-});
 
-// Анимация отрисовки всех path в svg
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray("#svg path").forEach(path => {
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(path, {
-    drawSVG: "0%",
-    // начинаем с пустого контура
-    duration: 1.5,
-    ease: "power2.out",
+  // Можно анимировать маркер (pin)
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(".map__pin", {
+    opacity: 0,
+    ease: "back.out(1.7)",
+    delay: 0.3,
     scrollTrigger: {
       trigger: "#map",
-      start: "top 40%" // запуск при появлении карты
+      start: "top 40%"
     }
   });
-});
 
-// Можно анимировать маркер (pin)
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(".map__pin", {
-  opacity: 0,
-  ease: "back.out(1.7)",
-  delay: 0.3,
-  scrollTrigger: {
-    trigger: "#map",
-    start: "top 40%"
-  }
-});
-
-// Анимация элементов футера
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(".footer__item", {
-  y: 50,
-  opacity: 0,
-  duration: 0.6,
-  ease: "power3.out",
-  stagger: 0.2,
-  scrollTrigger: {
-    trigger: ".footer",
-    start: "top 40%"
-  }
-});
-
-// Соцсети "выстреливают"
-// gsap.from(".social__item", {
-//   scale: 0,
-//   opacity: 0,
-//   duration: 0.4,
-//   ease: "back.out(1.7)",
-//   stagger: 0.1,
-//   scrollTrigger: {
-//     trigger: ".footer",
-//     start: "top 40%",
-//   },
-// });
-
-// Отрисовка svg-текста (desktop)
-// gsap.utils.toArray(".footer__title-svg--desktop path").forEach((path, i) => {
-//   gsap.from(path, {
-//     drawSVG: "0%",
-//     duration: 1,
-//     ease: "power2.out",
-//     delay: i * 0.05,
-//     marker: true,
-//     scrollTrigger: {
-//       trigger: ".footer__title-svg--desktop",
-//       start: "top top",
-//       markers: true,
-//     },
-//   });
-// });
-
-// Для мобильного svg
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".footer__title-svg--mobile path").forEach((path, i) => {
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(path, {
-    drawSVG: "0%",
-    duration: 0.8,
-    ease: "power2.out",
-    delay: i * 0.03,
+  // Анимация элементов футера
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(".footer__item", {
+    y: 50,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power3.out",
+    stagger: 0.2,
     scrollTrigger: {
-      trigger: ".footer__title-svg--mobile",
+      trigger: ".footer",
+      start: "top 40%"
+    }
+  });
+
+  // Для мобильного svg
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(".footer__title-svg--mobile path").forEach((path, i) => {
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(path, {
+      drawSVG: "0%",
+      duration: 0.8,
+      ease: "power2.out",
+      delay: i * 0.03,
+      scrollTrigger: {
+        trigger: ".footer__title-svg--mobile",
+        start: "top 90%"
+      }
+    });
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(".footer__title path", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    stagger: {
+      each: 0.1,
+      from: "start"
+    },
+    scrollTrigger: {
+      trigger: ".footer__title",
       start: "top 90%"
     }
+  }, "=-0.5");
+  (() => {
+    const RADIUS = 60;
+    document.querySelectorAll(".production-slide__image-container").forEach(container => {
+      const img = container.querySelector(".production-slide__image");
+      function onMove(e) {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        img.style.webkitMaskImage = `radial-gradient(circle ${RADIUS}px at ${x}px ${y}px, transparent 100%, black 100%)`;
+      }
+      function onLeave() {
+        img.style.webkitMaskImage = `radial-gradient(circle 0px at 0 0, transparent 0%, black 0%)`;
+      }
+      container.addEventListener("mousemove", onMove);
+      container.addEventListener("mouseleave", onLeave);
+    });
+  })();
+  document.querySelectorAll(".clip-path-right-init").forEach(section => {
+    const img = section.querySelector("img");
+    if (!img) return;
+
+    // подготовка: скрываем за маской и задаём начальный масштаб
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(section, {
+      overflow: "hidden",
+      clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(img, {
+      scale: 1
+    }); // начальный масштаб
+
+    // параллакс-скейл по скроллу
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.fromTo(img, {
+      scale: 1.3,
+      yPercent: -15,
+      ease: "none"
+    }, {
+      yPercent: 15,
+      ease: "none",
+      scale: 1.3,
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        // когда верх блока дотронется до низа окна
+        end: "bottom top",
+        // пока блок не выйдет вверх
+        scrub: true // синхронизация с прокруткой
+        // markers: true
+      }
+    });
+
+    // одноразовое раскрытие маски без ScrollTrigger
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(section, {
+      clipPath: "inset(0% 0% 0% 0%)",
+      // раскрываем маску
+      ease: "power4.inOut",
+      duration: 0.7,
+      delay: 0.2 // можно добавить небольшую задержку
+    });
   });
-});
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(".footer__title path", {
-  opacity: 1,
-  y: 0,
-  duration: 1,
-  ease: "power3.out",
-  stagger: {
-    each: 0.1,
-    from: "start"
-  },
-  scrollTrigger: {
-    trigger: ".footer__title",
-    start: "top 90%"
-  }
-}, "=-0.5");
+  document.querySelectorAll(".clip-path-right-wihout-parallax").forEach(section => {
+    const img = section.querySelector("img");
+    if (!img) return;
 
-// (() => {
-//   const RADIUS = 60;
+    // подготовка: скрываем за маской
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(section, {
+      overflow: "hidden",
+      clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
+    });
 
-//   document
-//     .querySelectorAll(".production-slide__image-container")
-//     .forEach((container) => {
-//       const img = container.querySelector(".production-slide__image");
-
-//       function onMove(e) {
-//         const rect = container.getBoundingClientRect();
-//         const x = e.clientX - rect.left;
-//         const y = e.clientY - rect.top;
-//         img.style.clipPath = `circle(${RADIUS}px at ${x}px ${y}px)`;
-//       }
-
-//       function onLeave() {
-//         img.style.clipPath = `circle(0px at 0 0)`;
-//       }
-
-//       container.addEventListener("mousemove", onMove);
-//       container.addEventListener("mouseleave", onLeave);
-//     });
-// })();
-
-(() => {
-  const RADIUS = 60;
-  document.querySelectorAll(".production-slide__image-container").forEach(container => {
-    const img = container.querySelector(".production-slide__image");
-    function onMove(e) {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      img.style.webkitMaskImage = `radial-gradient(circle ${RADIUS}px at ${x}px ${y}px, transparent 100%, black 100%)`;
-    }
-    function onLeave() {
-      img.style.webkitMaskImage = `radial-gradient(circle 0px at 0 0, transparent 0%, black 0%)`;
-    }
-    container.addEventListener("mousemove", onMove);
-    container.addEventListener("mouseleave", onLeave);
-  });
-})();
-document.querySelectorAll(".clip-path-right-init").forEach(section => {
-  const img = section.querySelector("img");
-  if (!img) return;
-
-  // подготовка: скрываем за маской и задаём начальный масштаб
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(section, {
-    overflow: "hidden",
-    clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
-  });
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(img, {
-    scale: 1
-  }); // начальный масштаб
-
-  // параллакс-скейл по скроллу
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(img, {
-    scale: 1.3,
-    yPercent: -15,
-    ease: "none"
-  }, {
-    yPercent: 15,
-    ease: "none",
-    scale: 1.3,
-    scrollTrigger: {
-      trigger: section,
-      start: "top bottom",
-      // когда верх блока дотронется до низа окна
-      end: "bottom top",
-      // пока блок не выйдет вверх
-      scrub: true // синхронизация с прокруткой
-      // markers: true
-    }
-  });
-
-  // одноразовое раскрытие маски без ScrollTrigger
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(section, {
-    clipPath: "inset(0% 0% 0% 0%)",
-    // раскрываем маску
-    ease: "power4.inOut",
-    duration: 0.7,
-    delay: 0.2 // можно добавить небольшую задержку
-  });
-});
-document.querySelectorAll(".clip-path-right-wihout-parallax").forEach(section => {
-  const img = section.querySelector("img");
-  if (!img) return;
-
-  // подготовка: скрываем за маской
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(section, {
-    overflow: "hidden",
-    clipPath: "inset(0% 0% 0% 100%)" // закрыто справа
-  });
-
-  // анимация раскрытия
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(section, {
-    clipPath: "inset(0% 0% 0% 0%)",
-    // полностью открыто
-    ease: "power4.inOut",
-    duration: 0.7,
-    delay: 0.2 // опционально
+    // анимация раскрытия
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(section, {
+      clipPath: "inset(0% 0% 0% 0%)",
+      // полностью открыто
+      ease: "power4.inOut",
+      duration: 0.7,
+      delay: 0.2 // опционально
+    });
   });
 });
 
@@ -34111,6 +34096,40 @@ var swiper2 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".mySwiper2", {
     swiper: swiper
   }
 });
+
+/***/ }),
+
+/***/ "./src/js/functions/check-viewport.js":
+/*!********************************************!*\
+  !*** ./src/js/functions/check-viewport.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isDesktop: () => (/* binding */ isDesktop),
+/* harmony export */   isMobile: () => (/* binding */ isMobile),
+/* harmony export */   isTablet: () => (/* binding */ isTablet)
+/* harmony export */ });
+const isMobile = () => {
+  if (window.innerWidth < 768) {
+    return true;
+  }
+  return false;
+};
+const isTablet = () => {
+  if (window.innerWidth >= 769 && window.innerWidth <= 1024) {
+    return true;
+  }
+  return false;
+};
+const isDesktop = () => {
+  if (window.innerWidth > 1025) {
+    return true;
+  }
+  return false;
+};
 
 /***/ }),
 

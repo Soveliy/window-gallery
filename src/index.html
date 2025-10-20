@@ -4,24 +4,21 @@
 @include('partials/head.html')
 
 <body class="page__body">
+  @include('partials/header.html')
   <div class="site-container">
     <div class="site-content">
-
-      @include('partials/header.html')
       <main class="main">
-        @include('partials/hero.html')
-        @include('partials/about.html')
-        @include('partials/history.html')
-        @include('partials/advantages.html')
-        @include('partials/works.html')
-        @include('partials/production.html')
-        @include('partials/tasks.html')
-        @include('partials/reviews.html')
-        @include('partials/quote.html')
-        @include('partials/questions.html', {
-        "title": "Остались вопросы?",
-        "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
-        })
+        <div class="container">
+          <ol style="padding-top: 150px;">
+            <li><a href="main.html">Главная</a></li>
+            <li><a href="actions.html">Акции</a></li>
+            <li><a href="services.html">Услуги листинг</a></li>
+            <li><a href="service_detail.html">Услуга деталка</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="works.html">Наши работы</a></li>
+            <li><a href="work_detail.html">Наши работы деталка</a></li>
+          </ol>
+        </div>
       </main>
       @include('partials/footer.html')
 
