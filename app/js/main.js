@@ -33818,6 +33818,39 @@ window.addEventListener("load", () => {
   });
 });
 
+// 404
+
+window.addEventListener("load", () => {
+  const tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+    defaults: {
+      ease: "power3.out"
+    }
+  });
+  tl.from(".error-page__right svg path", {
+    duration: 1.5,
+    drawSVG: 0,
+    opacity: 0
+  }, "-=1.2");
+  tl.from(".error-page__buttons", {
+    duration: 0.8,
+    opacity: 0,
+    y: 40,
+    stagger: 0.2
+  }, "-=0.6");
+  tl.from(".error-page__links", {
+    duration: 0.8,
+    opacity: 0,
+    y: 20,
+    stagger: 0.1
+  }, "-=0.4");
+  tl.from(".error-page__picture path", {
+    duration: 1.5,
+    stagger: 0.015,
+    drawSVG: 0,
+    opacity: 0
+  }, 0);
+});
+
 /***/ }),
 
 /***/ "./src/js/components/burger.js":

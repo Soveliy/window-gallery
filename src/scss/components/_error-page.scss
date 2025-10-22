@@ -1,3 +1,47 @@
-.error-page{
-  
+@use "./mixins/breakpoint" as *;
+.error-page {
+  padding: 12.5rem 0 3.125rem;
+  @include tablet {
+    padding: 6.625rem 0 0;
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 7.5rem;
+    @include tablet {
+      flex-direction: column-reverse;
+      gap: 6.25rem;
+    }
+  }
+  &__picture {
+    height: auto;
+    max-width: 100%;
+    margin-left: min(0px, (1760px - 100vw) / 2);
+    @include tablet {
+      margin-left: -1rem;
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 3.75rem;
+
+    max-width: 38.4375rem;
+    width: 100%;
+    @include tablet {
+      margin: 0 auto;
+      align-items: center;
+    }
+  }
+  &__buttons {
+    display: flex;
+    gap: 2.5rem;
+  }
+  &__link {
+    margin-left: 2rem;
+    color: var(--gray-base);
+    @include tablet {
+      margin-left: 1.25rem;
+    }
+  }
 }

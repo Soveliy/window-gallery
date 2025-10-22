@@ -136,7 +136,7 @@ window.addEventListener("load", () => {
       // блоки .about__item
       this.aboutItems = Array.from(
         sectionEl.querySelectorAll(".about__item")
-      ).map(item =>
+      ).map((item) =>
         Array.from(item.querySelectorAll(".about__item-content"))
       );
 
@@ -252,29 +252,29 @@ window.addEventListener("load", () => {
         );
       }
 
-      this.aboutItems.forEach(group => {
-      if (group[prev]) {
-        gsap.to(group[prev], {
-          autoAlpha: 0,
-          y: -20,
-          duration: dur * 0.6,
-          ease: "power2.out",
-        });
-      }
-      if (group[index]) {
-        gsap.fromTo(
-          group[index],
-          { autoAlpha: 0, y: 20 },
-          {
-            autoAlpha: 1,
-            y: 0,
+      this.aboutItems.forEach((group) => {
+        if (group[prev]) {
+          gsap.to(group[prev], {
+            autoAlpha: 0,
+            y: -20,
             duration: dur * 0.6,
             ease: "power2.out",
-            delay: dur * 0.15,
-          }
-        );
-      }
-    });
+          });
+        }
+        if (group[index]) {
+          gsap.fromTo(
+            group[index],
+            { autoAlpha: 0, y: 20 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: dur * 0.6,
+              ease: "power2.out",
+              delay: dur * 0.15,
+            }
+          );
+        }
+      });
       // === СЧЁТЧИК ===
       this._updateCounter(index + 1);
 
@@ -320,7 +320,6 @@ window.addEventListener("load", () => {
         gsap.set(this.reel, { y: offset });
         return;
       }
-
 
       gsap.to(this.reel, {
         y: offset,
@@ -780,4 +779,52 @@ window.addEventListener("load", () => {
         delay: 0.2, // опционально
       });
     });
+});
+
+// 404
+
+window.addEventListener("load", () => {
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+  tl.from(
+    ".error-page__right svg path",
+    {
+      duration: 1.5,
+      drawSVG: 0,
+      opacity: 0,
+    },
+    "-=1.2"
+  );
+
+  tl.from(
+    ".error-page__buttons",
+    {
+      duration: 0.8,
+      opacity: 0,
+      y: 40,
+      stagger: 0.2,
+    },
+    "-=0.6"
+  );
+
+  tl.from(
+    ".error-page__links",
+    {
+      duration: 0.8,
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+    },
+    "-=0.4"
+  );
+  tl.from(
+    ".error-page__picture path",
+    {
+      duration: 1.5,
+      stagger: 0.015,
+      drawSVG: 0,
+      opacity: 0,
+    },
+    0
+  );
 });
