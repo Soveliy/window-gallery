@@ -1,5 +1,9 @@
+@use "./mixins/breakpoint" as *;
 .section {
   padding: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem) 0;
+  &--first {
+    padding-top: clamp(5rem, 2.9107rem + 8.5714vw, 12.125rem);
+  }
   &--top-zero {
     padding-top: 0;
   }
@@ -17,5 +21,18 @@
     line-height: 1;
     text-transform: uppercase;
     color: var(--white);
+    text-wrap: balance;
+    &--no-margin {
+      margin: 0;
+    }
+  }
+  &__desc {
+    max-width: 72%;
+    margin: 24px 0 62px;
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    color: var(--gray-light);
+    @include tablet {
+      max-width: 100%;
+    }
   }
 }

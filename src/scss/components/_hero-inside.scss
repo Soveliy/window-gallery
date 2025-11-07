@@ -1,0 +1,42 @@
+@use "./mixins/breakpoint" as *;
+.hero-inside {
+  padding-top: 7.5rem;
+  @include tablet {
+    padding-top: 4.625rem;
+  }
+  &__content {
+    position: relative;
+  }
+  &__breadcrumbs {
+    padding: 3.125rem 0 3.3125rem;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: clamp(1.25rem, 0.1504rem + 4.5113vw, 5rem);
+  }
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0;
+    max-width: 1160px;
+  }
+  &__container {
+  }
+  &__tzrs {
+    margin-top: clamp(1.5rem, -1.4507rem + 12.1053vw, 11.5625rem);
+  }
+}

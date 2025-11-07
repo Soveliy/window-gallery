@@ -53,24 +53,26 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
   }
 
   validation.onSuccess((ev) => {
-    let formData = new FormData(ev.target);
+    // const form = ev.target
+    // console.log(form)
+    // const action = form.getAttribute('action');
+    // let formData = new FormData(ev.target);
 
-    let xhr = new XMLHttpRequest();
+    // let xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          if (afterSend) {
-          }
-          console.log("Отправлено");
-        }
-      }
-    };
-    console.log("q");
+    // xhr.onreadystatechange = function () {
+    //   if (xhr.readyState === 4) {
+    //     if (xhr.status === 200) {
+    //       if (afterSend) {
+    //       }
+    //       console.log("Отправлено");
+    //     }
+    //   }
+    // };
     afterSend();
-    xhr.open("POST", "mail.php", true);
-    xhr.send(formData);
+    // xhr.open("POST", action, true);
+    // xhr.send(formData);
 
-    ev.target.reset();
+    // ev.target.reset();
   });
 };

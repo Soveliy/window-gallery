@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
     ScrollSmoother.create({
       wrapper: ".site-container",
       content: ".site-content",
-      smooth: 1.5,
+      smooth: 1.2,
       effects: true,
     });
   }
@@ -565,14 +565,6 @@ window.addEventListener("load", () => {
     const img = section.querySelector("img");
 
     if (!img) return;
-
-    // подготовка: скрываем за маской и задаём начальный масштаб
-    gsap.set(section, {
-      overflow: "hidden",
-      clipPath: "inset(0% 0% 0% 100%)", // закрыто справа
-    });
-    gsap.set(img, { scale: 1 }); // начальный масштаб
-
     // параллакс-скейл по скроллу
     gsap.fromTo(
       img,
@@ -601,11 +593,7 @@ window.addEventListener("load", () => {
       start: "top 40%",
       once: true,
       onEnter: () => {
-        gsap.to(section, {
-          clipPath: "inset(0% 0% 0% 0%)", // раскрываем маску
-          ease: "power4.inOut",
-          duration: 0.7,
-        });
+        section.classList.add("js-animated");
       },
     });
   });
@@ -781,6 +769,134 @@ window.addEventListener("load", () => {
     });
 });
 
+class StatsListing {
+  constructor(rootSelector) {
+    // Ищем все элементы, а не только один
+    this.roots = document.querySelectorAll(rootSelector);
+    if (!this.roots.length) return;
+
+    this.rotationIncrement =
+      parseFloat(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--rotation-increment")
+          .replace("deg", "")
+      ) || 30;
+
+    this.isAnimating = false;
+
+    this.items = [];
+
+    this.roots.forEach((root) => {
+      const itemData = {
+        root,
+        items: [...root.querySelectorAll("[data-stats-listing-item]")].map(
+          (item) => {
+            const cta = item.querySelector("[data-stats-listing-cta]");
+            const images = [
+              ...item.querySelectorAll("[data-stats-listing-image]"),
+            ].map((wrapper, index) => {
+              const jsIndex = index + 1;
+              const image = wrapper.querySelector(
+                "[data-stats-listing-image_el]"
+              );
+
+              // Проставляем index и js-index сразу
+              wrapper.style.setProperty("--index", jsIndex);
+              wrapper.style.setProperty("--js-index", jsIndex);
+
+              return {
+                index: jsIndex,
+                jsIndex,
+                wrapper,
+                image,
+              };
+            });
+
+            return {
+              item,
+              cta,
+              images,
+              currentIndex: 1,
+              clickTimeout: null,
+            };
+          }
+        ),
+      };
+
+      this.items.push(itemData);
+    });
+
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    this.items.forEach(({ items }) => {
+      items.forEach(({ cta, images }) => {
+        if (cta && images.length > 1) {
+          cta.addEventListener("click", (e) => this.handleClick(e));
+        }
+      });
+    });
+  }
+
+  handleClick(event) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+
+    const dataItem = this.items
+      .flatMap(({ items }) => items)
+      .find(({ cta }) => cta === event.currentTarget);
+    if (!dataItem) return;
+
+    dataItem.item.classList.add("is-clicked");
+    if (dataItem.clickTimeout) clearTimeout(dataItem.clickTimeout);
+    dataItem.clickTimeout = setTimeout(() => {
+      dataItem.item.classList.remove("is-clicked");
+    }, 3000);
+
+    this.nextImage(dataItem);
+  }
+
+  nextImage(data) {
+    data.currentIndex = (data.currentIndex % data.images.length) + 1;
+    this.updateImages(data);
+  }
+
+  updateImages(data) {
+    const { images, currentIndex } = data;
+    const total = images.length;
+
+    images.forEach((img) => {
+      img.jsIndex = ((img.index - currentIndex + total) % total) + 1;
+      img.wrapper.style.setProperty("--js-index", img.jsIndex);
+    });
+
+    // Плавная анимация через opacity и scale (повороты делает CSS)
+    const last = images[images.length - 1];
+    this.fadeOutAndReorder(last);
+  }
+
+  fadeOutAndReorder(last) {
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.out" },
+      onComplete: () => {
+        this.isAnimating = false;
+      },
+    });
+
+    tl.to(last.image, { duration: 0.3, opacity: 0, scale: 1.1 })
+
+      .set(last.wrapper, {
+        "--js-index": last.jsIndex,
+      })
+      .to(last.image, { duration: 0.3, opacity: 1, scale: 1 });
+  }
+}
+
+window.addEventListener("load", () => {
+  new StatsListing(".stats-item__listing");
+});
+
 // 404
 
 window.addEventListener("load", () => {
@@ -827,4 +943,80 @@ window.addEventListener("load", () => {
     },
     0
   );
+});
+
+const animStats = () => {
+  const statsSection = document.querySelector(".stats");
+  if (!statsSection) return;
+  const values = statsSection.querySelectorAll(".stats-item");
+
+  if (values.length) {
+    values.forEach((value) => {
+      gsap.fromTo(
+        value,
+        { "--progress": 0 },
+        {
+          "--progress": 1,
+          ease: "none",
+          scrollTrigger: {
+            // markers: true,
+            trigger: value,
+            start: "top bottom",
+            end: "bottom 70%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  }
+  // ScrollTrigger.create({
+  //   trigger: statsSection,
+  //   start: "top bottom",
+  //   end: "bottom top",
+  //   markers: true,
+  //   onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+  //   onUpdate: (self) => {
+  //     console.log(
+  //       "progress:",
+  //       self.progress.toFixed(3),
+  //       "direction:",
+  //       self.direction,
+  //       "velocity",
+  //       self.getVelocity()
+  //     );
+  //   },
+  // });
+};
+const parallaxImages = () => {
+  const images = document.querySelectorAll(".image-with-parallax");
+
+  if (!images.length > 0) return;
+
+  images.forEach((item) => {
+    const img = item.querySelector("img");
+    gsap.fromTo(
+      img,
+      {
+        scale: 1.2,
+        yPercent: -10,
+        ease: "none",
+      },
+      {
+        yPercent: 10,
+        ease: "none",
+        scale: 1.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top bottom", // когда верх блока дотронется до низа окна
+          end: "bottom top", // пока блок не выйдет вверх
+          scrub: true, // синхронизация с прокруткой
+          // markers: true
+        },
+      }
+    );
+  });
+};
+window.addEventListener("load", () => {
+  animStats();
+  parallaxImages();
 });

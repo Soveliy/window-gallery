@@ -48,11 +48,22 @@
 @use "./components/faq" as *;
 @use "./components/actions" as *;
 @use "./components/error-page" as *;
+@use "./components/hero-inside" as *;
+@use "./components/tzrs" as *;
+@use "./components/factory" as *;
+@use "./components/stats" as *;
+@use "./components/partners" as *;
+@use "./components/space" as *;
+@use "./components/join" as *;
+@use "./components/automation" as *;
 
 .clip-path-right,
 .clip-path-right-init {
   position: relative;
-  clip-path: inset(0% 0% 0% 100%);
+  // clip-path: inset(0% 0% 0% 100%);
+  // clip-path: inset(10% 10% 0 10%);
+  clip-path: inset(10% 10% 0 10% round 0.75rem 0.75rem 0.75rem 0.75rem);
+  transition: 0.75s cubic-bezier(0.4, 0.15, 0, 1);
   overflow: hidden;
 
   img {
@@ -60,10 +71,25 @@
     transform: scale(1.3);
     transform-origin: 50% 50%;
   }
+  &.js-animated {
+    // clip-path: inset(
+    //   0 0 0 0 round var(--radius) var(--radius) var(--radius) var(--radius)
+    // );
+    clip-path: inset(0% 0% 0% 0%);
+  }
 }
 
 .clip-path-right-wihout-parallax {
   position: relative;
   overflow: hidden;
   clip-path: inset(0% 0% 0% 100%);
+}
+.image-with-parallax {
+  position: relative;
+  overflow: hidden;
+  img {
+    height: 100%;
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+  }
 }

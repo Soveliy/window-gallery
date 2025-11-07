@@ -43,5 +43,10 @@
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
+    &--right {
+      margin-left: auto;
+      max-width: 73.3rem;
+      line-height: 1;
+    }
   }
 }

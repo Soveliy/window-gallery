@@ -79,6 +79,7 @@ const afterForm = () => {
     }, 3000);
   }
 };
-
-validateForms(".modal__form", rules1, [], afterForm);
-validateForms(".questions__form ", rules2, [], afterForm);
+window.addEventListener("load", () => {
+  validateForms(".modal__form", rules1, [], afterForm);
+  validateForms(".questions__form ", rules2, [], afterForm);
+});

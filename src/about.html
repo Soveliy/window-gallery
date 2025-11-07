@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+
+
+  @include('partials/header.html')
+  <div class="site-container">
+    <div class="site-content">
+      <main class="main">
+        <div class="hero-inside">
+
+          <div class="hero-inside__content">
+            <picture>
+              <source srcset="img/about_bg.webp" type="image/webp">
+              <img class="hero-inside__image" loading="lazy" src="img/about_bg.jpg" class="image" width="" height=""
+                alt="">
+            </picture>
+            <div class="hero-inside__container container">
+              <nav class="hero-inside__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+                <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a href="/" class="breadcrumbs__link" itemprop="item">
+                      <span itemprop="name">Главная</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                  </li>
+                  <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">О компании</span>
+                    <meta itemprop="item" content="https://example.com/works" />
+                    <meta itemprop="position" content="2" />
+                  </li>
+                </ul>
+              </nav>
+              <h1 class="hero-inside__title">
+                создаём будущее в остеклении
+              </h1>
+              <div class="hero-inside__tzrs tzrs">
+                <div class="tzrs__grid">
+                  <div class="tzrs-item">
+                    <svg class="tzrs-item__icon">
+                      <use xlink:href="img/sprite.svg#check-double"></use>
+                    </svg>
+                    <div class="tzrs-item__title">Собственное производство </div>
+                  </div>
+                  <div class="tzrs-item">
+                    <svg class="tzrs-item__icon">
+                      <use xlink:href="img/sprite.svg#check-double"></use>
+                    </svg>
+                    <div class="tzrs-item__title">Европейский
+                      уровень качества
+                    </div>
+                  </div>
+                  <div class="tzrs-item">
+                    <svg class="tzrs-item__icon">
+                      <use xlink:href="img/sprite.svg#check-double"></use>
+                    </svg>
+                    <div class="tzrs-item__title">Индивидуальные решения</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <section class="factory section section--first">
+          <div class="container">
+            <div class="factory__row">
+              <div class="factory__content">
+                <h2 class="section__title">Наше производство — наша сила</h2>
+                <div class="factory__desc">
+
+                  <p> «Галерея Окон» — крупнейший в Черноземье завод по производству окон и дверей из ПВХ и алюминия.
+                    Сегодня компания располагает современными технологиями и высокой экспертизой.
+                  </p>
+                  <p>
+                    Мы предоставляем полный спектр сервисных услуг, гарантируем точную доставку и обеспечиваем
+                    индивидуальный подход к каждому партнёру.</p>
+                </div>
+              </div>
+              <div class="factory__image clip-path-right">
+                <img src="img/factory_image.jpg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </section>
+        @include('partials/history.html')
+        <div class="stats section">
+          <div class="container">
+            <div class="stats__items">
+              <div class="stats-item">
+                <div class="stats-item__content">
+                  <div class="stats-item__title">
+                    в сутки производим
+                  </div>
+                  <div class="stats-item__value-wrap">
+                    <span class="stats-item__value">2 200</span>
+                    <span class="stats-item__value-desc">стеклопакетов</span>
+                  </div>
+                </div>
+                <div class="stats-item__listing">
+                  <div class="stats-item__images" data-stats-listing-item>
+                    <svg class="stats-item__icon" data-stats-listing-cta>
+                      <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>
+
+                    <div class="stats-item__images-wrapper">
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture" data-stats-listing-image_el>
+                          <img src="img/stats/1/1.jpg" alt="" class="stats-item__image">
+                        </picture>
+                      </div>
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture" data-stats-listing-image_el>
+                          <img src="img/stats/1/2.jpg" alt="" class="stats-item__image">
+                        </picture>
+                      </div>
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture" data-stats-listing-image_el>
+                          <img src="img/stats/1/3.jpg" alt="" class="stats-item__image">
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="stats-item">
+                <div class="stats-item__content">
+                  <div class="stats-item__title">
+                    работаем более
+                  </div>
+                  <div class="stats-item__value-wrap">
+                    <span class="stats-item__value">15</span>
+                    <span class="stats-item__value-desc">лет</span>
+                  </div>
+                </div>
+                <div class="stats-item__listing">
+                  <div class="stats-item__images" data-stats-listing-item>
+                    <svg class="stats-item__icon" data-stats-listing-cta>
+                      <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>
+
+                    <div class="stats-item__images-wrapper">
+                      <picture class="stats-item__picture" data-stats-listing-image>
+                        <img src="img/stats/1/1.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                      </picture>
+                      <picture class="stats-item__picture" data-stats-listing-image>
+                        <img src="img/stats/1/2.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                      </picture>
+                      <picture class="stats-item__picture" data-stats-listing-image>
+                        <img src="img/stats/1/3.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="stats-item">
+                <div class="stats-item__content">
+                  <div class="stats-item__title">
+                    время сборки 1 окна
+                  </div>
+                  <div class="stats-item__value-wrap">
+                    <span class="stats-item__value">60</span>
+                    <span class="stats-item__value-desc">секунд</span>
+                  </div>
+                </div>
+                <div class="stats-item__listing">
+                  <div class="stats-item__images" data-stats-listing-item>
+                    <svg class="stats-item__icon" data-stats-listing-cta>
+                      <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>
+
+                    <div class="stats-item__images-wrapper">
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture">
+                          <img src="img/stats/1/1.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                        </picture>
+                      </div>
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture">
+                          <img src="img/stats/1/2.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                        </picture>
+                      </div>
+                      <div class="stats-item__image-wrap" data-stats-listing-image>
+                        <picture class="stats-item__picture">
+                          <img src="img/stats/1/3.jpg" alt="" class="stats-item__image" data-stats-listing-image_el>
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="partners section">
+          <div class="container">
+            <h2 class="section__title section__title--no-margin">
+              Мы доверяем лучшим
+            </h2>
+            <p class="section__desc">
+              Завод «Галерея Окон» использует комплектующие от мировых производителей. Каждая партия проходит внутреннее
+              тестирование и строгий контроль качества ОТК, что гарантирует надёжность готовой продукции.
+            </p>
+            <div class="partners__row" data-marquee>
+
+              <div class="partners__slide">
+                <img src="img/partners/1.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/2.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/3.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/1.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/2.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/3.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/1.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/2.svg" alt="">
+              </div>
+              <div class="partners__slide">
+                <img src="img/partners/3.svg" alt="">
+              </div>
+
+
+            </div>
+          </div>
+        </section>
+        <section class="section space">
+          <div class="container">
+            <h2 class="section__title">
+              Мы создаём не окна,
+              а пространство для жизни
+            </h2>
+
+            <div class="space__grid">
+              <div class="space-item space-item--image image-with-parallax">
+                <img src="img/space/1.jpg" alt="" class="space-item__image">
+              </div>
+              <div class="space-item">
+                <div class="space-item__title">Комфорт</div>
+                <p class="space-item__desc">Автоматизированные линии и монтаж собственными бригадами обеспечивают точную
+                  подгонку без сквозняков и лишнего шума.</p>
+              </div>
+              <div class="space-item">
+                <div class="space-item__title">Свет</div>
+                <p class="space-item__desc">Стеклопакеты ClimaGuard Solar отражают почти 60% солнечной энергии,
+                  не затемняя помещение и защищая материалы от выгорания.</p>
+              </div>
+              <div class="space-item">
+                <div class="space-item__title">стиль</div>
+                <p class="space-item__desc">Собственные линии ламинации, гладкий профиль и цветовые решения придают
+                  окнам аккуратный и современный вид.</p>
+              </div>
+
+              <div class="space-item">
+                <div class="space-item__title">долговечность</div>
+                <p class="space-item__desc">Профиль глубиной 70 мм, многокамерная система и стеклопакеты
+                  до 32 мм сохраняют форму и тепло десятилетиями.</p>
+              </div>
+
+              <div class="space-item space-item--image image-with-parallax">
+                <img src="img/space/2.jpg" alt="" class="space-item__image">
+              </div>
+
+
+
+            </div>
+          </div>
+        </section>
+        @include('partials/join.html')
+
+        <div class="quote clip-path-right">
+          <picture class="quote__picture">
+            <source srcset="img/quote2.webp" type="image/webp">
+            <img src="img/quote2.jpg" alt="">
+          </picture>
+          <div class="quote__content">
+            <div class="container">
+              <div class="quote__title quote__title--right corner corner--default">
+                «Галерея Окон» — полный цикл от производства до монтажа и поддержки, чтобы дилеры работали уверенно,
+                а клиенты получали окна без лишних забот.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="automation section">
+          <div class="container">
+            <div class="automation__head">
+              <h2 class="section__title automation__title">
+                Автоматизация
+                и контроль качества
+              </h2>
+              <div class="automation__desc">
+                <p>Мы используем оборудование из Австрии и Турции, включая высокоскоростной сборочный конвейер,
+                  работающий по чётким алгоритмам.</p>
+                <p>Современное программное обеспечение и высокий уровень автоматизации обеспечивают быстрый доступ
+                  к актуальной информации о цене, сроках производства и дате доставки.</p>
+              </div>
+            </div>
+            <div class="automation__slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide automation__slide">
+                  <a data-fancybox href="img/automation/1.jpg" class="automation__link">
+                    <img src="img/automation/1.jpg" alt="" class="automation__image">
+                  </a>
+                </div>
+                <div class="swiper-slide automation__slide">
+                  <a data-fancybox href="img/automation/2.jpg" class="automation__link">
+                    <img src="img/automation/2.jpg" alt="" class="automation__image">
+                  </a>
+                </div>
+                <div class="swiper-slide automation__slide">
+                  <a data-fancybox href="img/automation/3.jpg" class="automation__link">
+                    <img src="img/automation/3.jpg" alt="" class="automation__image">
+                  </a>
+                </div>
+                <div class="swiper-slide automation__slide">
+                  <a data-fancybox href="img/automation/4.jpg" class="automation__link">
+                    <img src="img/automation/4.jpg" alt="" class="automation__image">
+                  </a>
+                </div>
+                <div class="swiper-slide automation__slide">
+                  <a data-fancybox href="img/automation/5.jpg" class="automation__link">
+                    <img src="img/automation/5.jpg" alt="" class="automation__image">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+        @include('partials/questions.html', {
+        "title": "Остались вопросы?",
+        "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
+        })
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>
