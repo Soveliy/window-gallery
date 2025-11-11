@@ -10,6 +10,33 @@ import {
   EffectCreative,
 } from "swiper/modules";
 // Swiper.use(Navigation, EffectCoverflow, Mousewheel);
+
+const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+  let swiper;
+
+  breakpoint = window.matchMedia(breakpoint);
+
+  const enableSwiper = function (className, settings) {
+    swiper = new Swiper(className, settings);
+
+    if (callback) {
+      callback(swiper);
+    }
+  };
+
+  const checker = function () {
+    if (breakpoint.matches) {
+      return enableSwiper(swiperClass, swiperSettings);
+    } else {
+      if (swiper !== undefined) swiper.destroy(true, true);
+      return;
+    }
+  };
+
+  breakpoint.addEventListener("change", checker);
+  checker();
+};
+
 window.addEventListener("load", () => {
   const sliderProds = new Swiper(".production__slider--js", {
     modules: [Navigation, EffectCoverflow, Pagination, Autoplay],
@@ -151,5 +178,21 @@ window.addEventListener("load", () => {
         slidesPerView: 3,
       },
     },
+  });
+
+  const sliderComplex = new Swiper(".complex__slider", {
+    modules: [Pagination, Autoplay, EffectCreative],
+    pagination: {
+      el: ".complex__pagination",
+      type: "fraction",
+    },
+  });
+
+  resizableSwiper("(max-width: 1024px)", ".capabilities__slider-js", {
+    modules: [Pagination, Autoplay],
+    // centeredSlides: true,
+    loop: true,
+    spaceBetween: 40,
+    slidesPerView: 1.5,
   });
 });

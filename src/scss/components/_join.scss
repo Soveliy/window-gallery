@@ -1,5 +1,7 @@
 @use "./mixins/breakpoint" as *;
 .join {
+  position: relative;
+  overflow: hidden;
   &__title {
     margin-bottom: clamp(2.0625rem, 1.8242rem + 0.9774vw, 2.875rem);
   }

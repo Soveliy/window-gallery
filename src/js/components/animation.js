@@ -6,6 +6,7 @@ import CustomEase from "gsap/CustomEase.js";
 import DrawSVGPlugin from "gsap/DrawSVGPlugin.js";
 import { ScrollSmoother } from "gsap/ScrollSmoother.js";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
+import Lenis from "lenis";
 
 gsap.registerPlugin(
   MorphSVGPlugin,
@@ -17,12 +18,33 @@ gsap.registerPlugin(
 );
 window.addEventListener("load", () => {
   if (isDesktop()) {
-    ScrollSmoother.create({
-      wrapper: ".site-container",
-      content: ".site-content",
-      smooth: 1.2,
-      effects: true,
+    // ScrollSmoother.create({
+    //   wrapper: ".site-container",
+    //   content: ".site-content",
+    //   smooth: 1.2,
+    //   effects: true,
+    // });
+
+    const lenis = new Lenis({
+      duration: 1.2, // Время анимации скролла
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Функция плавности
+      orientation: "vertical", // Вертикальный скролл
+      smoothWheel: true, // Включаем плавный скролл колесом
+      wheelMultiplier: 1, // Коэффициент скролла колесом мыши
+      touchMultiplier: 1.5, // Коэффициент скролла на тачскринах
+      infinite: false, // Отключение бесконечного скролла
+      syncTouch: false, // Синхронизация с touch событиями
     });
+
+    // Привязываем ScrollTrigger к Lenis
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // Анимационный цикл
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
   }
 
   document.addEventListener("scroll", () => {
@@ -1016,6 +1038,7 @@ const parallaxImages = () => {
     );
   });
 };
+
 window.addEventListener("load", () => {
   animStats();
   parallaxImages();

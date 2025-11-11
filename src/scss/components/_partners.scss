@@ -1,5 +1,7 @@
 @use "./mixins/breakpoint" as *;
 .partners {
+  position: relative;
+  overflow: hidden;
   &__slide {
     display: flex;
     align-items: center;

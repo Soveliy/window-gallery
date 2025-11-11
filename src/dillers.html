@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+
+
+  @include('partials/header.html')
+  <div class="site-container">
+    <div class="site-content">
+      <main class="main">
+        <div class="hero-inside">
+
+          <div class="hero-inside__content">
+            <picture>
+              <source srcset="img/dilers_bg.webp" type="image/webp">
+              <img class="hero-inside__image" loading="lazy" src="img/dilers_bg.jpg" class="image" width="" height=""
+                alt="">
+            </picture>
+            <div class="hero-inside__container container">
+              <nav class="hero-inside__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+                <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a href="/" class="breadcrumbs__link" itemprop="item">
+                      <span itemprop="name">Главная</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                  </li>
+                  <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Диллерам</span>
+                    <meta itemprop="item" content="https://example.com/works" />
+                    <meta itemprop="position" content="2" />
+                  </li>
+                </ul>
+              </nav>
+              <h1 class="hero-inside__title">
+                Станьте партнером компании «Галерея Окон»
+              </h1>
+              <p class="hero-inside__desc">
+                Мы рады сотрудничеству с фирмами и предпринимателями, желающими стать дилерами современной и надежной
+                компании по производству окон.
+              </p>
+              <button data-micromodal-trigger="callback"
+                class="hero-inside__button button button--white button--big">Стать диллером</button>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="partner-advantage">
+          <div class="container">
+            <div class="partner-advantage__grid">
+              <div class="partner-advantage-item">
+                <div class="partner-advantage-item__icon">
+                  <img src="img/partner-advantage/1.svg" alt="">
+                </div>
+                <div class="partner-advantage-item__title">Прямые поставки
+                  с собственного производства</div>
+              </div>
+              <div class="partner-advantage-item">
+                <div class="partner-advantage-item__icon">
+                  <img src="img/partner-advantage/2.svg" alt="">
+                </div>
+                <div class="partner-advantage-item__title">Гарантия качества
+                  и сертификаты</div>
+              </div>
+              <div class="partner-advantage-item">
+                <div class="partner-advantage-item__icon">
+                  <img src="img/partner-advantage/3.svg" alt="">
+                </div>
+                <div class="partner-advantage-item__title">Маркетинговая поддержка партнеров</div>
+              </div>
+              <div class="partner-advantage-item">
+                <div class="partner-advantage-item__icon">
+                  <img src="img/partner-advantage/4.svg" alt="">
+                </div>
+                <div class="partner-advantage-item__title">Гибкая система скидок и условий</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <section class="section support">
+          <div class="container">
+            <h2 class="section__title">
+              поддержка диллеров
+            </h2>
+            <div class="suport__grid">
+              <div class="suport-item">
+                <div class="suport-item__title">Программное обеспечение</div>
+                <p class="suport-item__desc">Бесплатная программа «Супер Окна-8» для точного расчета конструкций. </p>
+              </div>
+              <div class="suport-item">
+                <div class="suport-item__title">Обучение</div>
+                <p class="suport-item__desc">Тренинги по продажам, замеру, монтажу, работа с ПО.</p>
+              </div>
+              <div class="suport-item">
+                <div class="suport-item__title">Консультации</div>
+                <p class="suport-item__desc">Быстрые ответы специалистов по любым вопросам.</p>
+              </div>
+              <div class="suport-item">
+                <div class="suport-item__title">Консультации</div>
+                <p class="suport-item__desc">Быстрые ответы специалистов по любым вопросам.</p>
+              </div>
+              <div class="suport-item suport-item--empty"></div>
+              <div class="suport-item">
+                <div class="suport-item__title">Маркетинговая поддержка</div>
+                <p class="suport-item__desc">Регулярные каталоги, полиграфия и рекламные материалы.</p>
+              </div>
+              <div class="suport-item suport-item--image image-with-parallax">
+                <img class="suport-item__image" src="img/dealer_grid.jpg" alt="">
+              </div>
+              <div class="suport-item image-with-parallax">
+                <div class="suport-item__title">Персональный менеджер</div>
+                <p class="suport-item__desc">Решение вопросов в формате «одного окна».</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section complex">
+          <div class="container">
+            <h2 class="section__title">
+              собственный производственный комплекс
+            </h2>
+          </div>
+          <div class="complex__slider">
+            <div class="complex__wrapper swiper-wrapper">
+              <div class="complex__slide swiper-slide">
+                <div class="complex-item">
+                  <img class="complex-item__image" src="img/complex/1.jpg" alt="">
+                  <div class="complex-item__content">
+                    <div class="container complex-item__container">
+                      <div class="complex-item__title corner corner--default">
+                        Оборудование из Австрии и Турции, автоматизация и ПО нового поколения гарантируют качество,
+                        скорость и точность
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="complex__slide swiper-slide">
+                <div class="complex-item">
+                  <img class="complex-item__image" src="img/complex/2.jpg" alt="">
+                  <div class="complex-item__content">
+                    <div class="container complex-item__container">
+                      <div class="complex-item__title corner corner--default">
+                        обеспечиваем полный цикл: от производства до доставки и сервисного сопровождения для каждого
+                        партнёра
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="complex__slide swiper-slide">
+                <div class="complex-item">
+                  <img class="complex-item__image" src="img/complex/3.jpg" alt="">
+                  <div class="complex-item__content">
+                    <div class="container complex-item__container">
+                      <div class="complex-item__title corner corner--default">
+                        Крупнейший в Черноземье завод с современными технологиями и экспертизой в производстве окон
+                        и дверей из ПВХ и алюминия
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="complex__pagination corner corner--default"></div>
+          </div>
+        </section>
+        <section class="section capabilities">
+          <div class="container">
+            <div class="capabilities__row capabilities__slider-js">
+              <div class="capabilities__images swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="capabilities__image clip-path-right">
+                    <img src="img/capabilities/1.jpg" alt="">
+                    <div class="capabilities__image-title">Окна</div>
+                  </div>
+
+                </div>
+                <div class="swiper-slide">
+                  <div class="capabilities__image clip-path-right">
+                    <img src="img/capabilities/2.jpg" alt="">
+                    <div class="capabilities__image-title">балконные системы</div>
+                  </div>
+
+                </div>
+                <div class="swiper-slide">
+                  <div class="capabilities__image clip-path-right">
+                    <img src="img/capabilities/3.jpg" alt="">
+                    <div class="capabilities__image-title">входные двери</div>
+                  </div>
+
+                </div>
+                <div class="swiper-slide">
+                  <div class="capabilities__image clip-path-right">
+                    <img src="img/capabilities/4.jpg" alt="">
+                    <div class="capabilities__image-title">Порталы (PSK, HS, FS)</div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="capabilities__right">
+                <h2 class="section__title">
+                  наши возможности
+                </h2>
+                <ul class="capabilities__list">
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">
+                      <svg class="capabilities__item-icon">
+                        <use xlink:href="img/sprite.svg#check-double"></use>
+                      </svg>
+                      Нестандартные конструкции
+                    </div>
+                    <div class="capabilities__desc">любые формы, размеры и фактуры, быстрые сроки производства.</div>
+                  </li>
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">
+                      <svg class="capabilities__item-icon">
+                        <use xlink:href="img/sprite.svg#check-double"></use>
+                      </svg>
+                      Ламинация
+                    </div>
+                    <div class="capabilities__desc">широкий каталог цветов и фактур, включая тонированный профиль в
+                      массе.</div>
+                  </li>
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">
+                      <svg class="capabilities__item-icon">
+                        <use xlink:href="img/sprite.svg#check-double"></use>
+                      </svg>
+                      Замер и монтаж
+                    </div>
+                    <div class="capabilities__desc">профессиональная работа наших специалистов.</div>
+                  </li>
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">Подоконники Danke, Moeller</div>
+                    <div class="capabilities__desc">богатый выбор цветов и фактур: дерево,
+                      камень и др.</div>
+                  </li>
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">
+                      <svg class="capabilities__item-icon">
+                        <use xlink:href="img/sprite.svg#check-double"></use>
+                      </svg>
+                      Фурнитура
+                    </div>
+                    <div class="capabilities__desc">ручки Roto Swing, детские замки Tilt First и другие решения.</div>
+                  </li>
+                  <li class="capabilities__item">
+                    <div class="capabilities__item-title">
+                      <svg class="capabilities__item-icon">
+                        <use xlink:href="img/sprite.svg#check-double"></use>
+                      </svg>
+                      Стеклопакеты
+                    </div>
+                    <div class="capabilities__desc">мультифункциональное стекло Solar, энергосберегающие пакеты,
+                      заполнение аргоном.</div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        @include('partials/join.html')
+
+        <section class="section faq">
+          <div class="container">
+            <h2 class="section__title">
+              частые вопросы
+            </h2>
+            <div class="faq__items" itemscope itemtype="https://schema.org/FAQPage">
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  можно ли покупать пвх-профиль напрямую с завода?
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, neque laboriosam quibusdam
+                    quas eum quod minus dolore corrupti aliquam sequi aliquid natus, in voluptatem totam, cum minima
+                    vitae illum. Animi?
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  как найти и связаться с представительством в других регионах?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nisi aperiam fuga officiis cumque.
+                    Asperiores necessitatibus, omnis vel delectus a amet repellendus voluptas culpa vero quibusdam
+                    cupiditate optio ducimus ipsa!
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  можно ли получить прайс на материалы?
+
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolorum necessitatibus temporibus
+                    tempore enim doloremque pariatur animi numquam repellendus itaque! Expedita maxime mollitia aliquam!
+                    Numquam repudiandae quae totam quos natus!
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  осуществляется ли рекламная поддержка партнёров?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem nostrum saepe dolores
+                    necessitatibus, assumenda at libero soluta? Voluptatum dignissimos nihil atque ut iure aut illum
+                    error cum optio quasi?
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  есть ли система скидок и бонусов и как ей воспользоваться?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem nostrum saepe dolores
+                    necessitatibus, assumenda at libero soluta? Voluptatum dignissimos nihil atque ut iure aut illum
+                    error cum optio quasi?
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item fadeDown" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-item__head" itemprop="name">
+                  есть ли обучение для отдела продаж?
+
+                  <svg class="faq-item__icon">
+                    <use xlink:href="img/sprite.svg#plus"></use>
+                  </svg>
+                </div>
+                <div class="faq-item__body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <p itemprop="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem nostrum saepe dolores
+                    necessitatibus, assumenda at libero soluta? Voluptatum dignissimos nihil atque ut iure aut illum
+                    error cum optio quasi?
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+        <section class="section certs">
+          <div class="container">
+            <h2 class="section__title">
+              качество подтверждено сертификатами
+            </h2>
+            <div class="certs__grid">
+              <a href="" data-fancybox class="certs-item">
+                <div class="certs-item__name">сертификат соотвествия</div>
+                <div class="certs-item__number">№ ФСКС085 ОР 0089</div>
+                <svg class="certs-item__icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+              </a>
+              <a href="" data-fancybox class="certs-item">
+                <div class="certs-item__name">сертификат соотвествия</div>
+                <div class="certs-item__number">№ ФСКС085 ОР 0089</div>
+                <svg class="certs-item__icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+              </a>
+              <a href="" data-fancybox class="certs-item">
+                <div class="certs-item__name">сертификат соотвествия</div>
+                <div class="certs-item__number">№ ФСКС085 ОР 0089</div>
+                <svg class="certs-item__icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+              </a>
+              <a href="" data-fancybox class="certs-item">
+                <div class="certs-item__name">сертификат соотвествия</div>
+                <div class="certs-item__number">№ ФСКС085 ОР 0089</div>
+                <svg class="certs-item__icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+              </a>
+            </div>
+            <button class="certs__button button button--round button--big">
+              Показать еще
+            </button>
+          </div>
+        </section>
+
+
+
+
+
+        @include('partials/questions.html', {
+        "title": "Остались вопросы?",
+        "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
+        })
+      </main>
+      @include('partials/footer.html')
+
+      <!-- @include('html/h1.html') пример include -->
+    </div>
+  </div>
+</body>
+
+</html>

@@ -56,7 +56,11 @@
 @use "./components/space" as *;
 @use "./components/join" as *;
 @use "./components/automation" as *;
-
+@use "./components/partner-advantage" as *;
+@use "./components/suport" as *;
+@use "./components/capabilities" as *;
+@use "./components/certs" as *;
+@use "./components/complex" as *;
 .clip-path-right,
 .clip-path-right-init {
   position: relative;
