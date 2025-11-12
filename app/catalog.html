@@ -20,7 +20,10 @@
 </div>
 
 <body class="page__body">
-  <header class="header">
+  <div class="site-container">
+    <div class="site-content">
+
+      <header class="header">
   <div class="container">
     <div class="header__row">
       <a href="/" class="header__logo logo">
@@ -59,24 +62,93 @@
 
   </div>
 </header>
-  <div class="site-container">
-    <div class="site-content">
       <main class="main">
-        <div class="container">
-          <ol style="padding-top: 150px;">
-            <li><a href="main.html">Главная</a></li>
-            <li><a href="actions.html">Акции</a></li>
-            <li><a href="services.html">Услуги листинг</a></li>
-            <li><a href="service_detail.html">Услуга деталка</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-            <li><a href="works.html">Наши работы</a></li>
-            <li><a href="work_detail.html">Наши работы деталка</a></li>
-            <li><a href="404.html">404</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="dillers.html">Дилерам</a></li>
-            <li><a href="catalog.html">Каталог</a></li>
-          </ol>
+        <div class="page-top">
+          <div class="container">
+            <nav class="page-top__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+              <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a href="/" class="breadcrumbs__link" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span class="breadcrumbs__link breadcrumbs__link--last" itemprop="name">Каталог</span>
+                  <meta itemprop="item" content="https://example.com/works" />
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </nav>
+            <h1 class="page-top__title">
+              Каталог
+            </h1>
+
+          </div>
         </div>
+        <div class="category">
+          <div class="container">
+            <div class="category__grid">
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/1.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">пластиковые окна</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/2.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">Остекление балконов</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/3.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">отделка балконов</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/4.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">Окна в дом</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/5.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">натяжные потолки</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="category-item">
+                <img class='category-item__image' src="img/catalog/6.jpg" alt="">
+                <div class="category-item__content">
+                  <div class="category-item__title">дизайн окна</div>
+                  <svg class="category-item__icon">
+                    <use xlink:href="img/sprite.svg#arrow__bottom"></use>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </main>
       <footer class="footer">
   <div class="container">

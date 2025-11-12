@@ -4602,6 +4602,95 @@ a {
   text-transform: uppercase;
 }
 
+.category {
+  padding-bottom: clamp(5rem, 2.8008rem + 9.0226vw, 12.5rem);
+}
+.category__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+@media (max-width: 1024px) {
+  .category__grid {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .category__grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+.category-item {
+  position: relative;
+  overflow: hidden;
+  height: clamp(12.5rem, 8.1015rem + 18.0451vw, 27.5rem);
+}
+.category-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 50;
+}
+@media (any-hover: hover) {
+  .category-item:hover .category-item__image {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.category-item__content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 100%;
+  z-index: 100;
+  padding: clamp(1.5rem, 1.2068rem + 1.203vw, 2.5rem);
+}
+.category-item__title {
+  font-family: var(--second-family);
+  font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);
+  text-transform: uppercase;
+  color: var(--white);
+}
+.category-item__icon {
+  height: clamp(2rem, 1.7068rem + 1.203vw, 3rem);
+  width: clamp(2rem, 1.7068rem + 1.203vw, 3rem);
+  fill: none;
+  stroke-width: 2px;
+  stroke: var(--white);
+  margin-left: auto;
+}
+.category-item__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: ease-out 0.5s;
+  transition: ease-out 0.5s;
+}
+
 .clip-path-right,
 .clip-path-right-init {
   position: relative;
