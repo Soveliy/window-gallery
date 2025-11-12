@@ -23,6 +23,7 @@
   box-sizing: border-box;
   background: var(--gray-dark);
   min-height: clamp(9.875rem, 7.3459rem + 10.3759vw, 18.5rem);
+  gap: 1.25rem;
   &__icon {
     height: 5rem;
     width: 5rem;

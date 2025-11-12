@@ -35488,6 +35488,20 @@ window.addEventListener("load", () => {
   });
   const sliderComplex = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".complex__slider", {
     modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectCreative],
+    loop: true,
+    autoplay: true,
+    spaceBetween: 0,
+    effect: "creative",
+    speed: 600,
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ["-20%", 0, -1]
+      },
+      next: {
+        translate: ["100%", 0, 0]
+      }
+    },
     pagination: {
       el: ".complex__pagination",
       type: "fraction"
@@ -35496,8 +35510,11 @@ window.addEventListener("load", () => {
   resizableSwiper("(max-width: 1024px)", ".capabilities__slider-js", {
     modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay],
     // centeredSlides: true,
-    loop: true,
-    spaceBetween: 40,
+    pagination: {
+      el: ".capabilities__pagination"
+    },
+    // loop: true,
+    spaceBetween: 20,
     slidesPerView: 1.5
   });
 });

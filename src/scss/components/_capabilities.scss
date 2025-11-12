@@ -1,7 +1,10 @@
 @use "./mixins/breakpoint" as *;
 .capabilities {
   position: relative;
-  overflow: hidden;
+  @include tablet {
+    overflow: hidden;
+  }
+
   &__row {
     display: flex;
     align-items: flex-start;
@@ -10,14 +13,17 @@
       flex-direction: column-reverse;
     }
   }
-  &__images {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  &__images-wrap {
     max-width: 40rem;
     width: 100%;
     flex-shrink: 0;
     margin-left: min(0px, (1760px - 100vw) / 2);
+  }
+  &__images {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
     @include tablet {
       flex-direction: row;
       gap: 0;
@@ -81,5 +87,31 @@
     margin-top: 1rem;
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--gray-light);
+  }
+  .swiper-slide-next .capabilities__image {
+    transform-origin: left;
+    transform: scale(0.8);
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal.capabilities__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  margin-top: 16px;
+  gap: 4px;
+  .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 1rem;
+    height: 2px;
+    background-color: #434343;
+    opacity: 1;
+    margin: 0;
+
+    &.swiper-pagination-bullet-active {
+      background-color: var(--white);
+    }
   }
 }

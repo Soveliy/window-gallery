@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .complex {
   position: relative;
   overflow: hidden;
@@ -22,11 +23,18 @@
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
+    @include tablet {
+      right: 0;
+      top: 0;
+    }
   }
 }
 .complex-item {
   display: flex;
   position: relative;
+  @include tablet {
+    height: 37.5rem;
+  }
   img {
     width: 100%;
   }
@@ -44,11 +52,14 @@
     bottom: 97px;
     left: 0;
     width: 100%;
+    @include tablet {
+      bottom: 16px;
+    }
   }
   &__title {
     position: relative;
-    max-width: 1160px;
-    padding: 40px;
+    max-width: 72.5rem;
+    padding: clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     font-family: var(--second-family);
     line-height: 1;
