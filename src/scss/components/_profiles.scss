@@ -1,0 +1,97 @@
+.profiles {
+  position: relative;
+  overflow: hidden;
+  &__tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+  }
+  &__tabs-head {
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    font-family: var(--second-family);
+
+    text-transform: uppercase;
+    color: var(--gray-base);
+    &:not(:first-child) {
+      &:before {
+        content: "/";
+        margin: 0 clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
+        color: var(--white);
+      }
+    }
+    &:not(.js-active) {
+      cursor: pointer;
+    }
+    &.js-active {
+      color: var(--white);
+    }
+  }
+}
+
+.profiles-item {
+  color: var(--white);
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+  }
+  &__image-container {
+    flex-shrink: 0;
+    margin-left: min(0px, (1760px - 100vw) / 2);
+    max-width: 59.0625rem;
+  }
+  &__name {
+    font-family: var(--second-family);
+
+    font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  &__desc {
+    margin: 2.5rem 0 clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    max-width: 98%;
+  }
+  &__option {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    span {
+      position: relative;
+      z-index: 10;
+      background: var(--black);
+      font-size: clamp(0.875rem, 0.6917rem + 0.7519vw, 1.5rem);
+      line-height: 1;
+      color: var(--white);
+    }
+    &-name {
+      padding-right: 1rem;
+    }
+    &-value {
+      padding-left: 1rem;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      border-bottom: 1px solid var(--gray-base);
+      bottom: 0;
+    }
+  }
+  &__skills {
+    margin-top: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+  }
+}

@@ -1,0 +1,32 @@
+.seo-block {
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    &--column {
+      grid-template-columns: 1fr;
+      gap: 54px;
+      max-width: 77%;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem);
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--white);
+    text-wrap: balance;
+  }
+  p {
+    margin: 0;
+    font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
+    color: var(--gray-light);
+  }
+}

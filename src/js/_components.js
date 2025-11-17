@@ -6,3 +6,5 @@ import "./components/modal_and_valid.js";
 import "./components/animation.js";
 import "./components/map.js";
 import "./components/simplebar.js";
+import "./components/select.js";
+import "./components/tabs.js";

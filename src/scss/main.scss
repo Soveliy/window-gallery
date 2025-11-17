@@ -62,6 +62,14 @@
 @use "./components/certs" as *;
 @use "./components/complex" as *;
 @use "./components/category" as *;
+@use "./components/seo" as *;
+@use "./components/select" as *;
+@use "./components/catalog" as *;
+@use "./components/why-we" as *;
+@use "./components/comparison" as *;
+@use "./components/profiles" as *;
+@use "./components/skill" as *;
+@use "./components/tabs" as *;
 .clip-path-right,
 .clip-path-right-init {
   position: relative;
