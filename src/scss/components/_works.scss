@@ -133,6 +133,11 @@
     h3 {
       margin-top: 0;
       color: var(--white);
+      font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
+    }
+    p,
+    ul {
+      font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     }
   }
   &__row {

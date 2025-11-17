@@ -1681,6 +1681,11 @@ a {
 .work-detail__content h3 {
   margin-top: 0;
   color: var(--white);
+  font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
+}
+.work-detail__content p,
+.work-detail__content ul {
+  font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
 }
 .work-detail__row {
   display: -webkit-box;
