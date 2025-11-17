@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .profiles {
   position: relative;
   overflow: hidden;
@@ -37,9 +38,11 @@
     display: flex;
     align-items: flex-start;
     gap: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+    @include tablet {
+      flex-direction: column;
+    }
   }
   &__image-container {
-    flex-shrink: 0;
     margin-left: min(0px, (1760px - 100vw) / 2);
     max-width: 59.0625rem;
   }
@@ -58,7 +61,8 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 43px;
+    gap: clamp(1.3125rem, 0.9093rem + 1.6541vw, 2.6875rem);
+
     padding: 0;
     margin: 0;
     list-style: none;

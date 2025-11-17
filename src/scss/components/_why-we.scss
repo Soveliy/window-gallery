@@ -5,18 +5,21 @@
   &__row {
     display: flex;
     flex-wrap: wrap;
-    margin: -1.25rem;
+    margin: calc(-1 * clamp(0.5rem, 0.2801rem + 0.9023vw, 1.25rem));
   }
   &__item-container {
-    padding: 1.25rem;
+    padding: clamp(0.5rem, 0.2801rem + 0.9023vw, 1.25rem);
     &--w33 {
       width: 33.3%;
+      @include small-tablet {
+        width: 50%;
+      }
     }
     &--w50 {
       width: 50%;
     }
     &--w100-mob {
-      @include mobile {
+      @include small-tablet {
         width: 100%;
       }
     }
@@ -30,8 +33,9 @@
   &__image-container {
     height: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
     // margin-bottom: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
-    margin-bottom: 30px;
+    margin-bottom: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem);
     img {
+      max-height: 100%;
       max-width: 100%;
     }
   }

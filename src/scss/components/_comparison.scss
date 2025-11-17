@@ -1,8 +1,18 @@
+@use "./mixins/breakpoint" as *;
 .comparison {
+  &__scroll {
+    @include tablet {
+      position: relative;
+      overflow: auto;
+    }
+  }
   &__table {
     width: 100%;
     border-spacing: 0;
     color: var(--gray-base);
+    @include small-tablet {
+      width: 768px;
+    }
     th {
       font-family: var(--second-family);
       font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);

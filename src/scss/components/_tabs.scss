@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .tabs {
   &__head {
     list-style: none;
@@ -76,6 +77,16 @@
       visibility: visible;
       transform: translateY(0);
       position: static;
+    }
+    @include lit-desktop {
+      .catalog-item:nth-child(4n) {
+        display: none;
+      }
+    }
+    @include tablet {
+      .catalog-item:nth-child(4n) {
+        display: flex;
+      }
     }
   }
 }

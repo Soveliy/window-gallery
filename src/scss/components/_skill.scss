@@ -1,8 +1,10 @@
+@use "./mixins/breakpoint" as *;
 .skills {
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(1.4375rem, 1.1809rem + 1.0526vw, 2.3125rem);
+    justify-content: space-between;
+    gap: clamp(1rem, 0.6151rem + 1.5789vw, 2.3125rem);
   }
 }
 .skill-item {
@@ -14,10 +16,12 @@
   &__progress-container {
     display: flex;
     position: relative;
-    height: 80px;
-    width: 80px;
+    height: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
+    width: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
   }
   &__icon {
+    height: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
+    width: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -29,8 +33,8 @@
   }
 }
 .progress-ring {
-  width: 80px;
-  height: 80px;
+  height: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
+  width: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
   &__value {
     stroke-dasharray: var(--p) 100;
     stroke-dashoffset: 0;
