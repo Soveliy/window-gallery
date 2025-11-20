@@ -70,6 +70,8 @@
 @use "./components/profiles" as *;
 @use "./components/skill" as *;
 @use "./components/tabs" as *;
+@use "./components/sku" as *;
+@use "./components/main-menu" as *;
 .clip-path-right,
 .clip-path-right-init {
   position: relative;

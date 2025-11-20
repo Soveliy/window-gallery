@@ -2,6 +2,9 @@
   &__list {
     display: flex;
     gap: 2.5rem;
+    &--lit-gap {
+      gap: 1.25rem;
+    }
     &--big-gap {
       gap: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
     }

@@ -13,6 +13,9 @@
   color: var(--black);
   scrollbar-gutter: stable;
   background: var(--black);
+  &.lenis-stopped {
+    overflow: hidden;
+  }
 }
 
 .page__body {
@@ -42,8 +45,6 @@ a {
     color: var(--gray-base);
   }
 }
-
-
 
 .is-hidden {
   display: none !important; /* stylelint-disable-line declaration-no-important */

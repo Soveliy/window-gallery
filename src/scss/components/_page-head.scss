@@ -13,5 +13,8 @@
     text-transform: uppercase;
     color: var(--white);
     clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    &--lit {
+      font-size: clamp(2rem, 1.1203rem + 3.609vw, 5rem);
+    }
   }
 }

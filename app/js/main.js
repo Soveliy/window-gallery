@@ -34132,11 +34132,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/burger.js */ "./src/js/components/burger.js");
-/* harmony import */ var _components_accordeon_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/accordeon.js */ "./src/js/components/accordeon.js");
-/* harmony import */ var _components_slider_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/slider.js */ "./src/js/components/slider.js");
-/* harmony import */ var _components_modal_and_valid_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/modal_and_valid.js */ "./src/js/components/modal_and_valid.js");
-/* harmony import */ var _components_animation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/animation.js */ "./src/js/components/animation.js");
+/* harmony import */ var _components_animation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/animation.js */ "./src/js/components/animation.js");
+/* harmony import */ var _components_burger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/burger.js */ "./src/js/components/burger.js");
+/* harmony import */ var _components_accordeon_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/accordeon.js */ "./src/js/components/accordeon.js");
+/* harmony import */ var _components_slider_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/slider.js */ "./src/js/components/slider.js");
+/* harmony import */ var _components_modal_and_valid_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/modal_and_valid.js */ "./src/js/components/modal_and_valid.js");
 /* harmony import */ var _components_map_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/map.js */ "./src/js/components/map.js");
 /* harmony import */ var _components_simplebar_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/simplebar.js */ "./src/js/components/simplebar.js");
 /* harmony import */ var _components_select_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/select.js */ "./src/js/components/select.js");
@@ -34145,8 +34145,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import "./components/file.js";
 
+// import "./components/file.js";
 
 
 
@@ -34202,6 +34202,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   lenis: () => (/* binding */ lenis)
+/* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var _functions_check_viewport_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/check-viewport.js */ "./src/js/functions/check-viewport.js");
 /* harmony import */ var gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/MorphSVGPlugin.js */ "./node_modules/gsap/MorphSVGPlugin.js");
@@ -34221,43 +34224,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_5__.ScrollToPlugin, gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"], gsap_CustomEase_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
+let lenis = null;
 window.addEventListener("load", () => {
-  if ((0,_functions_check_viewport_js__WEBPACK_IMPORTED_MODULE_0__.isDesktop)()) {
-    // ScrollSmoother.create({
-    //   wrapper: ".site-container",
-    //   content: ".site-content",
-    //   smooth: 1.2,
-    //   effects: true,
-    // });
-
-    const lenis = new lenis__WEBPACK_IMPORTED_MODULE_8__["default"]({
-      duration: 1.2,
-      // Время анимации скролла
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // Функция плавности
-      orientation: "vertical",
-      // Вертикальный скролл
-      smoothWheel: true,
-      // Включаем плавный скролл колесом
-      wheelMultiplier: 1,
-      // Коэффициент скролла колесом мыши
-      touchMultiplier: 1.5,
-      // Коэффициент скролла на тачскринах
-      infinite: false,
-      // Отключение бесконечного скролла
-      syncTouch: false // Синхронизация с touch событиями
-    });
-
-    // Привязываем ScrollTrigger к Lenis
-    lenis.on("scroll", gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.update);
-
-    // Анимационный цикл
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  lenis = new lenis__WEBPACK_IMPORTED_MODULE_8__["default"]({
+    duration: 1.2,
+    // Время анимации скролла
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    // Функция плавности
+    orientation: "vertical",
+    // Вертикальный скролл
+    smoothWheel: true,
+    // Включаем плавный скролл колесом
+    wheelMultiplier: 1,
+    // Коэффициент скролла колесом мыши
+    touchMultiplier: 1.5,
+    // Коэффициент скролла на тачскринах
+    infinite: false,
+    // Отключение бесконечного скролла
+    syncTouch: false // Синхронизация с touch событиями
+  });
+  lenis.on("scroll", gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.update);
+  function raf(time) {
+    lenis.raf(time);
     requestAnimationFrame(raf);
   }
+  requestAnimationFrame(raf);
   document.addEventListener("scroll", () => {
     const header = document.querySelector(".header");
     if (pageYOffset > 10) {
@@ -35178,15 +35169,29 @@ window.addEventListener("load", () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const burger = document.querySelector(".header__burger");
-// const menu = document.querySelector(".header__menu");
-if (burger) {
+/* harmony import */ var _animation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animation.js */ "./src/js/components/animation.js");
+
+window.addEventListener("load", () => {
+  const burger = document.querySelector(".header__burger");
+  const menu = document.querySelector(".main-menu");
+  const body = document.querySelector("body");
+  let isOpened = false;
+  if (!burger || !menu) return;
   burger.addEventListener("click", () => {
-    document.body.classList.toggle("lock-scroll");
-    burger.classList.toggle("js-active");
-    // menu.classList.toggle("header__menu--active");
+    isOpened = !isOpened;
+    burger.classList.toggle("js-active", isOpened);
+    menu.classList.toggle("js-active", isOpened);
+    if (_animation_js__WEBPACK_IMPORTED_MODULE_0__.lenis) {
+      if (isOpened) {
+        _animation_js__WEBPACK_IMPORTED_MODULE_0__.lenis.stop();
+      } else {
+        _animation_js__WEBPACK_IMPORTED_MODULE_0__.lenis.start();
+      }
+    } else {
+      body.classList.toggle("lock-scroll", isOpened);
+    }
   });
-}
+});
 
 /***/ }),
 

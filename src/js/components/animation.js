@@ -16,36 +16,27 @@ gsap.registerPlugin(
   DrawSVGPlugin,
   CustomEase
 );
+
+export let lenis = null;
 window.addEventListener("load", () => {
-  if (isDesktop()) {
-    // ScrollSmoother.create({
-    //   wrapper: ".site-container",
-    //   content: ".site-content",
-    //   smooth: 1.2,
-    //   effects: true,
-    // });
+  lenis = new Lenis({
+    duration: 1.2, // Время анимации скролла
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Функция плавности
+    orientation: "vertical", // Вертикальный скролл
+    smoothWheel: true, // Включаем плавный скролл колесом
+    wheelMultiplier: 1, // Коэффициент скролла колесом мыши
+    touchMultiplier: 1.5, // Коэффициент скролла на тачскринах
+    infinite: false, // Отключение бесконечного скролла
+    syncTouch: false, // Синхронизация с touch событиями
+  });
 
-    const lenis = new Lenis({
-      duration: 1.2, // Время анимации скролла
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Функция плавности
-      orientation: "vertical", // Вертикальный скролл
-      smoothWheel: true, // Включаем плавный скролл колесом
-      wheelMultiplier: 1, // Коэффициент скролла колесом мыши
-      touchMultiplier: 1.5, // Коэффициент скролла на тачскринах
-      infinite: false, // Отключение бесконечного скролла
-      syncTouch: false, // Синхронизация с touch событиями
-    });
+  lenis.on("scroll", ScrollTrigger.update);
 
-    // Привязываем ScrollTrigger к Lenis
-    lenis.on("scroll", ScrollTrigger.update);
-
-    // Анимационный цикл
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  function raf(time) {
+    lenis.raf(time);
     requestAnimationFrame(raf);
   }
+  requestAnimationFrame(raf);
 
   document.addEventListener("scroll", () => {
     const header = document.querySelector(".header");

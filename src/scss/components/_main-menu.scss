@@ -1,0 +1,110 @@
+@use "./mixins/disable-mob-hover" as *;
+@use "./mixins/breakpoint" as *;
+.main-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
+  box-sizing: border-box;
+  height: 100dvh;
+  width: 100%;
+  z-index: 5000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.3s;
+  @include tablet {
+    padding: 0;
+  }
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    .main-menu__wrapper {
+      clip-path: inset(0% 0% 0% 0% round 0);
+    }
+  }
+  .container {
+    width: 100%;
+
+    padding-right: 0;
+
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.3vh;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    @include mobile {
+      gap: 2rem;
+    }
+  }
+  &__link {
+    position: relative;
+    font-size: clamp(1.625rem, 1.2218rem + 1.6541vw, 3rem);
+    line-height: 1;
+    font-family: var(--second-family);
+    text-transform: uppercase;
+    color: var(--white);
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--white);
+      transition: 0.3s;
+    }
+    @include hover {
+      color: #fff;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+  &__shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(23, 23, 23, 0.52);
+  }
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8518519vh;
+    padding: 29px 40px 40px 40px;
+    height: 100%;
+    max-width: 58.4375rem;
+    width: 100%;
+    margin-left: auto;
+    background: var(--gray-dark);
+    clip-path: inset(0% 0% 0% 100% round 0);
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    @media (min-width: 1760px) {
+      margin-right: -2.5rem;
+    }
+    @include tablet {
+      gap: 1.25rem;
+      padding: 32px;
+    }
+  }
+  &__social {
+    margin-top: auto;
+    margin-left: auto;
+  }
+}

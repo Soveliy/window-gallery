@@ -32,6 +32,9 @@
       pointer-events: all;
       margin: 0;
     }
+    .main-menu {
+      transform: translateY(1rem);
+    }
     @include for-desktop() {
       transform: translateY(-1rem) !important;
     }

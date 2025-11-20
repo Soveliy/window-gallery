@@ -19,8 +19,11 @@
 .category-item {
   position: relative;
   overflow: hidden;
+  display: block;
   height: clamp(12.5rem, 8.1015rem + 18.0451vw, 27.5rem);
-
+  &--lit {
+    height: clamp(12.5rem, 11.0338rem + 6.015vw, 17.5rem);
+  }
   &::before {
     content: "";
     position: absolute;
