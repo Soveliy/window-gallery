@@ -7,6 +7,8 @@
     list-style: none;
     display: flex;
     gap: 0.25rem;
+    white-space: nowrap;
+    overflow: auto;
   }
   &__item {
     display: flex;

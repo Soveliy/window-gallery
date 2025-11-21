@@ -1,7 +1,14 @@
+@use "./mixins/breakpoint" as *;
 .sku {
   &__grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px 40px;
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
+
   &__title {
     margin-bottom: 24px;
     font-family: var(--second-family);
@@ -13,7 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 19px 10px;
+    gap: 10px 19px;
   }
 }
 .sku-item {
@@ -30,6 +37,10 @@
       &:before {
         opacity: 1;
       }
+    }
+
+    &:checked + .sku-item__wrapper--type-2 {
+      border-color: var(--white);
     }
   }
   &__wrapper {
@@ -66,6 +77,22 @@
         z-index: 50;
         opacity: 0;
       }
+    }
+    &--type-2 {
+      padding: 10px;
+      background: var(--gray-dark);
+      border: 1px solid var(--gray-dark);
+      transition: border-color 0.3s;
+
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 100%;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--white);
+      min-width: 44px;
+      text-align: center;
     }
   }
 }

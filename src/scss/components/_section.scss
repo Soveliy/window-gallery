@@ -25,6 +25,9 @@
     &--no-margin {
       margin: 0;
     }
+    &--big-margin {
+      margin: 0 0 clamp(2.3125rem, 1.3228rem + 4.0602vw, 5.6875rem) 0;
+    }
   }
   &__desc {
     max-width: 72%;

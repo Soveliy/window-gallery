@@ -72,6 +72,9 @@
 @use "./components/tabs" as *;
 @use "./components/sku" as *;
 @use "./components/main-menu" as *;
+@use "./components/product-card" as *;
+@use "./components/product-features" as *;
+@use "./components/popular-queries" as *;
 .clip-path-right,
 .clip-path-right-init {
   position: relative;

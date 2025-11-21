@@ -63,6 +63,23 @@
     margin: 0;
     font-size: clamp(0.875rem, 0.6917rem + 0.7519vw, 1.5rem);
   }
+  &__colors {
+    display: flex;
+    gap: clamp(0.5rem, 0.2984rem + 0.8271vw, 1.1875rem);
+    flex-wrap: wrap;
+    margin: 24px 0 12px;
+  }
+  &__color {
+    width: clamp(1.75rem, 1.4934rem + 1.0526vw, 2.625rem);
+    height: clamp(1.75rem, 1.4934rem + 1.0526vw, 2.625rem);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__button {
+    width: max-content;
+  }
   &__buttons {
     display: flex;
     justify-content: flex-end;
