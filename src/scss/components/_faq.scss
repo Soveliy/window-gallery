@@ -1,81 +1,94 @@
 @use "./mixins/breakpoint" as *;
 @use "./mixins/disable-mob-hover" as *;
+
 .faq {
   &__items {
     display: flex;
     flex-direction: column;
   }
+
   &-item {
     position: relative;
     overflow: hidden;
+    border-top: 1px solid var(--white);
     padding: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem)
       clamp(0rem, -0.7331rem + 3.0075vw, 2.5rem);
-    border-top: 1px solid var(--white);
+
     &:first-child {
       @include mobile {
-        padding-top: 0;
         border-top: 0;
+        padding-top: 0;
       }
     }
+
     &:last-child {
       border-bottom: 1px solid var(--white);
     }
+
     &__head {
       padding-right: 3.75rem;
-      font-family: var(--second-family);
-      text-transform: uppercase;
       box-sizing: border-box;
+      font-family: var(--second-family);
       font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
+      text-transform: uppercase;
       color: var(--white);
-      cursor: pointer;
       transition: 0.3s;
+      cursor: pointer;
+
       @include mobile {
         position: relative;
       }
     }
+
     &__body {
       position: relative;
-      max-width: 60%;
-      padding-right: 3.75rem;
-      box-sizing: border-box;
-      max-height: 0;
-      opacity: 0;
       overflow: hidden;
-      transition: 0.4s;
+      padding-right: 3.75rem;
+      max-width: 60%;
+      max-height: 0;
+      box-sizing: border-box;
       font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
       line-height: normal;
       color: var(--gray-light);
+      opacity: 0;
+      transition: 0.4s;
+
       @include mobile {
         max-width: 100%;
       }
+
       > *:first-child {
         margin-top: 0;
       }
+
       > *:last-child {
         margin-bottom: 0;
       }
     }
+
     &__icon {
       position: absolute;
-      top: 50%;
       right: 0;
+      top: 50%;
+      flex-shrink: 0;
       margin-top: -1.25rem;
       width: 2.5rem;
       height: 2.5rem;
-
-      transition: 0.4s;
-      flex-shrink: 0;
       fill: var(--white);
+      transition: 0.4s;
+
       @include mobile {
         padding: 0.625rem;
       }
     }
+
     &.js-active {
       .faq-item__body {
         padding-top: clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
         max-height: 62.5rem;
         opacity: 1;
       }
+
       .faq-item__icon {
         transform: rotate(45deg);
       }

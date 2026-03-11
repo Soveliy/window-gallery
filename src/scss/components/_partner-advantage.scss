@@ -1,4 +1,5 @@
 @use "./mixins/breakpoint" as *;
+
 .partner-advantage {
   padding: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem) 0
     clamp(2.5rem, 1.492rem + 4.1353vw, 5.9375rem);
@@ -7,36 +8,42 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 0.5052rem + 2.0301vw, 2.6875rem);
+
     @include big-desktop {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @include mobile {
       grid-template-columns: 1fr;
     }
   }
 }
+
 .partner-advantage-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(1rem, 0.5602rem + 1.8045vw, 2.5rem);
+  min-height: clamp(9.875rem, 7.3459rem + 10.3759vw, 18.5rem);
   box-sizing: border-box;
   background: var(--gray-dark);
-  min-height: clamp(9.875rem, 7.3459rem + 10.3759vw, 18.5rem);
   gap: 1.25rem;
+
   &__icon {
-    height: 5rem;
     width: 5rem;
+    height: 5rem;
+
     img {
-      aspect-ratio: 1/1;
       max-width: 100%;
+      aspect-ratio: 1/1;
     }
   }
+
   &__title {
     font-family: var(--second-family);
     font-size: clamp(1.625rem, 1.515rem + 0.4511vw, 2rem);
+    line-height: 1;
     text-transform: uppercase;
     color: var(--white);
-    line-height: 1;
   }
 }

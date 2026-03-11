@@ -231,18 +231,18 @@
       </div>
 
       <div class="modal__content modal__content--visible" id="modal-1-content">
-        <form action="#" class="modal__form form">
+        <form action="#" class="modal__form form" id="form">
           <div class="form__items">
             <div class="form__input input">
-              <input id="c-name" autocomplete="name" name="name" type="text" class="input__native" placeholder=" ">
+              <input id="ok-name" autocomplete="name" name="name" type="text" class="input__native" placeholder=" ">
               <label for="c-name" class="input__placeholder">Имя</label>
             </div>
             <div class="form__input input">
-              <input id="c-phone" autocomplete="tel" name="tel" type="tel" class="input__native" placeholder=" ">
+              <input id="ok-phone" autocomplete="tel" name="tel" type="tel" class="input__native" placeholder=" ">
               <label for="c-phone" class="input__placeholder">Мобильный телефон</label>
             </div>
             <div class="form__input input">
-              <input id="c-comment" name="comment" type="text" class="input__native" placeholder=" ">
+              <input id="ok-comment" name="comment" type="text" class="input__native" placeholder=" ">
               <label for="c-comment" class="input__placeholder">Комментарий</label>
             </div>
           </div>
@@ -260,6 +260,12 @@
   </div>
 </div>
 <div class="thanks-window corner corner--default">
+
+  <button class="thanks-window__close">
+    <svg class="thanks-window__close-icon">
+      <use xlink:href="img/sprite.svg#close"></use>
+    </svg>
+  </button>
   <div class="thanks-window__title">
     Успешно
   </div>

@@ -1,23 +1,30 @@
 @use "./mixins/breakpoint" as *;
+
 .why-we {
   position: relative;
   overflow: hidden;
+
   &__row {
     display: flex;
     flex-wrap: wrap;
     margin: calc(-1 * clamp(0.5rem, 0.2801rem + 0.9023vw, 1.25rem));
   }
+
   &__item-container {
     padding: clamp(0.5rem, 0.2801rem + 0.9023vw, 1.25rem);
+
     &--w33 {
       width: 33.3%;
+
       @include small-tablet {
         width: 50%;
       }
     }
+
     &--w50 {
       width: 50%;
     }
+
     &--w100-mob {
       @include small-tablet {
         width: 100%;
@@ -30,15 +37,19 @@
   padding: clamp(1rem, 0.5602rem + 1.8045vw, 2.5rem);
   height: 100%;
   background: var(--gray-dark);
+
   &__image-container {
-    height: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
-    // margin-bottom: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
     margin-bottom: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem);
+    height: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
+
+    // margin-bottom: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+
     img {
-      max-height: 100%;
       max-width: 100%;
+      max-height: 100%;
     }
   }
+
   &__name {
     margin-bottom: 12px;
     font-family: var(--second-family);
@@ -46,6 +57,7 @@
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__desc {
     font-size: clamp(0.875rem, 0.6917rem + 0.7519vw, 1.5rem);
     color: var(--gray-light);

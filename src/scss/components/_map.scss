@@ -2,18 +2,20 @@
   &__inner {
     position: relative;
   }
+
   &__svg {
     width: 100%;
     height: auto;
   }
+
   &__tooltip {
     position: absolute;
     display: none;
-    width: max-content;
     padding: 0.75rem 1rem 1rem;
+    width: max-content;
+    max-width: 18.75rem;
     background: var(--black);
     transform: translateX(-50%);
     user-select: none;
-    max-width: 18.75rem;
   }
 }

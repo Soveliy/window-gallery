@@ -1,0 +1,67 @@
+@use "./mixins/breakpoint" as *;
+
+.how-we-work {
+  position: relative;
+  overflow: hidden;
+
+  &__grid {
+    counter-reset: item;
+    display: flex;
+
+    // overflow: auto;
+    width: fit-content;
+    gap: 2.5rem;
+  }
+
+  &-item {
+    flex-shrink: 0;
+    min-width: 31.4375rem;
+    max-width: 31.4375rem;
+
+    @include tablet {
+      min-width: inherit;
+      max-width: 18rem;
+    }
+
+    &::before {
+      counter-increment: item;
+      content: "0" counter(item) "/";
+      display: block;
+      margin-bottom: 20px;
+      font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
+    }
+
+    &__desc {
+      font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
+      line-height: normal;
+    }
+  }
+
+  &__note {
+    margin-top: 32px;
+    font-size: clamp(0.75rem, 0.5969rem + 0.6531vw, 1.25rem);
+    line-height: normal;
+  }
+
+  &__svg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: -1;
+
+    // transform: translate(-50%, -50%);
+    overflow: hidden;
+    width: 100%;
+    transform: translateY(-29%);
+
+    @include tablet {
+      top: 7.1875rem;
+      transform: none;
+    }
+
+    @include mobile {
+      top: 4rem;
+      width: auto;
+    }
+  }
+}

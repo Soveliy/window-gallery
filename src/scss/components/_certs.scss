@@ -1,45 +1,51 @@
 @use "./mixins/breakpoint" as *;
+
 .certs {
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @include mobile {
       grid-template-columns: repeat(1, 1fr);
     }
   }
+
   &__button {
     display: block;
     margin: clamp(2rem, 1.3402rem + 2.7068vw, 4.25rem) auto 0;
   }
 }
+
 .certs-item {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   border: 1px solid #ddd;
-  min-height: clamp(12.5rem, 10.8506rem + 6.7669vw, 18.125rem);
-
   padding: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem) 20px 20px
     clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+  min-height: clamp(12.5rem, 10.8506rem + 6.7669vw, 18.125rem);
+  gap: 10px;
+
   &__name {
     font-family: var(--second-family);
     font-size: clamp(1.75rem, 1.6735rem + 0.3265vw, 2rem);
-
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__number {
     font-size: 1rem;
     color: var(--gray-base);
   }
+
   &__icon {
     margin: auto 0 0 auto;
-    height: 2.625rem;
     width: 2.625rem;
+    height: 2.625rem;
     fill: none;
     stroke: var(--white);
   }

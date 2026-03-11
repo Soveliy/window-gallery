@@ -1,33 +1,39 @@
 @use "./mixins/breakpoint" as *;
+
 .production {
   .swiper-wrapper {
     align-items: center;
   }
+
   &__nav {
     position: absolute;
-    bottom: 7px;
     left: 0;
-    width: 100%;
+    bottom: 26px;
+    z-index: 10;
     display: flex;
     justify-content: center;
+    width: 100%;
     gap: 10.9375rem;
-    z-index: 10;
+
     @include tablet {
       display: none;
     }
   }
+
   &__arrow {
-    height: 2rem;
     width: 2rem;
+    height: 2rem;
     cursor: pointer;
     user-select: none;
   }
+
   &__arrow-icon {
-    height: 100%;
     width: 100%;
+    height: 100%;
     fill: none;
     stroke: var(--white);
   }
+
   &__slider {
     @include tablet {
       position: relative;
@@ -35,60 +41,71 @@
       padding-bottom: 2rem;
     }
   }
+
   &__pagination {
     display: none;
+
     @include tablet {
       display: flex;
     }
   }
 }
+
 .production-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
-  perspective: 1000px;
   width: 40%;
+  perspective: 1000px;
   transition: 0.3s;
+
   @include tablet {
     width: 75%;
   }
+
   &__image-container {
     position: relative;
     display: flex;
     justify-content: space-between;
   }
+
   &__image,
   &__image-placeholder {
     // transition: 0.3s;
     transform: scale(1);
   }
+
   &__image {
     opacity: 0;
   }
+
   &__image-placeholder {
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
+    top: 0;
     width: 100%;
+    height: 100%;
   }
+
   &__name {
     margin-top: 2rem;
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 3rem;
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--gray-light);
     line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--gray-light);
+
     @include tablet {
       font-size: 1.625rem;
     }
   }
+
   &.swiper-slide-active {
     .production-slide__image {
-      transition: 0.3s;
       opacity: 1;
+      transition: 0.3s;
     }
   }
 }

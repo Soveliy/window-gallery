@@ -8,3 +8,6 @@ import "./components/map.js";
 import "./components/simplebar.js";
 import "./components/select.js";
 import "./components/tabs.js";
+import "./components/image-ajax.js";
+import "./components/showmore.js";
+import "./components/works-filter.js";

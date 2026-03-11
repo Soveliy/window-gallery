@@ -1,30 +1,38 @@
 @use "./mixins/breakpoint" as *;
+
 .catalog {
   &__selects {
     margin-bottom: 40px;
   }
+
   &__selects-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1.125rem, 0.7218rem + 1.6541vw, 2.5rem);
+
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem);
-    @include lit-desktop() {
+
+    @include lit-desktop {
       grid-template-columns: repeat(3, 1fr);
     }
+
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @include mobile {
       grid-template-columns: 1fr;
     }
   }
+
   &__button {
     display: block;
     margin: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem) auto 0;
@@ -34,37 +42,44 @@
 .catalog-item {
   display: flex;
   flex-direction: column;
+
   &__image-container {
     display: flex;
+    flex-shrink: 0;
+    max-height: 336px;
+
     // height: 336px;
     aspect-ratio: 410 / 336;
-    max-height: 336px;
-    flex-shrink: 0;
+
     img {
       display: block;
-      aspect-ratio: inherit;
+      margin: 0 auto;
+      width: auto;
       max-width: 100%;
       max-height: 100%;
-      width: auto;
-      margin: 0 auto;
+      aspect-ratio: inherit;
     }
   }
+
   &__body {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(1.625rem, 1.1852rem + 1.8045vw, 3.125rem);
     padding: clamp(1rem, 0.5602rem + 1.8045vw, 2.5rem);
+    height: 100%;
+    gap: clamp(1.625rem, 1.1852rem + 1.8045vw, 3.125rem);
   }
+
   &__name {
     font-size: clamp(1.125rem, 1.015rem + 0.4511vw, 1.5rem);
     color: var(--white);
   }
+
   &__desc {
     margin-top: clamp(0.25rem, 0.1034rem + 0.6015vw, 0.75rem);
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--gray-light);
   }
+
   &__price {
     font-family: var(--second-family);
     font-weight: 400;
@@ -72,8 +87,9 @@
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__button {
-    width: 100%;
     margin-top: clamp(0.125rem, -0.0583rem + 0.7519vw, 0.75rem);
+    width: 100%;
   }
 }

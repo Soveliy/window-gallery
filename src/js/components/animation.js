@@ -19,24 +19,26 @@ gsap.registerPlugin(
 
 export let lenis = null;
 window.addEventListener("load", () => {
-  lenis = new Lenis({
-    duration: 1.2, // Время анимации скролла
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Функция плавности
-    orientation: "vertical", // Вертикальный скролл
-    smoothWheel: true, // Включаем плавный скролл колесом
-    wheelMultiplier: 1, // Коэффициент скролла колесом мыши
-    touchMultiplier: 1.5, // Коэффициент скролла на тачскринах
-    infinite: false, // Отключение бесконечного скролла
-    syncTouch: false, // Синхронизация с touch событиями
-  });
+  if (!document.querySelector("body").classList.contains("is_admin")) {
+    lenis = new Lenis({
+      duration: 1.2, // Время анимации скролла
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Функция плавности
+      orientation: "vertical", // Вертикальный скролл
+      smoothWheel: true, // Включаем плавный скролл колесом
+      wheelMultiplier: 1, // Коэффициент скролла колесом мыши
+      touchMultiplier: 1.5, // Коэффициент скролла на тачскринах
+      infinite: false, // Отключение бесконечного скролла
+      syncTouch: false, // Синхронизация с touch событиями
+    });
 
-  lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", ScrollTrigger.update);
 
-  function raf(time) {
-    lenis.raf(time);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf);
 
   document.addEventListener("scroll", () => {
     const header = document.querySelector(".header");
@@ -46,83 +48,154 @@ window.addEventListener("load", () => {
       header.classList.remove("js-scroll");
     }
   });
+
   let hero = gsap.timeline({});
 
   const heroBlock = document.querySelector(".hero");
+  const heroInside = document.querySelector(".hero-inside__content");
   if (heroBlock) {
-    setTimeout(() => {
-      hero.to(
-        ".hero__title path",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          stagger: { each: 0.1, from: "start" },
-        },
-        "=-0.5"
-      );
+    hero.to(
+      ".hero__title path",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: { each: 0.1, from: "start" },
+      },
+      "=-0.5"
+    );
 
-      hero.to(
-        ".hero__video",
-        {
-          // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1,
-          ease: "power3.out",
-          opacity: 1,
-        },
-        "-=0.2"
-      );
-      hero.to(
-        ".header",
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      );
-      hero.to(".hero__desc", {
+    hero.to(
+      ".hero__video",
+      {
+        // clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.5,
+        ease: "power3.out",
+        opacity: 1,
+      },
+      "-=0.2"
+    );
+    hero.to(
+      ".header",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+    hero.to(".hero__desc", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 0.6,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+    hero.to(
+      ".hero__buttons",
+      {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 0.6,
         ease: "power3.out",
         delay: 0.2,
+      },
+      "=-0.5"
+    );
+  } else if (heroInside) {
+    const teazers = document.querySelectorAll(".tzrs-item");
+    hero.to(heroInside, {
+      clipPath: "inset(0% 0% 0% 0%)", // раскрываем маску
+      ease: "power4.inOut",
+      duration: 0.7,
+      delay: 0.2, // можно добавить небольшую задержку
+    });
+
+    hero.to(
+      ".hero-inside__title,.hero-inside__desc,.hero-inside__button,.banner__buttons",
+      {
+        opacity: 1,
+        duration: 0.6,
+        ease: "ease",
+        delay: 0.2,
+      }
+    );
+    hero.to(".breadcrumbs", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 0.6,
+      ease: "ease",
+      delay: 0.2,
+    });
+    if (teazers.length > 0) {
+      hero.to(".tzrs-item", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "ease",
+        delay: 0.2,
+        stagger: 0.2,
       });
-      hero.to(
-        ".hero__buttons",
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 0.6,
-          ease: "power3.out",
-          delay: 0.2,
+    }
+
+    hero.to(
+      ".header",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "ease",
+      },
+      "-=0.5"
+    );
+
+    gsap.fromTo(
+      ".hero-inside__image",
+      {
+        scale: 1.2,
+        yPercent: -10,
+        ease: "none",
+      },
+      {
+        yPercent: 10,
+        ease: "none",
+        scale: 1.2,
+        scrollTrigger: {
+          trigger: ".hero-inside",
+          start: "top bottom", // когда верх блока дотронется до низа окна
+          end: "bottom top", // пока блок не выйдет вверх
+          scrub: true, // синхронизация с прокруткой
+          // markers: true
         },
-        "=-0.5"
-      );
-    }, 500);
+      }
+    );
   } else {
-    setTimeout(() => {
+    if (document.querySelector(".breadcrumbs")) {
       hero.to(".breadcrumbs", {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 0.6,
         ease: "ease",
         delay: 0.2,
       });
+    }
+    if (document.querySelector(".page-top__title")) {
       hero.to(".page-top__title", {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 0.6,
         ease: "ease",
         delay: 0.2,
       });
-      hero.to(
-        ".header",
-        {
-          opacity: 1,
-          y: 0,
-          ease: "ease",
-        },
-        "-=0.5"
-      );
-    }, 500);
+    }
+    if (document.querySelector(".error-page")) {
+      hero.to(".error-page", { opacity: 1, duration: 1 });
+    }
+
+    hero.to(
+      ".header",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "ease",
+      },
+      "-=0.5"
+    );
   }
 
   class AboutSyncGallery {
@@ -576,20 +649,24 @@ window.addEventListener("load", () => {
 
   document.querySelectorAll(".clip-path-right").forEach((section) => {
     const img = section.querySelector("img");
+    const quoteTitle = section.querySelector(".quote__title");
+    const capabilitiesTitle = section.querySelector(
+      ".capabilities__image-title"
+    );
 
     if (!img) return;
     // параллакс-скейл по скроллу
     gsap.fromTo(
       img,
       {
-        scale: 1.3,
-        yPercent: -15,
+        scale: 1.2,
+        yPercent: -10,
         ease: "none",
       },
       {
-        yPercent: 15,
+        yPercent: 10,
         ease: "none",
-        scale: 1.3,
+        scale: 1.2,
         scrollTrigger: {
           trigger: section,
           start: "top bottom", // когда верх блока дотронется до низа окна
@@ -599,6 +676,12 @@ window.addEventListener("load", () => {
         },
       }
     );
+    if (quoteTitle) {
+      gsap.set(quoteTitle, { autoAlpha: 0 });
+    }
+    if (capabilitiesTitle) {
+      gsap.set(capabilitiesTitle, { autoAlpha: 0 });
+    }
 
     // одноразовое раскрытие маски
     ScrollTrigger.create({
@@ -607,6 +690,21 @@ window.addEventListener("load", () => {
       once: true,
       onEnter: () => {
         section.classList.add("js-animated");
+
+        if (quoteTitle) {
+          gsap.to(quoteTitle, {
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          });
+        }
+        if (capabilitiesTitle) {
+          gsap.to(capabilitiesTitle, {
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          });
+        }
       },
     });
   });
@@ -724,7 +822,7 @@ window.addEventListener("load", () => {
     // подготовка: скрываем за маской и задаём начальный масштаб
     gsap.set(section, {
       overflow: "hidden",
-      clipPath: "inset(0% 0% 0% 100%)", // закрыто справа
+      // clipPath: "inset(0% 0% 0% 100%)", // закрыто справа
     });
     gsap.set(img, { scale: 1 }); // начальный масштаб
 
@@ -732,14 +830,14 @@ window.addEventListener("load", () => {
     gsap.fromTo(
       img,
       {
-        scale: 1.3,
-        yPercent: -15,
+        scale: 1.2,
+        yPercent: -10,
         ease: "none",
       },
       {
-        yPercent: 15,
+        yPercent: 10,
         ease: "none",
-        scale: 1.3,
+        scale: 1.2,
         scrollTrigger: {
           trigger: section,
           start: "top bottom", // когда верх блока дотронется до низа окна
@@ -913,49 +1011,84 @@ window.addEventListener("load", () => {
 // 404
 
 window.addEventListener("load", () => {
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  const windows = gsap.utils.toArray(".conveyor__window");
+  // gsap.set((windows) => {
+  //   gsap.set(windowEl, { opacity: 0, x: -220 });
+  // });
+  gsap.to(".conveyor__wheel", {
+    rotation: 360,
+    duration: 4,
+    ease: "none",
+    repeat: -1,
+    transformOrigin: "50% 50%",
+  });
+  gsap.set(windows, { x: -400 });
+  windows.forEach((windowEl, i) => {
+    const tl = gsap.timeline({
+      repeat: -1,
+      delay: i * 6, // сдвиг между окнами
+    });
 
-  tl.from(
-    ".error-page__right svg path",
-    {
-      duration: 1.5,
-      drawSVG: 0,
-      opacity: 0,
-    },
-    "-=1.2"
-  );
+    // tl.set(windowEl, { x: -220, opacity: 1 });
+    tl.set(windowEl.querySelectorAll(".conveyor__window--crack"), {
+      drawSVG: "0%",
+    });
+    tl.to(windowEl, {
+      x: 425,
+      duration: 11,
+      ease: "linear",
+    });
+    tl.to(windowEl, {
+      rotation: 45,
+      x: "+=140",
+      // 39
+      y: 50,
+      duration: 1,
+      ease: "linear",
+      transformOrigin: "50% 50%",
+    });
 
-  tl.from(
-    ".error-page__buttons",
-    {
-      duration: 0.8,
-      opacity: 0,
-      y: 40,
-      stagger: 0.2,
-    },
-    "-=0.6"
-  );
+    tl.to(windowEl, {
+      rotation: "+=45",
+      x: "+=25",
 
-  tl.from(
-    ".error-page__links",
-    {
-      duration: 0.8,
+      // x: "",
+      y: "+=385",
+      duration: 2,
+      ease: "linear",
+    });
+
+    // tl.to(windowEl, {
+    //   rotation: 90,
+    //   x: "+=150",
+    //   // 39
+    //   y: 50,
+    //   duration: 1,
+    //   ease: "linear",
+    //   transformOrigin: "50% 50%",
+    // });
+
+    // tl.to(windowEl, {
+    //   // rotation: "+=45",
+    //   // x: "+=55",
+
+    //   x: "+=40",
+    //   y: "+=385",
+    //   duration: 1.8,
+    //   ease: "linear",
+    // });
+
+    tl.to(windowEl.querySelectorAll(".conveyor__window--crack"), {
+      drawSVG: "100%",
+      duration: 2,
+      ease: "power2.out",
+    });
+
+    tl.to(windowEl, {
       opacity: 0,
-      y: 20,
-      stagger: 0.1,
-    },
-    "-=0.4"
-  );
-  tl.from(
-    ".error-page__picture path",
-    {
-      duration: 1.5,
-      stagger: 0.015,
-      drawSVG: 0,
-      opacity: 0,
-    },
-    0
-  );
+      duration: 2,
+    });
+  });
 });
 
 const animStats = () => {

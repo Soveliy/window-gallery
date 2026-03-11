@@ -1,26 +1,32 @@
 @use "./mixins/breakpoint" as *;
+
 .seo-block {
   &__row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+
     @include mobile {
       grid-template-columns: 1fr;
     }
+
     &--column {
       grid-template-columns: 1fr;
-      gap: clamp(2.5rem, 2.2434rem + 1.0526vw, 3.375rem);
       max-width: 77%;
+      gap: clamp(2.5rem, 2.2434rem + 1.0526vw, 3.375rem);
+
       @include mobile {
         max-width: 100%;
       }
     }
   }
+
   &__item {
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 0.7434rem + 1.0526vw, 1.875rem);
   }
+
   h3 {
     margin: 0;
     font-family: var(--second-family);
@@ -31,6 +37,7 @@
     color: var(--white);
     text-wrap: balance;
   }
+
   p {
     margin: 0;
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);

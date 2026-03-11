@@ -1,4 +1,5 @@
 @use "./mixins/breakpoint" as *;
+
 .product-features {
   &__grid {
     display: flex;
@@ -12,85 +13,98 @@
   align-items: start;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem);
+
   @include tablet {
     grid-template-columns: 1fr;
   }
+
   &:nth-child(2n + 1) {
     .product-features-item__image-container {
       margin-left: min(0px, (1760px - 100vw) / 2);
     }
   }
+
   &:nth-child(2n) {
     .product-features-item__image-container {
       margin-right: min(0px, (1760px - 100vw) / 2);
     }
   }
+
   &__image-container {
     position: relative;
     height: 645px;
     background-color: #1d1d1d;
+
     @include big-desktop {
       height: auto;
     }
+
     @include tablet {
       order: -1;
     }
   }
+
   &__image {
     aspect-ratio: 188 / 129;
   }
+
   &__label {
     position: absolute;
+
     &--type-1 {
-      top: 37%;
       right: 0;
+      top: 37%;
       max-width: 232px;
-      &:after {
+
+      &::after {
         content: "";
         position: absolute;
-        top: 116%;
         right: 86%;
+        top: 116%;
         width: 11.125rem;
         height: 6.8125rem;
-        background: url(../img/product/label1.svg) no-repeat center;
+        background: url("../img/product/label1.svg") no-repeat center;
         background-size: contain;
       }
     }
 
     &--type-2 {
+      left: 8%;
       top: 18.3%;
       max-width: 244px;
-      left: 8%;
-      &:after {
+
+      &::after {
         content: "";
         position: absolute;
-        top: 105%;
         left: 64%;
+        top: 105%;
         width: 275px;
         height: 98px;
-        background: url(../img/product/label2.svg) no-repeat center;
+        background: url("../img/product/label2.svg") no-repeat center;
         background-size: contain;
       }
     }
 
     &--type-3 {
-      top: 59.9%;
-      right: 0;
-      max-width: 232px;
       left: 23.7%;
-      &:after {
+      right: 0;
+      top: 59.9%;
+      max-width: 232px;
+
+      &::after {
         content: "";
         position: absolute;
-        top: 105%;
-        right: 86%;
         left: 68%;
+        right: 86%;
+        top: 105%;
         width: 188px;
         height: 93px;
-        background: url(../img/product/label3.svg) no-repeat center;
+        background: url("../img/product/label3.svg") no-repeat center;
         background-size: contain;
       }
     }
   }
+
   &__label-title {
     font-family: var(--second-family);
     font-weight: 400;
@@ -98,30 +112,34 @@
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__label-desc {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 18px;
     color: var(--gray\light);
   }
+
   &__content {
     position: sticky;
-    top: 120px;
     right: 0;
+    top: 120px;
     padding: clamp(0.75rem, 0.3468rem + 1.6541vw, 2.125rem)
       clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem)
       clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
   }
+
   &__title {
     margin-bottom: 24px;
     font-family: var(--second-family);
+    font-weight: 400;
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     line-height: 1;
-    font-weight: 400;
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__desc {
     font-weight: 400;
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);

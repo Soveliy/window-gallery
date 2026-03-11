@@ -1,4 +1,5 @@
 @use "./mixins/disable-mob-hover" as *;
+
 .simplebar-track {
   background: var(--gray-dark);
 
@@ -6,12 +7,14 @@
     width: 0.25rem;
   }
 }
+
 .simplebar-scrollbar {
-  background: var(--gray-light);
+  left: 1px;
   border: 0;
   width: 0.125rem;
-  left: 1px;
-  &:before {
+  background: var(--gray-light);
+
+  &::before {
     display: none;
   }
 }
@@ -22,6 +25,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+
     &:hover {
       .simplebar-scrollbar {
         opacity: 1;

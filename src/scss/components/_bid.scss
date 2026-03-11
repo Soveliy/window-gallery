@@ -1,0 +1,63 @@
+@use "./mixins/breakpoint" as *;
+@use "./mixins/disable-mob-hover" as *;
+
+.bid {
+  &__left {
+    max-width: 700px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    margin-top: 1rem;
+    gap: 2.5rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 4.375rem;
+    }
+  }
+
+  &__image {
+    position: relative;
+    height: clamp(25rem, 23.1855rem + 8.0645vw, 31.25rem);
+
+    picture {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    img {
+      max-width: inherit;
+      object-fit: none;
+      object-fit: inherit;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__link {
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
+    line-height: normal;
+    color: var(--black);
+    transition: 0.3s;
+
+    @include hover {
+      &:hover {
+        color: var(--green-medium);
+      }
+    }
+  }
+}

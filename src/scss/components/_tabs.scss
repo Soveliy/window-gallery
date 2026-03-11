@@ -1,34 +1,38 @@
 @use "./mixins/breakpoint" as *;
+
 .tabs {
   &__head {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
+    list-style: none;
+    margin: 0;
     margin-bottom: clamp(2rem, 1.8534rem + 0.6015vw, 2.5rem);
+    padding: 0;
+
     &--big {
       margin-bottom: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
     }
   }
+
   &__head-item {
     &:not(:first-child) {
-      .tabs__button--type-1:before {
+      .tabs__button--type-1::before {
         content: "/";
         margin: 0 clamp(0.75rem, 0.6034rem + 0.6015vw, 1.25rem);
         color: var(--white);
       }
     }
   }
-  &__button {
-    background: none;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    &--type-1 {
-      font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
-      font-family: var(--second-family);
 
+  &__button {
+    outline: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+
+    &--type-1 {
+      font-family: var(--second-family);
+      font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
       text-transform: uppercase;
       color: var(--gray-base);
 
@@ -36,25 +40,28 @@
         color: var(--white);
       }
     }
+
     &--type-2 {
       position: relative;
+      padding: clamp(0.75rem, 0.5301rem + 0.9023vw, 1.5rem)
+        clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
       font-family: var(--second-family);
       font-weight: 400;
       font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);
       text-transform: uppercase;
       color: var(--white);
-      padding: clamp(0.75rem, 0.5301rem + 0.9023vw, 1.5rem)
-        clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
-      &:after {
+
+      &::after {
         content: "";
         position: absolute;
-        bottom: 0;
         left: 0;
+        bottom: 0;
         width: 0;
         height: 1px;
         background-color: var(--white);
         transition: 0.3s;
       }
+
       &.js-active {
         &::after {
           width: 100%;
@@ -62,27 +69,32 @@
       }
     }
   }
+
   &__body {
     position: relative;
   }
+
   &__content {
+    position: absolute;
+    width: 100%;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    position: absolute;
-    width: 100%;
+
     &.js-active {
+      position: static;
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-      position: static;
     }
+
     @include lit-desktop {
       .catalog-item:nth-child(4n) {
         display: none;
       }
     }
+
     @include tablet {
       .catalog-item:nth-child(4n) {
         display: flex;

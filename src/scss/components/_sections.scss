@@ -1,0 +1,114 @@
+@use "./mixins/breakpoint" as *;
+
+.section {
+  padding: 70px 0;
+
+  @include for-desktop {
+    padding: 60px 0;
+  }
+
+  @include mobile {
+    padding: 35px 0;
+  }
+
+  &--first {
+    padding-top: 30px;
+
+    @include tablet {
+      padding-top: 4.375rem;
+    }
+  }
+
+  &--big-padding {
+    padding: 110px 0;
+
+    @include for-desktop {
+      padding: 80px 0;
+    }
+
+    @include mobile {
+      padding: 30px 0;
+    }
+  }
+
+  &-head {
+    max-width: 1185px;
+
+    &__title {
+      margin: 0;
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: clamp(1.75rem, 1.1378rem + 2.6122vw, 3.75rem);
+      line-height: 107%;
+
+      @include tablet {
+        line-height: 114%;
+      }
+    }
+
+    &__desc {
+      margin: clamp(1.25rem, 1.0204rem + 0.9796vw, 2rem) 0 0;
+      font-weight: 400;
+      font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
+      line-height: normal;
+    }
+
+    &--lit-margin {
+      margin-bottom: 20px;
+
+      @include mobile {
+        margin-bottom: 32px;
+      }
+    }
+
+    &--big-margin {
+      margin-bottom: 60px;
+
+      @include mobile {
+        &:not(.section-head--big-margin-mobile) {
+          margin-bottom: 34px;
+        }
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: clamp(2rem, 1.4643rem + 2.2857vw, 3.75rem);
+
+    &__wrap {
+      width: 100%;
+      max-width: 1140px;
+    }
+
+    &__title {
+      margin-bottom: clamp(0.5rem, 0.1939rem + 1.3061vw, 1.5rem);
+      font-family: var(--third-family);
+      font-size: clamp(1.5rem, 1.1173rem + 1.6327vw, 2.75rem);
+      line-height: normal;
+    }
+
+    &__desc {
+      width: 100%;
+      max-width: 1140px;
+      font-weight: 400;
+      font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
+      line-height: normal;
+
+      span {
+        position: relative;
+
+        svg {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: -1;
+          width: 250%;
+          height: 250%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}

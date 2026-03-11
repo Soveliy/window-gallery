@@ -1,53 +1,68 @@
 @use "./mixins/breakpoint" as *;
+
 .join {
   position: relative;
   overflow: hidden;
+
   &__title {
     margin-bottom: clamp(2.0625rem, 1.8242rem + 0.9774vw, 2.875rem);
   }
+
   &__row {
     display: flex;
+
     @include tablet {
       flex-direction: column;
     }
   }
+
   &__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     max-width: 45.625rem;
   }
+
   &__map {
+    margin-top: 1.125rem;
     margin-right: min(0px, (1760px - 100vw) / 2);
     margin-left: -14.75rem;
-    margin-top: 1.125rem;
+
     @include tablet {
-      margin-left: -1rem;
       margin-right: -1rem;
+      margin-left: -1rem;
     }
+
     @include mobile {
       margin-top: 2.5rem;
     }
+
     svg {
       height: 100%;
+
       @include tablet {
         width: 100%;
       }
     }
   }
+
   &__desc {
-    max-width: 91%;
     margin: 0;
+    max-width: 91%;
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+
     @include tablet {
       max-width: 100%;
     }
   }
+
   &__button {
     margin-top: auto;
+
     @include tablet {
       margin-top: 1.25rem;
     }
+
     @include mobile {
       width: 100%;
     }

@@ -1,8 +1,10 @@
 @use "./mixins/breakpoint" as *;
 @use "./mixins/disable-mob-hover" as *;
+
 .reviews {
   &__row {
     display: flex;
+
     @include tablet {
       flex-direction: column;
       margin-top: -1.5rem;
@@ -12,114 +14,131 @@
 
 .reviews-item {
   position: relative;
+  flex: 1;
+  flex-grow: 1;
   overflow: hidden;
   padding: 2.08vw;
-  transition: flex-grow 0.3s ease-out;
-  flex-grow: 1;
-  flex: 1;
   width: 100%;
+  height: 25.14vw;
+  transition: flex-grow 0.3s ease-out;
+
   & + & {
     margin-right: -1px;
   }
 
-  height: 25.14vw;
-  @media (min-width: 1950px) {
-    height: 30.125rem;
+  @media (width >= 1950px) {
     padding: 2.5rem;
+    height: 30.125rem;
   }
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
     content: "";
     position: absolute;
-    height: 0;
-    width: 2px;
-    background-color: var(--gray-base);
+
     // top: 0;
     bottom: 0;
+    width: 2px;
+    height: 0;
+    background-color: var(--gray-base);
     opacity: 1;
     transition: 0.3s;
   }
+
   @include hover {
     z-index: 50;
+
     &:not(.js-active):hover {
-      &:after {
+      &::after {
         height: 100%;
       }
     }
   }
+
   &::before {
     right: 0;
     height: 100%;
     background-color: var(--white);
+
     @include tablet {
       display: none;
     }
   }
-  &:after {
+
+  &::after {
     right: 0;
     z-index: 50;
   }
+
   &:not(.js-active) {
     cursor: pointer;
   }
-  @include tablet {
-    height: auto;
-    border-left: 0;
-    border-right: 0;
-    padding: 2rem 0;
 
+  @include tablet {
+    border-right: 0;
     border-bottom: 1px solid var(--white);
+    border-left: 0;
+    padding: 2rem 0;
+    height: auto;
   }
 
   &__content {
     position: absolute;
+    left: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    padding: 2.08vw;
+
+    // transition: opacity 0.3s 0.3s;
+    width: 100%;
+    width: 60.89vw;
+    height: 100%;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    // transition: opacity 0.3s 0.3s;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 2.08vw;
-    width: 60.89vw;
-    @media (min-width: 1950px) {
+    gap: 12px;
+
+    @media (width >= 1950px) {
       width: 73.125rem;
     }
+
     @include tablet {
       position: static;
-      height: auto;
-      width: 100%;
       flex-direction: column-reverse;
-      max-height: 0;
-      padding: 0;
       overflow: hidden;
+      padding: 0;
+      width: 100%;
+      height: auto;
+      max-height: 0;
       transition: 0.6s;
     }
   }
+
   &.js-active {
     @include for-desktop {
       flex-grow: 30;
     }
+
     .reviews-item__content {
+      max-height: 500px;
+
       // display: block;
       opacity: 1;
       visibility: visible;
       pointer-events: all;
-      max-height: 500px;
-      opacity: 1;
     }
+
     .reviews-item__project-name--vert {
+      display: none;
+
       // position: absolute;
       opacity: 0;
       visibility: hidden;
-      display: none;
     }
+
     &:last-child {
-      &:after,
+      &::after,
       &::before {
         opacity: 0;
       }
@@ -129,48 +148,66 @@
   &__desc {
     font-size: 1.25vw;
     color: var(--white);
-    @media (min-width: 1950px) {
+
+    @media (width >= 1950px) {
       font-size: 1.5rem;
     }
+
     @include tablet {
       padding-top: 1.125rem;
       font-size: 1rem;
     }
   }
+
   &__name {
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 3.13vw;
     text-transform: uppercase;
     color: var(--white);
-    @media (min-width: 1950px) {
+
+    @media (width >= 1950px) {
       font-size: 3.75rem;
     }
+
     @include tablet {
       font-size: 1.625rem;
     }
   }
+
   &__project-name {
     font-size: 1.25vw;
-    @media (min-width: 1950px) {
+
+    @media (width >= 1950px) {
       font-size: 1.5rem;
     }
+
     @include tablet {
       font-size: 1rem;
     }
+
     &--vert {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
       height: 100%;
       text-align: left;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+
       @include tablet {
+        height: inherit;
         writing-mode: inherit;
         transform: none;
-        height: inherit;
       }
     }
   }
+
   &__bottom {
     margin-top: auto;
+
+    @include tablet {
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
   }
 }

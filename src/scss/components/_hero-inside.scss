@@ -1,33 +1,45 @@
 @use "./mixins/breakpoint" as *;
+
 .hero-inside {
   padding-top: 7.5rem;
+
   @include tablet {
     padding-top: 4.625rem;
   }
+
   &__content {
     position: relative;
-    &:before {
+    clip-path: inset(10% 10% 0 10%);
+    overflow: hidden;
+    transition: 0.75s cubic-bezier(0.4, 0.15, 0, 1);
+
+    &::before {
       content: "";
       position: absolute;
-      top: 0;
       left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(#000, 0.2);
+      top: 0;
       z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000, 0.2);
     }
   }
+
   &__breadcrumbs {
     padding: 3.125rem 0 3.3125rem;
   }
+
   &__image {
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
+    top: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
   }
+
   &__container {
     position: relative;
     z-index: 10;
@@ -35,28 +47,34 @@
     flex-direction: column;
     padding-bottom: clamp(1.25rem, 0.1504rem + 4.5113vw, 5rem);
   }
+
   &__title {
+    margin: 0;
+    max-width: 1160px;
     font-family: var(--second-family);
     font-weight: 700;
     font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);
     line-height: 1;
     text-transform: uppercase;
     color: var(--white);
-    margin: 0;
-    max-width: 1160px;
+    opacity: 0;
   }
+
   &__desc {
     margin: 0;
     max-width: 60.375rem;
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--white);
+    opacity: 0;
   }
 
   &__tzrs {
     margin-top: clamp(1.5rem, -1.4507rem + 12.1053vw, 11.5625rem);
   }
+
   &__button {
     margin-top: 213px;
     width: max-content;
+    opacity: 0;
   }
 }

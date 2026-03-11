@@ -1,44 +1,57 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
+
 .logo {
   &__image {
     width: clamp(7rem, 5.7904rem + 4.9624vw, 11.125rem);
     height: clamp(2.625rem, 2.2951rem + 1.3534vw, 3.75rem);
   }
+
   &__text {
     font-size: 0.625rem;
+
     @include tablet {
       display: none;
     }
   }
 }
+
 .header {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  padding: 2rem 0 1rem;
+  top: 0;
   z-index: 500;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 2rem 0 1rem;
+  width: 100%;
   transform: translateY(-100%);
+  transition: top 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+
   @include tablet {
     padding: 1rem 0;
   }
 
   &.js-scroll {
     background-color: var(--black);
+
     .header__button {
+      margin: 0;
       opacity: 1;
       pointer-events: all;
-      margin: 0;
     }
+
     .main-menu {
       transform: translateY(1rem);
+
+      @include tablet {
+        transform: translateY(0);
+      }
     }
-    @include for-desktop() {
-      transform: translateY(-1rem) !important;
+
+    @include for-desktop {
+      top: -1rem;
     }
   }
+
   &__row {
     display: flex;
     align-items: center;
@@ -49,24 +62,33 @@
     display: flex;
     flex-direction: column;
   }
+
   &__item {
     display: flex;
     align-items: center;
     gap: clamp(1.25rem, 0.5169rem + 3.0075vw, 3.75rem);
   }
+
   &__link {
     font-size: clamp(1rem, 0.9267rem + 0.3008vw, 1.25rem);
+
     &--desktop {
       @include tablet {
         display: none;
       }
     }
   }
+
   &__button {
-    opacity: 0;
     margin-right: -18.5vw;
-    pointer-events: none;
+    opacity: 0;
     transition-delay: 0.2s;
+    pointer-events: none;
+
+    @media (width >= 1921px) {
+      margin-right: -356px;
+    }
+
     @include lit-desktop {
       display: none;
     }

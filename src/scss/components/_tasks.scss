@@ -1,106 +1,133 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
+
 .tasks {
   &__items {
     position: relative;
   }
+
   &__image {
     position: absolute;
     right: 75px;
     bottom: 117px;
     transition: ease 0.6s;
+
     @include tablet {
       display: none;
     }
   }
 }
+
 .tasks-item {
   width: 72%;
   transition: ease 0.6s;
+
   @include small-tablet {
     width: 100%;
   }
+
   &.js-active {
     width: 100%;
+
     .tasks-item__title {
       font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     }
+
     .tasks-item__desc {
       font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     }
+
     .tasks-item__image {
       width: 53.5%;
+
       @include tablet {
         width: calc(100% + 1rem);
       }
     }
+
     .tasks-item__row {
       gap: 2.5rem;
+
       @include small-tablet {
         gap: 1.25rem;
       }
     }
+
     &:nth-child(2).js-active ~ .tasks__image {
       transform: translateY(-40%) rotate(11deg);
     }
   }
+
   & + & {
     margin-top: 3.75rem;
+
     @include small-tablet {
       margin-top: 2.5rem;
     }
   }
+
   &__row {
     display: flex;
-    gap: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
     align-items: flex-start;
     transition: ease 0.6s;
+    gap: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
 
     &--flex-end {
       align-items: flex-end;
     }
+
     @include tablet {
-      align-items: flex-start;
       flex-direction: column;
+      align-items: flex-start;
     }
+
     @include small-tablet {
       gap: 1.25rem;
     }
   }
+
   &__image {
-    width: 41.5%;
     flex-shrink: 0;
-    transition: ease 0.6s;
     margin-left: -16px;
-    @media (min-width: 1760px) {
+    width: 41.5%;
+    transition: ease 0.6s;
+
+    @media (width >= 1760px) {
       margin-left: min(0px, calc((1760px - 100vw) / 2));
     }
+
     @include tablet {
       width: calc(100% + 1rem);
     }
   }
+
   &__content {
     position: relative;
-    width: 100%;
     padding: 1.25rem;
+    width: 100%;
     transition: ease 0.6s;
+
     @include tablet {
       padding: 0.75rem;
     }
   }
+
   &__title {
     font-family: var(--second-family);
     font-size: clamp(1.25rem, 0.7368rem + 2.1053vw, 3rem);
     text-transform: uppercase;
     color: var(--white);
     transition: ease 0.6s;
+
     @include small-tablet {
       font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     }
   }
+
   &__desc {
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     transition: ease 0.6s;
+
     @include small-tablet {
       font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     }

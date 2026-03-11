@@ -7029,10 +7029,9 @@
                       const markerElement = document.createElement('div');
                       markerElement.className = 'marker-class';
                       markerElement.innerHTML = `
-                       <svg width="41" height="48" viewBox="0 0 41 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg width="41" height="48" viewBox="0 0 41 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.5 19.9149C32.5 26.4953 20.5 40 20.5 40C20.5 40 8.5 26.4953 8.5 19.9149C8.5 13.3345 13.8726 8 20.5 8C27.1274 8 32.5 13.3345 32.5 19.9149ZM15.2715 19.9149C15.2715 22.782 17.6124 25.1063 20.5 25.1063C23.3876 25.1063 25.7285 22.782 25.7285 19.9149C25.7285 17.0477 23.3876 14.7235 20.5 14.7235C17.6124 14.7235 15.2715 17.0477 15.2715 19.9149Z" fill="white"/>
                       </svg>
-
                       `;
 
                       const marker = new YMapMarker({ coordinates: point.coords }, markerElement);
@@ -7046,9 +7045,9 @@
                           <ul class='map-popup__list list-reset'>
                             <li class='map-popup__item'>
                               <svg class="map-popup__icon">
-                               <use xlink:href="img/sprite.svg#location"></use>
+                                <use xlink:href="img/sprite.svg#location"></use>
                               </svg>
-                               ${point.address}
+                                ${point.address}
                               </li>
                             <li class='map-popup__item'>
                               <svg class="map-popup__icon">

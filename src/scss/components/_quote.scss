@@ -3,46 +3,52 @@
 .quote {
   position: relative;
   margin: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem) 0;
+
   &__picture {
-    display: flex;
     position: relative;
-    max-height: 67.5rem;
+    display: flex;
     height: 100vh;
     min-height: 37.5rem;
+    max-height: 67.5rem;
+
     @include tablet {
-      max-height: 37.5rem;
       min-height: 28.125rem;
+      max-height: 37.5rem;
     }
+
     &::after {
       content: "";
       position: absolute;
-      top: 0;
       left: 0;
-      height: 100%;
+      top: 0;
       width: 100%;
+      height: 100%;
       background-color: rgba(#000, 0.6);
     }
+
     img {
       display: block;
       width: 100%;
     }
   }
+
   &__content {
     position: absolute;
-    bottom: clamp(1rem, -0.906rem + 7.8195vw, 7.5rem);
     left: 0;
-    width: 100%;
+    bottom: clamp(1rem, -0.906rem + 7.8195vw, 7.5rem);
     z-index: 50;
+    width: 100%;
   }
 
   &__title {
     position: relative;
-    max-width: 77.5rem;
     padding: clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
+    max-width: 77.5rem;
     font-family: var(--second-family);
     font-size: clamp(1.625rem, 1.0019rem + 2.5564vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
+
     &--right {
       margin-left: auto;
       max-width: 73.3rem;

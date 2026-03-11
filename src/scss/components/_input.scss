@@ -1,45 +1,52 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
+
 .input {
   position: relative;
+
   &__native {
     display: block;
-    width: 100%;
-    height: clamp(2.8125rem, 2.4826rem + 1.3534vw, 3.9375rem);
-    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
-    padding: 0;
+    outline: none;
     border: none;
     border-bottom: 1px solid var(--white);
-    background: transparent;
-    outline: none;
-    transition: 0.3s;
+    padding: 0;
+    width: 100%;
+    height: clamp(2.8125rem, 2.4826rem + 1.3534vw, 3.9375rem);
     box-sizing: border-box;
+    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--white);
+    background: transparent;
+    transition: 0.3s;
+
     &.just-validate-success-field {
       border-bottom-color: var(--green-dark);
     }
-    @include hover() {
+
+    @include hover {
       &:hover {
-        border-color: var(--gray-dark);
+        border-color: var(--gray-base);
       }
     }
+
     &:focus + .input__placeholder,
     &:not(:placeholder-shown) + .input__placeholder {
       font-size: 1rem;
       transform: translateY(-180%);
-      @include small-tablet() {
+
+      @include small-tablet {
         font-size: 0.875rem;
         transform: translateY(-140%);
       }
     }
   }
+
   &__placeholder {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     font-family: var(--font-family);
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--gray-base);
+    transform: translateY(-50%);
     transition: 0.3s;
     pointer-events: none;
   }

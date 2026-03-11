@@ -1,26 +1,31 @@
 @use "./mixins/breakpoint" as *;
+
 .partners {
   position: relative;
   overflow: hidden;
+
   &__slide {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     width: clamp(14rem, 10.5912rem + 13.985vw, 25.625rem);
     height: clamp(10.25rem, 7.7575rem + 10.2256vw, 18.75rem);
-    flex-shrink: 0;
     background: #3c3c3c;
+
     img {
       max-width: 100%;
+
       @include tablet {
         max-height: 67px;
       }
     }
   }
+
   &__row {
     display: flex;
-    gap: clamp(0.625rem, 0.0752rem + 2.2556vw, 2.5rem);
     animation: scroll-left 30s linear infinite forwards;
+    gap: clamp(0.625rem, 0.0752rem + 2.2556vw, 2.5rem);
   }
 }
 
@@ -28,7 +33,8 @@
   0% {
     transform: translateX(0);
   }
-  to {
+
+  100% {
     transform: translateX(-100%);
   }
 }

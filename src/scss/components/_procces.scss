@@ -1,29 +1,36 @@
 @use "./mixins/breakpoint" as *;
+
 .procces {
   counter-reset: p-counter;
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 0.5602rem + 1.8045vw, 2.5rem);
+
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 }
+
 .procces-item {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
   padding: clamp(1rem, 0.5602rem + 1.8045vw, 2.5rem);
   background: var(--gray-dark);
+  gap: clamp(1.25rem, 0.8835rem + 1.5038vw, 2.5rem);
+
   // padding: 16px;
   &__icon {
-    height: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
     width: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
+    height: clamp(6.25rem, 5.5169rem + 3.0075vw, 8.75rem);
   }
+
   &__desc {
     font-size: clamp(0.875rem, 0.6917rem + 0.7519vw, 1.5rem);
     color: var(--gray-light);
+
     &::before {
       counter-increment: p-counter;
       content: "0" counter(p-counter);

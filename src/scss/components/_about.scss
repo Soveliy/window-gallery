@@ -1,35 +1,44 @@
 @use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
+
 .about {
   margin-top: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem);
+
   &__row {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+
     @include tablet {
       flex-direction: column;
       gap: 1.75rem;
     }
   }
+
   &__left {
     display: flex;
     flex-direction: column;
   }
+
   &__right {
     position: relative;
+    flex-shrink: 0;
     margin-right: min(0px, (1760px - 100vw) / 2);
     width: 44.9%;
-    flex-shrink: 0;
+
     @include tablet {
-      width: auto;
       margin-right: -1rem;
+      width: auto;
     }
   }
+
   &__counter {
     position: absolute;
-    z-index: 10;
-    bottom: -2.5rem;
     left: -2.5rem;
+    bottom: -2.5rem;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
     padding: clamp(0.75rem, 0.3285rem + 1.7293vw, 2.1875rem)
       clamp(0.75rem, 0.2368rem + 2.1053vw, 2.5rem);
     font-family: var(--second-family);
@@ -39,112 +48,138 @@
     text-transform: uppercase;
     color: var(--white);
     background: var(--black);
+
+    .counter-window {
+      position: relative;
+      overflow: hidden;
+      height: 1em;
+    }
+
+    .counter-reel {
+      display: flex;
+      flex-direction: column;
+      will-change: transform;
+    }
+
+    .counter-reel span {
+      display: block;
+      line-height: 1em;
+    }
+
     @include tablet {
       left: 0;
       bottom: -0.75rem;
     }
   }
+
   &__list {
-    display: flex;
-    gap: clamp(1.25rem, -0.5827rem + 7.5188vw, 7.5rem);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     max-width: 45.375rem;
+    gap: clamp(1.25rem, -0.5827rem + 7.5188vw, 3.75rem);
   }
+
   &__item {
     position: relative;
-
 
     @include tablet {
       padding: 0.75rem 0.75rem 1rem;
     }
   }
 
-  &__item-content{
-     padding: 1.75rem 2.3125rem 2.5rem 2.5rem;
-    &:not(:first-child){
-      top: 0;
-      left: 0;
+  &__item-content {
+    padding: 1.5rem;
+
+    @include mobile {
+      padding: 0.5rem 0.5rem 0;
+    }
+
+    &:not(:first-child) {
+      opacity: 0;
+    }
+
+    &:not(:nth-child(2)) {
       position: absolute;
+      left: 0;
+      top: 0;
     }
   }
+
   &__item-title {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
+    font-size: clamp(1.25rem, 0.8318rem + 1.7844vw, 2.75rem);
+
+    // font-size: clamp(2rem, 1.4868rem + 2.1053vw, 3.75rem);
     text-transform: uppercase;
     color: var(--white);
   }
+
   &__item-desc {
-    font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    // font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
+    font-size: clamp(0.875rem, 0.7704rem + 0.4461vw, 1.25rem);
   }
+
   &__desc {
     position: relative;
+    margin-top: auto;
     font-size: clamp(1.125rem, 0.8684rem + 1.0526vw, 2rem);
     color: var(--white);
-    margin-top: auto;
     text-wrap: balance;
+
     &--desktop {
       @include tablet {
         display: none;
       }
     }
+
     &--mobile {
       display: none;
+
       @include tablet {
         display: block;
       }
     }
   }
+
   &__desc-item {
     &:not(:first-child) {
-      top: 0;
       position: absolute;
+      top: 0;
     }
   }
 }
+
 .image-gallery {
   position: relative;
-  height: 85vh;
-  min-height: 37.5rem;
-  max-height: 55.75rem;
+
   // height: 892px;
   overflow: hidden;
   width: 100%;
+  height: 84vh;
+  min-height: 37.5rem;
+  max-height: 55.75rem;
+
   @include tablet {
     height: 16rem;
     min-height: inherit;
   }
+
+  @include mobile {
+    height: 19vh;
+  }
+
   // width: 790px;
   &__item {
     position: absolute;
     inset: 0;
   }
+
   &__item-picture {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
     will-change: transform;
   }
-}
-
-.about__counter {
-  display: inline-flex;
-  align-items: center;
-}
-
-.about__counter .counter-window {
-  height: 1em; /* высота по строке */
-  overflow: hidden; /* обрезаем лишнее */
-  position: relative;
-}
-
-.about__counter .counter-reel {
-  display: flex;
-  flex-direction: column;
-  will-change: transform;
-}
-
-.about__counter .counter-reel span {
-  display: block;
-  line-height: 1em;
 }

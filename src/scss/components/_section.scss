@@ -1,18 +1,24 @@
 @use "./mixins/breakpoint" as *;
+
 .section {
   padding: clamp(2.5rem, 1.4004rem + 4.5113vw, 6.25rem) 0;
+
   &--first {
     padding-top: clamp(5rem, 2.9107rem + 8.5714vw, 12.125rem);
   }
+
   &--top-zero {
     padding-top: 0;
   }
+
   &--last {
     padding-bottom: clamp(5rem, 2.8008rem + 9.0226vw, 12.5rem);
   }
+
   &__pretitle {
     margin-bottom: clamp(1.875rem, 1.4352rem + 1.8045vw, 3.375rem);
   }
+
   &__title {
     margin: 0 0 clamp(1.875rem, 1.2152rem + 2.7068vw, 4.125rem);
     font-family: var(--second-family);
@@ -22,18 +28,22 @@
     text-transform: uppercase;
     color: var(--white);
     text-wrap: balance;
+
     &--no-margin {
       margin: 0;
     }
+
     &--big-margin {
-      margin: 0 0 clamp(2.3125rem, 1.3228rem + 4.0602vw, 5.6875rem) 0;
+      margin: 0 0 clamp(2.3125rem, 1.3228rem + 4.0602vw, 5.6875rem);
     }
   }
+
   &__desc {
-    max-width: 72%;
     margin: 24px 0 62px;
+    max-width: 72%;
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     color: var(--gray-light);
+
     @include tablet {
       max-width: 100%;
     }

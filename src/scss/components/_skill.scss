@@ -1,71 +1,84 @@
 @use "./mixins/breakpoint" as *;
+
 .skills {
   &__grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: clamp(1rem, 0.6151rem + 1.5789vw, 2.3125rem);
+
     @include mobile {
       gap: 1rem 2rem;
     }
   }
 }
+
 .skill-item {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   gap: 8px;
+
   &--big {
     gap: clamp(0.5rem, 0.2068rem + 1.203vw, 1.5rem);
   }
+
   &__progress-container {
-    display: flex;
     position: relative;
-    height: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
+    display: flex;
     width: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
+    height: clamp(3.25rem, 2.7368rem + 2.1053vw, 5rem);
+
     &--big {
-      height: clamp(3.25rem, 2.0038rem + 5.1128vw, 7.5rem);
       width: clamp(3.25rem, 2.0038rem + 5.1128vw, 7.5rem);
+      height: clamp(3.25rem, 2.0038rem + 5.1128vw, 7.5rem);
     }
   }
+
   &__icon {
-    height: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
-    width: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
+    width: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
+    height: clamp(1.25rem, 1.0301rem + 0.9023vw, 2rem);
     transform: translate(-50%, -50%);
+
     &--big {
-      height: clamp(1.3125rem, 0.8177rem + 2.0301vw, 3rem);
       width: clamp(1.3125rem, 0.8177rem + 2.0301vw, 3rem);
+      height: clamp(1.3125rem, 0.8177rem + 2.0301vw, 3rem);
     }
   }
+
   &__title {
     font-size: 0.875rem;
     color: var(--white);
+
     &--big {
       font-family: var(--second-family);
       font-weight: 400;
       font-size: clamp(0.875rem, 0.5451rem + 1.3534vw, 2rem);
-      text-transform: uppercase;
       text-align: center;
+      text-transform: uppercase;
       color: var(--white);
     }
   }
 }
+
 .progress-ring {
-  height: 100%;
   width: 100%;
+  height: 100%;
+
   &__value {
     stroke-dasharray: var(--p) 100;
     stroke-dashoffset: 0;
-    transition: stroke-dasharray 0.4s ease;
     transform-origin: center;
+    transition: stroke-dasharray 0.4s ease;
   }
+
   &:not([style="--p:75"]) {
     transform: rotate(270deg);
   }
+
   &[style="--p:100"] {
     .progress-ring__value {
       stroke-dasharray: 101 100;

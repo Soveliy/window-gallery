@@ -1,4 +1,5 @@
 @use "./mixins/breakpoint" as *;
+
 .tzrs {
   &__grid {
     display: flex;
@@ -7,30 +8,35 @@
     gap: clamp(0.625rem, 0.0752rem + 2.2556vw, 2.5rem);
   }
 }
+
 .tzrs-item {
   padding: 1.875rem 1.5rem 1.5625rem;
-
-  backdrop-filter: blur(5px);
-  background: rgba(75, 77, 83, 0.28);
   width: 17.8125rem;
+  background: rgba(75, 77, 83, 0.28);
+  opacity: 0;
+  transform: translateY(10%);
+  backdrop-filter: blur(5px);
+
   @include mobile {
     padding: 1.5rem 5.125rem 1.5rem 1.5rem;
     width: 100%;
   }
+
   &__icon {
-    height: clamp(1.5rem, 1.1701rem + 1.3534vw, 2.625rem);
-    width: clamp(1.5rem, 1.1701rem + 1.3534vw, 2.625rem);
     margin-bottom: 5px;
-    stroke-width: 2px;
-    stroke: var(--white);
+    width: clamp(1.5rem, 1.1701rem + 1.3534vw, 2.625rem);
+    height: clamp(1.5rem, 1.1701rem + 1.3534vw, 2.625rem);
     fill: none;
+    stroke: var(--white);
+    stroke-width: 2px;
   }
+
   &__title {
     font-family: var(--second-family);
     font-size: clamp(1.75rem, 1.6767rem + 0.3008vw, 2rem);
+    line-height: 1;
     text-transform: uppercase;
     color: var(--white);
     text-wrap: balance;
-    line-height: 1;
   }
 }

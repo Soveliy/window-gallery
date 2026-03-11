@@ -3,29 +3,30 @@
 
 @include('partials/head.html')
 
-<body class="page__body">
-  @include('partials/header.html')
-  <div class="site-container">
-    <div class="site-content">
-      <main class="main">
-        @include('partials/hero.html')
-        @include('partials/about.html')
-        @include('partials/history.html')
-        @include('partials/advantages.html')
-        @include('partials/works.html')
-        @include('partials/production.html')
-        @include('partials/tasks.html')
-        @include('partials/reviews.html')
-        @include('partials/quote.html')
-        @include('partials/questions.html', {
-        "title": "Остались вопросы?",
-        "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
-        })
-      </main>
-      @include('partials/footer.html')
 
-      <!-- @include('html/h1.html') пример include -->
-    </div>
+<body class="page__body">
+
+  @include('partials/header.html')
+  <div class="site-content">
+    <main class="main">
+      @include('partials/hero.html')
+      @include('partials/about.html')
+      @include('partials/history.html')
+      @include('partials/advantages.html')
+      @include('partials/works.html')
+      @include('partials/production.html')
+      @include('partials/tasks.html')
+      @include('partials/reviews.html')
+      @include('partials/quote.html')
+      @include('partials/questions.html', {
+      "title": "Остались вопросы?",
+      "desc": "Посетите наш офис или оставьте заявку — мы свяжемся с вами в течение рабочего дня"
+      })
+    </main>
+    @include('partials/footer.html')
+
+    <!-- @include('html/h1.html') пример include -->
+  </div>
   </div>
 </body>
 

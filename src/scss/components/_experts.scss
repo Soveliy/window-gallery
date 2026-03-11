@@ -1,0 +1,72 @@
+@use "./mixins/breakpoint" as *;
+
+.experts {
+  &__wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: -60px -25px;
+
+    @include mobile {
+      margin: 0;
+    }
+  }
+
+  &__item-container {
+    padding: 60px 25px;
+    width: 33.3%;
+    box-sizing: border-box;
+
+    @media (width >= 576px) {
+      &:nth-child(-n + 3) {
+        border-bottom: 2px solid var(--gray-light);
+      }
+    }
+
+    @include tablet {
+      width: 50%;
+
+      @media (width >= 576px) {
+        &:nth-child(4) {
+          border-bottom: 2px solid var(--gray-light);
+        }
+      }
+    }
+
+    @include mobile {
+      padding: 20px 0;
+      width: 100%;
+
+      &:not(:last-child) {
+        border-bottom: 2px solid var(--green-medium);
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &-item {
+    &__title {
+      margin-bottom: clamp(0.5rem, 0.2704rem + 0.9796vw, 1.25rem);
+      font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
+      line-height: normal;
+    }
+
+    &__desc {
+      font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
+      line-height: normal;
+    }
+  }
+}

@@ -4,11 +4,12 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+
   &__link {
     padding: 4px 20px 8px;
-    background: var(--gray-dark);
     font-family: var(--font-family);
     font-size: clamp(0.875rem, 0.765rem + 0.4511vw, 1.25rem);
     color: var(--white);
+    background: var(--gray-dark);
   }
 }

@@ -1,0 +1,45 @@
+@use "./mixins/breakpoint" as *;
+
+.offer {
+  position: relative;
+
+  &__picture {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-48%);
+
+    @include mobile {
+      top: -0.625rem;
+      width: 8.125rem;
+      transform: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 1.1378rem + 2.6122vw, 3.75rem);
+    line-height: 107%;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: clamp(1.125rem, 0.8571rem + 1.1429vw, 2rem);
+    line-height: normal;
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

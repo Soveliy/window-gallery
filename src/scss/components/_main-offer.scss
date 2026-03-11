@@ -1,0 +1,73 @@
+@use "./mixins/breakpoint" as *;
+
+.main-offer {
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.75rem, 1.1378rem + 2.6122vw, 3.75rem);
+    line-height: clamp(2.125rem, 1.551rem + 2.449vw, 4rem);
+
+    @include mobile {
+      max-width: 80%;
+    }
+  }
+
+  &__desc {
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
+    line-height: normal;
+
+    @include mobile {
+      max-width: 80%;
+    }
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    z-index: -1;
+
+    &--1 {
+      left: -2.4375rem;
+      top: -7.0625rem;
+
+      @include mobile {
+        left: -2.625rem;
+        top: -2.7125rem;
+        width: 5.3125rem;
+      }
+    }
+
+    &--2 {
+      right: -175px;
+      bottom: -274px;
+
+      @include mobile {
+        right: -15%;
+        bottom: 31%;
+        width: 31%;
+      }
+    }
+  }
+}

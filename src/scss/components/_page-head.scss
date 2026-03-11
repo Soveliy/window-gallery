@@ -5,14 +5,16 @@
   &__breadcrumbs {
     margin-bottom: clamp(1.625rem, 1.3501rem + 1.1278vw, 2.5625rem);
   }
+
   &__title {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
     margin: 0;
     font-family: var(--second-family);
     font-weight: 700;
     font-size: clamp(2.875rem, 1.5188rem + 5.5639vw, 7.5rem);
     text-transform: uppercase;
     color: var(--white);
-    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+
     &--lit {
       font-size: clamp(2rem, 1.1203rem + 3.609vw, 5rem);
     }

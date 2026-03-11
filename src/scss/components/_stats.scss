@@ -1,68 +1,82 @@
 @use "./mixins/breakpoint" as *;
+
 .stats {
   --rotation-increment: 5deg;
+
   &__items {
     display: flex;
     flex-direction: column;
     gap: 43px;
   }
 }
+
 .stats-item {
   position: relative;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  border-bottom: 1px solid var(--gray-light);
   padding: clamp(1.25rem, 1.1767rem + 0.3008vw, 1.5rem) 1rem
     clamp(1.25rem, 1.1767rem + 0.3008vw, 1.5rem) 0;
-  border-bottom: 1px solid var(--gray-light);
+
   @include small-tablet {
     align-items: flex-end;
   }
+
   @include mobile {
     padding-right: 0.625rem;
     padding-bottom: 2.1875rem;
   }
+
   &__title {
     min-width: clamp(12.5rem, 5.1692rem + 30.0752vw, 37.5rem);
-
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
     opacity: min(1, calc(var(--progress) + 0.1));
+
     @include small-tablet {
       min-width: inherit;
     }
   }
+
   &__value-desc {
     font-size: clamp(1rem, 0.8534rem + 0.6015vw, 1.5rem);
   }
+
   &__content {
     display: flex;
     align-items: flex-end;
+
     @include small-tablet {
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
     }
+
     @include mobile {
       margin-bottom: -0.9375rem;
     }
   }
+
   &__images {
     position: relative;
   }
+
   &__value-wrap {
     display: flex;
     align-items: flex-end;
-    gap: 1.125rem;
-    --rotate: calc(20deg * (1 - var(--progress, 0)));
-
     transform: translate3d(0, calc(100% * (1 - var(--progress, 0))), 0)
       rotate(var(--rotate));
+    gap: 1.125rem;
+
+    --rotate: calc(20deg * (1 - var(--progress, 0)));
+
     @include mobile {
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
     }
   }
+
   &__value {
     font-family: var(--second-family);
     font-weight: 700;
@@ -70,59 +84,66 @@
     line-height: 0.7;
     text-transform: uppercase;
     color: var(--white);
+
     @include mobile {
       line-height: 1;
     }
   }
+
   &__icon {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     z-index: 5;
-    transform: translate(-50%, -50%);
-    height: 1rem;
     height: 1rem;
     fill: var(--white);
+    transform: translate(-50%, -50%);
   }
+
   &__images-wrapper,
   &__images {
     position: relative;
-    height: 100%;
     width: 100%;
+    height: 100%;
   }
+
   &__image {
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
+    top: 0;
     width: 100%;
+    height: 100%;
   }
+
   &__listing {
+    flex-shrink: 0;
     width: 9rem;
     height: 7rem;
-    flex-shrink: 0;
-    transform: translate3d(0, calc(50% * (1 - var(--progress, 0))), 0);
     opacity: min(1, calc(var(--progress) * 2));
+    transform: translate3d(0, calc(50% * (1 - var(--progress, 0))), 0);
   }
+
   &__image-wrap {
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
+    top: 0;
+    z-index: calc(var(--js-index, 0) * -1);
     width: 100%;
+    height: 100%;
+    transform: rotate(var(--rotate));
+
     --rotate: calc(
       (var(--rotation-increment) * (1 - var(--index, 0))) * var(--progress, 0) +
         var(--rotation-increment) * 2 * (1 - var(--progress, 0))
     );
-    z-index: calc(var(--js-index, 0) * -1);
-    transform: rotate(var(--rotate));
   }
+
   &__picture {
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
+    top: 0;
     width: 100%;
+    height: 100%;
     transform-origin: center;
   }
 }
